@@ -1,10 +1,10 @@
 {
  "card.th.png": {
   "from": "card.th.svg",
-  "from_sha256": "d54c63cd57d8bc9b46df53d8cc0a62afc2b88e02e6015db14c0a0727c3c41c21"
+  "from_sha256": "bcd8209665aac2ff710110b552b0735b534a7cbb456ea650fb2516acb60e480e"
  },
  "card.en.png": {
   "from": "card.en.svg",
-  "from_sha256": "c43d20dd23f7769f8dffd073c2888cb44889ac353c1ed88f324231db14b43a76"
+  "from_sha256": "1a5d791027c8fe6ed9ac49b0cb19c7850ed67aeabdf641d11beeacf32add847a"
  }
 }

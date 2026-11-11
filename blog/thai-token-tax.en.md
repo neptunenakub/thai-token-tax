@@ -21,12 +21,12 @@ ranks models.
 | Gemini 4 Argon | 325.9 | ████████ |
 
 At the same price per token, a ratio of tokens is a ratio of money. Two pairs of models had identical
-list prices on 10 November 2026, which makes the comparison direct. For an example workload
+list prices on 11 November 2026, which makes the comparison direct. For an example workload
 (LINE OA customer chatbot, 10,000 conversations a month; its size is an assumption) at $4 in / $20 out per million tokens,
-Claude Opus 5.5 comes to 29,239 baht and GPT-5.6 Sol to 13,690 baht.
+Claude Opus 5.5 comes to 29,121 baht and GPT-5.6 Sol to 13,635 baht.
 
 More tokens does not always mean a higher bill, because prices differ. On the same workload
-Claude Haiku 5.5 costs 731 baht, less than Gemini 3.5 Flash-Lite at 1,021 baht,
+Claude Haiku 5.5 costs 728 baht, less than Gemini 3.5 Flash-Lite at 1,017 baht,
 although it uses 889.5 tokens per 1,000 Thai characters against 344.1.
 
 ## The "Thai premium", and why it misleads across models

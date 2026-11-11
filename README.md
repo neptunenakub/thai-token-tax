@@ -3,8 +3,8 @@
 
 **The same Thai text takes 2.14× the tokens on Claude as on GPT, and 2.59× as on Gemini.**
 APIs bill per token, so the bill follows. At the same list price ($4 in / $20 out per
-million tokens), an example workload (LINE OA customer chatbot, 10,000 conversations a month) costs 29,239 baht on Claude Opus 5.5 and
-13,690 baht on GPT-5.6 Sol.
+million tokens), an example workload (LINE OA customer chatbot, 10,000 conversations a month) costs 29,121 baht on Claude Opus 5.5 and
+13,635 baht on GPT-5.6 Sol.
 
 | Tokenizer (models that share it) | Tokens per 1,000 Thai characters |  |
 |---|---:|---|
@@ -15,7 +15,7 @@ million tokens), an example workload (LINE OA customer chatbot, 10,000 conversat
 
 This measures **cost, not answer quality**: a model that uses more tokens may still answer Thai better.
 45 models (13 distinct tokenizers) on 1,012 parallel Thai–English sentences
-(FLORES-200), measured 10 November 2026; official list prices as of 10 November 2026.
+(FLORES-200), measured 10 November 2026; official list prices as of 11 November 2026.
 
 Reproduce it:
 
@@ -99,40 +99,40 @@ Example workload: LINE OA customer chatbot, 10,000 conversations a month.
 
 | List price, $ per 1M tokens (in / out) | Model | Thai | Model | Thai | Ratio |
 |---|---|---:|---|---:|---:|
-| $4 / $20 | Claude Opus 5.5 | 29,239 baht | GPT-5.6 Sol | 13,690 baht | 2.14× |
-| $0.10 / $0.50 | Claude Haiku 5.5 | 731 baht | GPT-6 Luna | 342 baht | 2.14× |
+| $4 / $20 | Claude Opus 5.5 | 29,121 baht | GPT-5.6 Sol | 13,635 baht | 2.14× |
+| $0.10 / $0.50 | Claude Haiku 5.5 | 728 baht | GPT-6 Luna | 341 baht | 2.14× |
 
 ### Every priced model, same example workload
 
 | Model | List price, $ per 1M tokens (in / out) | Thai | Same content in English | Ratio |
 |---|---|---:|---:|---:|
-| GPT-6 Luna | $0.10 / $0.50 | 342 baht | 175 baht | 1.95× |
-| Claude Haiku 5.5 | $0.10 / $0.50 | 731 baht | 273 baht | 2.68× |
-| Gemini 3.5 Flash-Lite | $0.30 / $2.50 | 1,021 baht | 638 baht | 1.60× |
-| Gemini 3.8 Flash | $0.75 / $3.75 | 2,120 baht | 1,325 baht | 1.60× |
-| Gemini 3.6 Flash | $0.75 / $3.75 | 2,120 baht | 1,325 baht | 1.60× |
-| GPT-6.1 Terra | $1 / $5 | 3,423 baht | 1,751 baht | 1.95× |
-| Gemini 4 Argon | $2 / $10 | 5,356 baht | 3,527 baht | 1.52× |
-| Gemini 3.1 Pro Preview | $2 / $12 | 6,001 baht | 3,750 baht | 1.60× |
-| GPT-6 Sol | $2 / $10 | 6,845 baht | 3,502 baht | 1.95× |
-| GPT-6.1 Sol | $2 / $10 | 6,845 baht | 3,502 baht | 1.95× |
-| GPT-5.2 | $1.75 / $14 | 7,089 baht | 3,627 baht | 1.95× |
-| Claude Haiku 4.5 | $1 / $5 | 7,285 baht | 1,882 baht | 3.87× |
-| GPT-5.4 | $2.50 / $15 | 9,080 baht | 4,646 baht | 1.95× |
-| GPT-5.6 Sol | $4 / $20 | 13,690 baht | 7,005 baht | 1.95× |
-| Claude Sonnet 5.5 | $2 / $10 | 14,619 baht | 5,463 baht | 2.68× |
-| GPT-5.5 | $5 / $30 | 18,160 baht | 9,292 baht | 1.95× |
-| Claude Sonnet 4.6 | $3 / $15 | 21,854 baht | 5,646 baht | 3.87× |
-| Claude Opus 5.5 | $4 / $20 | 29,239 baht | 10,925 baht | 2.68× |
-| GPT-6 Astra | $10 / $50 | 34,225 baht | 17,511 baht | 1.95× |
-| Claude Fable 5.2 | $8 / $40 | 58,477 baht | 21,851 baht | 2.68× |
+| GPT-6 Luna | $0.10 / $0.50 | 341 baht | 174 baht | 1.95× |
+| Claude Haiku 5.5 | $0.10 / $0.50 | 728 baht | 272 baht | 2.68× |
+| Gemini 3.5 Flash-Lite | $0.30 / $2.50 | 1,017 baht | 636 baht | 1.60× |
+| Gemini 3.8 Flash | $0.75 / $3.75 | 2,112 baht | 1,320 baht | 1.60× |
+| Gemini 3.6 Flash | $0.75 / $3.75 | 2,112 baht | 1,320 baht | 1.60× |
+| GPT-6.1 Terra | $1 / $5 | 3,409 baht | 1,744 baht | 1.95× |
+| Gemini 4 Argon | $2 / $10 | 5,334 baht | 3,512 baht | 1.52× |
+| Gemini 3.1 Pro Preview | $2 / $12 | 5,976 baht | 3,735 baht | 1.60× |
+| GPT-6 Sol | $2 / $10 | 6,818 baht | 3,488 baht | 1.95× |
+| GPT-6.1 Sol | $2 / $10 | 6,818 baht | 3,488 baht | 1.95× |
+| GPT-5.2 | $1.75 / $14 | 7,061 baht | 3,613 baht | 1.95× |
+| Claude Haiku 4.5 | $1 / $5 | 7,255 baht | 1,875 baht | 3.87× |
+| GPT-5.4 | $2.50 / $15 | 9,043 baht | 4,627 baht | 1.95× |
+| GPT-5.6 Sol | $4 / $20 | 13,635 baht | 6,976 baht | 1.95× |
+| Claude Sonnet 5.5 | $2 / $10 | 14,560 baht | 5,441 baht | 2.68× |
+| GPT-5.5 | $5 / $30 | 18,087 baht | 9,254 baht | 1.95× |
+| Claude Sonnet 4.6 | $3 / $15 | 21,766 baht | 5,624 baht | 3.87× |
+| Claude Opus 5.5 | $4 / $20 | 29,121 baht | 10,881 baht | 2.68× |
+| GPT-6 Astra | $10 / $50 | 34,088 baht | 17,441 baht | 1.95× |
+| Claude Fable 5.2 | $8 / $40 | 58,242 baht | 21,763 baht | 2.68× |
 
-More tokens does not always mean a higher bill: Claude Haiku 5.5 costs 731 baht, less than
-Gemini 3.5 Flash-Lite at 1,021 baht, although it uses more Thai tokens (889.5 vs
+More tokens does not always mean a higher bill: Claude Haiku 5.5 costs 728 baht, less than
+Gemini 3.5 Flash-Lite at 1,017 baht, although it uses more Thai tokens (889.5 vs
 344.1 per 1,000 characters). The price per token differs.
 
 Open models have no per-token price of their own, so they have token counts only. The other
-workloads are in [`results/costs_2026-11-10_day2c.md`](results/costs_2026-11-10_day2c.md); the web page has a calculator with
+workloads are in [`results/costs_2026-11-11.md`](results/costs_2026-11-11.md); the web page has a calculator with
 editable assumptions.
 
 The workloads (assumptions, from `registry/scenarios.toml`; sizes in Thai characters):
@@ -167,7 +167,7 @@ The workloads (assumptions, from `registry/scenarios.toml`; sizes in Thai charac
 - The check against real billing (90 paid requests to Claude; billed input tokens equalled
   `count_tokens` on every one) covered single-message requests only: no system prompt, no tools.
 - Claude's request framing (8 / 7 tokens per request) is billed, but is not part of these numbers.
-- Prices change. On 10 November 2026 Google's pricing page stated an end date for the current price of:
+- Prices change. On 11 November 2026 Google's pricing page stated an end date for the current price of:
 
 - Gemini 3.8 Flash: input "$0.75 through December 31, 2026. $1.50 starting January 1, 2027." output "$3.75 through December 31, 2026. $7.50 starting January 1, 2027."
 - Gemini 4 Argon: input "$2.00 through November 30, 2026. $4.00 starting December 1, 2026." output "$10.00 through November 30, 2026. $20.00 starting December 1, 2026."
@@ -211,9 +211,9 @@ No number in this README, the methodology or the site is typed by hand: they are
 ## Dates and sources
 
 - Token counts: measured 10 November 2026 (UTC). Raw per-sentence counts: `counts_2026-11-10_open.csv`, `counts_2026-11-10_open-llama31.csv`, `counts_2026-11-10_open-llama33.csv`, `counts_2026-11-10_openai.csv`, `counts_2026-11-10_gemini.csv`, `counts_2026-11-10_anthropic.csv`.
-- Prices: official pricing pages of Anthropic, OpenAI and Google, fetched 10 November 2026, saved with the
-  page hashes in `results/prices_2026-11-10.json`.
-- Exchange rate: 33.527 baht per US dollar, Bank of Thailand weighted-average interbank exchange rate, baht per US dollar, 9 November 2026
+- Prices: official pricing pages of Anthropic, OpenAI and Google, fetched 11 November 2026, saved with the
+  page hashes in `results/prices_2026-11-11.json`.
+- Exchange rate: 33.392 baht per US dollar, Bank of Thailand weighted-average interbank exchange rate, baht per US dollar, 10 November 2026
   (<https://www.bot.or.th/en/statistics/exchange-rate.html>).
 - Data: FLORES-200 `devtest`, English and Thai, the original Meta release. FLORES+ 5.0 differs
   from it in 0 of these sentences after normalization.

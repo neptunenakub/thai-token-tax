@@ -4,7 +4,7 @@
 How Thai Token Tax was measured, written so the weak points are easy to find. Every number in this
 file is filled in from the result files by `ttt docs`; the sections name the file each one comes from.
 
-Current result set: measured 10 November 2026 (UTC), prices fetched 10 November 2026, package version
+Current result set: measured 10 November 2026 (UTC), prices fetched 11 November 2026, package version
 0.1.0.
 
 ## 1. What is measured
@@ -214,18 +214,18 @@ Example: Claude 2.676 (2.645–2.709), GPT 1.954 (1.930–1.979).
 ## 8. Prices and exchange rate
 
 - Prices are read by `ttt prices` from the vendors' official pricing pages on the day of the run and
-  saved with the page hash and the exact cell text in `results/prices_2026-11-10.json`. No price is typed by
+  saved with the page hash and the exact cell text in `results/prices_2026-11-11.json`. No price is typed by
   hand; `registry/pricing.toml` only says which row of which page belongs to which model.
 - Tier: the standard list price for text. Not batch, not cached, the shortest-context tier, the price
   in force on the fetch date.
 
 | Provider | Official page | Fetched (UTC) |
 |---|---|---|
-| anthropic | <https://platform.claude.com/docs/en/about-claude/pricing.md> | 2026-11-10T09:24:58Z |
-| openai | <https://developers.openai.com/api/docs/pricing.md> | 2026-11-10T09:24:58Z |
-| gemini | <https://ai.google.dev/gemini-api/docs/pricing.md.txt> | 2026-11-10T09:25:03Z |
+| anthropic | <https://platform.claude.com/docs/en/about-claude/pricing.md> | 2026-11-11T03:35:58Z |
+| openai | <https://developers.openai.com/api/docs/pricing.md> | 2026-11-11T03:35:59Z |
+| gemini | <https://ai.google.dev/gemini-api/docs/pricing.md.txt> | 2026-11-11T03:36:03Z |
 
-- Exchange rate: 33.527 baht per US dollar, the Bank of Thailand weighted-average interbank exchange rate, baht per US dollar, for 9 November 2026, read from the Bank
+- Exchange rate: 33.392 baht per US dollar, the Bank of Thailand weighted-average interbank exchange rate, baht per US dollar, for 10 November 2026, read from the Bank
   of Thailand (<https://www.bot.or.th/en/statistics/exchange-rate.html>) and saved in the same file.
 - Prices move. On the fetch date Google's page already announced an end date for the current price of:
 
@@ -254,12 +254,12 @@ be plain and easy to argue with, not a measurement:
 - Output tokens are assumed to have the same tokens-per-character rate as input text of that language.
   This is the weakest step: nothing here measures what a model writes.
 - Example (LINE OA customer chatbot, 10,000 conversations a month): at the same list price of $4 / $20 per million tokens,
-  29,239 baht on Claude Opus 5.5 and 13,690 baht on GPT-5.6 Sol, a ratio of 2.14. At equal
+  29,121 baht on Claude Opus 5.5 and 13,635 baht on GPT-5.6 Sol, a ratio of 2.14. At equal
   prices the cost ratio is the token ratio by construction.
 - Open models have no per-token price of their own, so they have token counts only.
 
 The site's calculator uses the same formula; a test runs the page's formula against
-`results/costs_2026-11-10_day2c.csv` for every preset and priced model.
+`results/costs_2026-11-11.csv` for every preset and priced model.
 
 ## 10. Check against real billing, and its scope
 
@@ -325,7 +325,7 @@ numbers therefore hold for both.
   today's tokenizers. A rerun (`ttt count`, `ttt analyze`) would show it; old result sets stay in
   `results/`.
 - **Prices change.** The "same list price" comparison depends on two pairs of models having equal
-  prices on 10 November 2026. `ttt site` and `ttt docs` stop with an error if a rerun finds they no
+  prices on 11 November 2026. `ttt site` and `ttt docs` stop with an error if a rerun finds they no
   longer do.
 - **Your text is not like FLORES.** If real Thai chat tokenizes very differently from Thai news prose,
   the absolute rates move. The ordering of tokenizers would change only if the difference were large
@@ -346,8 +346,8 @@ numbers therefore hold for both.
 | Per-sentence counts | `counts_2026-11-10_open.csv`, `counts_2026-11-10_open-llama31.csv`, `counts_2026-11-10_open-llama33.csv`, `counts_2026-11-10_openai.csv`, `counts_2026-11-10_gemini.csv`, `counts_2026-11-10_anthropic.csv` in `results/`, each with a `.meta.json` |
 | Verification | the `verification_*` files named in `results/latest.json` |
 | Summary of every model | `results/summary_2026-11-10_day2c.md`, `results/summary_2026-11-10_day2c.csv` |
-| Prices and exchange rate | `results/prices_2026-11-10.json` |
-| Costs per scenario | `results/costs_2026-11-10_day2c.md`, `results/costs_2026-11-10_day2c.csv` |
+| Prices and exchange rate | `results/prices_2026-11-11.json` |
+| Costs per scenario | `results/costs_2026-11-11.md`, `results/costs_2026-11-11.csv` |
 | Billing check | `results/billing_check_2026-11-10.md` |
 | FLORES-200 against FLORES+ | `results/comparison_flores200_vs_floresplus_2026-11-10.md` |
 | What was run, day by day | `LOG.md` |

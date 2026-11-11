@@ -1,8 +1,8 @@
 {
-  "prices": "prices_2026-11-10.json",
-  "costs_csv": "costs_2026-11-10_day2c.csv",
-  "costs_json": "costs_2026-11-10_day2c.json",
-  "costs_md": "costs_2026-11-10_day2c.md",
+  "prices": "prices_2026-11-11.json",
+  "costs_csv": "costs_2026-11-11.csv",
+  "costs_json": "costs_2026-11-11.json",
+  "costs_md": "costs_2026-11-11.md",
   "run_date_utc": "2026-11-10",
   "summary_csv": "summary_2026-11-10_day2c.csv",
   "summary_json": "summary_2026-11-10_day2c.json",
@@ -31,6 +31,6 @@
     "gemini": "verification_2026-11-10_gemini.json",
     "anthropic": "verification_2026-11-10_anthropic.json"
   },
-  "updated_utc": "2026-11-10T12:20:20Z",
+  "updated_utc": "2026-11-11T03:36:04Z",
   "billing_check": "billing_check_2026-11-10.json"
 }

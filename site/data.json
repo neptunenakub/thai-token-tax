@@ -1,14 +1,14 @@
 {
  "inputs": {
   "summary_2026-11-10_day2c.csv": "ccb5a2d7be263ba46dd8e00e30d2bdbfc6de6f659ec66068b2f89bfef14221e5",
-  "costs_2026-11-10_day2c.csv": "a07e012d538c7093b12853c4c2176abdf86ae36a171d4be48090d5f328362eea",
-  "prices_2026-11-10.json": "fdcc7977310d8d566b50ff4776e16d9b7f38df970733076d3a1de429dfc5b6ed",
+  "costs_2026-11-11.csv": "1e95226c959055979252b4e48d1cc70ecb26688eba67d136aa2bfff818a9b2c4",
+  "prices_2026-11-11.json": "1e1d47c0013bc94bfb33515066a1526c7f24ba67678cf0d54a14be1438ed492e",
   "billing_check_2026-11-10.json": "c4055240b26ee97e5040bc55b21475167111fdba516277151c222ba6b3d33f88"
  },
  "dates": {
   "data": "2026-11-10",
-  "prices": "2026-11-10",
-  "exchange_rate": "2026-11-09",
+  "prices": "2026-11-11",
+  "exchange_rate": "2026-11-10",
   "billing_check": "2026-11-10"
  },
  "dataset": {
@@ -18,7 +18,7 @@
   "english_chars_per_thai_char": 1.0465027755749405
  },
  "exchange_rate": {
-  "thb_per_usd": 33.527,
+  "thb_per_usd": 33.392,
   "page": "https://www.bot.or.th/en/statistics/exchange-rate.html"
  },
  "price_sources": {
@@ -42,7 +42,7 @@
  },
  "headline": {
   "scenario": "line_oa_chatbot",
-  "same_price_ratio": 2.135738767657545,
+  "same_price_ratio": 2.135738767720184,
   "claude_thai_tokens_per_1k_chars": 889.524187,
   "gpt_thai_tokens_per_1k_chars": 416.494845,
   "gemini_thai_tokens_per_1k_chars": 344.052339,
@@ -84,8 +84,8 @@
    "fewer_tokens": "gemini-3.5-flash-lite",
    "more_tokens_thai_per_1k_chars": 889.524187,
    "fewer_tokens_thai_per_1k_chars": 344.052339,
-   "more_tokens_thai_thb": 730.963628,
-   "fewer_tokens_thai_thb": 1021.197336
+   "more_tokens_thai_thb": 728.020325,
+   "fewer_tokens_thai_thb": 1017.085378
   },
   "generations": {
    "older": "claude-haiku-4-5-20251001",
@@ -99,18 +99,18 @@
    "b": "gpt-5.6-sol",
    "input_usd_per_mtok": 4.0,
    "output_usd_per_mtok": 20.0,
-   "a_thai_thb": 29238.5451,
-   "b_thai_thb": 13690.131744,
-   "ratio": 2.135738767657545
+   "a_thai_thb": 29120.813016,
+   "b_thai_thb": 13635.006985,
+   "ratio": 2.135738767720184
   },
   {
    "a": "claude-haiku-5-5",
    "b": "gpt-6-luna",
    "input_usd_per_mtok": 0.1,
    "output_usd_per_mtok": 0.5,
-   "a_thai_thb": 730.963628,
-   "b_thai_thb": 342.253294,
-   "ratio": 2.13573876662236
+   "a_thai_thb": 728.020325,
+   "b_thai_thb": 340.875175,
+   "ratio": 2.1357387641971872
   }
  ],
  "groups": [
@@ -1060,248 +1060,248 @@
  "costs": {
   "line_oa_chatbot": {
    "gpt-6-astra": {
-    "thai_thb": 34225.32936,
-    "english_thb": 17511.482285
+    "thai_thb": 34087.517463,
+    "english_thb": 17440.970456
    },
    "gpt-6-sol": {
-    "thai_thb": 6845.065872,
-    "english_thb": 3502.296457
+    "thai_thb": 6817.503493,
+    "english_thb": 3488.194091
    },
    "gpt-6-luna": {
-    "thai_thb": 342.253294,
-    "english_thb": 175.114823
+    "thai_thb": 340.875175,
+    "english_thb": 174.409705
    },
    "gpt-6.1-sol": {
-    "thai_thb": 6845.065872,
-    "english_thb": 3502.296457
+    "thai_thb": 6817.503493,
+    "english_thb": 3488.194091
    },
    "gpt-6.1-terra": {
-    "thai_thb": 3422.532936,
-    "english_thb": 1751.148229
+    "thai_thb": 3408.751746,
+    "english_thb": 1744.097046
    },
    "gpt-5.5": {
-    "thai_thb": 18159.95138,
-    "english_thb": 9291.588214
+    "thai_thb": 18086.828421,
+    "english_thb": 9254.174654
    },
    "gpt-5.6-sol": {
-    "thai_thb": 13690.131744,
-    "english_thb": 7004.592914
+    "thai_thb": 13635.006985,
+    "english_thb": 6976.388182
    },
    "gpt-5.4": {
-    "thai_thb": 9079.97569,
-    "english_thb": 4645.794107
+    "thai_thb": 9043.414211,
+    "english_thb": 4627.087327
    },
    "gpt-5.2": {
-    "thai_thb": 7089.083673,
-    "english_thb": 3627.148825
+    "thai_thb": 7060.53873,
+    "english_thb": 3612.543728
    },
    "gemini-3.8-flash": {
-    "thai_thb": 2120.429237,
-    "english_thb": 1325.139979
+    "thai_thb": 2111.891105,
+    "english_thb": 1319.804163
    },
    "gemini-4-argon": {
-    "thai_thb": 5355.886087,
-    "english_thb": 3526.538324
+    "thai_thb": 5334.320047,
+    "english_thb": 3512.338346
    },
    "gemini-3.6-flash": {
-    "thai_thb": 2120.429237,
-    "english_thb": 1325.139979
+    "thai_thb": 2111.891105,
+    "english_thb": 1319.804163
    },
    "gemini-3.5-flash-lite": {
-    "thai_thb": 1021.197336,
-    "english_thb": 638.186549
+    "thai_thb": 1017.085378,
+    "english_thb": 635.616823
    },
    "gemini-3.1-pro-preview": {
-    "thai_thb": 6000.529249,
-    "english_thb": 3749.967724
+    "thai_thb": 5976.367485,
+    "english_thb": 3734.868083
    },
    "claude-opus-5-5": {
-    "thai_thb": 29238.5451,
-    "english_thb": 10925.256898
+    "thai_thb": 29120.813016,
+    "english_thb": 10881.265199
    },
    "claude-fable-5-2": {
-    "thai_thb": 58477.0902,
-    "english_thb": 21850.513796
+    "thai_thb": 58241.626032,
+    "english_thb": 21762.530398
    },
    "claude-sonnet-5-5": {
-    "thai_thb": 14619.27255,
-    "english_thb": 5462.628449
+    "thai_thb": 14560.406508,
+    "english_thb": 5440.6326
    },
    "claude-haiku-5-5": {
-    "thai_thb": 730.963628,
-    "english_thb": 273.131422
+    "thai_thb": 728.020325,
+    "english_thb": 272.03163
    },
    "claude-haiku-4-5-20251001": {
-    "thai_thb": 7284.612426,
-    "english_thb": 1882.13245
+    "thai_thb": 7255.280166,
+    "english_thb": 1874.553845
    },
    "claude-sonnet-4-6": {
-    "thai_thb": 21853.837278,
-    "english_thb": 5646.39735
+    "thai_thb": 21765.840498,
+    "english_thb": 5623.661536
    }
   },
   "summarize_documents": {
    "gpt-6-astra": {
-    "thai_thb": 390.987035,
-    "english_thb": 200.049573
+    "thai_thb": 389.412684,
+    "english_thb": 199.244053
    },
    "gpt-6-sol": {
-    "thai_thb": 78.197407,
-    "english_thb": 40.009915
+    "thai_thb": 77.882537,
+    "english_thb": 39.848811
    },
    "gpt-6-luna": {
-    "thai_thb": 3.90987,
-    "english_thb": 2.000496
+    "thai_thb": 3.894127,
+    "english_thb": 1.992441
    },
    "gpt-6.1-sol": {
-    "thai_thb": 78.197407,
-    "english_thb": 40.009915
+    "thai_thb": 77.882537,
+    "english_thb": 39.848811
    },
    "gpt-6.1-terra": {
-    "thai_thb": 39.098703,
-    "english_thb": 20.004957
+    "thai_thb": 38.941268,
+    "english_thb": 19.924405
    },
    "gpt-5.5": {
-    "thai_thb": 205.966384,
-    "english_thb": 105.383257
+    "thai_thb": 205.137039,
+    "english_thb": 104.958921
    },
    "gpt-5.6-sol": {
-    "thai_thb": 156.394814,
-    "english_thb": 80.019829
+    "thai_thb": 155.765074,
+    "english_thb": 79.697621
    },
    "gpt-5.4": {
-    "thai_thb": 102.983192,
-    "english_thb": 52.691629
+    "thai_thb": 102.568519,
+    "english_thb": 52.47946
    },
    "gpt-5.2": {
-    "thai_thb": 79.419241,
-    "english_thb": 40.63507
+    "thai_thb": 79.099451,
+    "english_thb": 40.471448
    },
    "gemini-3.8-flash": {
-    "thai_thb": 24.22359,
-    "english_thb": 15.138278
+    "thai_thb": 24.126051,
+    "english_thb": 15.077322
    },
    "gemini-4-argon": {
-    "thai_thb": 61.185153,
-    "english_thb": 40.286852
+    "thai_thb": 60.938785,
+    "english_thb": 40.124632
    },
    "gemini-3.6-flash": {
-    "thai_thb": 24.22359,
-    "english_thb": 15.138278
+    "thai_thb": 24.126051,
+    "english_thb": 15.077322
    },
    "gemini-3.5-flash-lite": {
-    "thai_thb": 11.419692,
-    "english_thb": 7.136617
+    "thai_thb": 11.37371,
+    "english_thb": 7.10788
    },
    "gemini-3.1-pro-preview": {
-    "thai_thb": 68.056752,
-    "english_thb": 42.531352
+    "thai_thb": 67.782715,
+    "english_thb": 42.360096
    },
    "claude-opus-5-5": {
-    "thai_thb": 334.018467,
-    "english_thb": 124.809136
+    "thai_thb": 332.673507,
+    "english_thb": 124.306579
    },
    "claude-fable-5-2": {
-    "thai_thb": 668.036934,
-    "english_thb": 249.618273
+    "thai_thb": 665.347013,
+    "english_thb": 248.613158
    },
    "claude-sonnet-5-5": {
-    "thai_thb": 167.009234,
-    "english_thb": 62.404568
+    "thai_thb": 166.336753,
+    "english_thb": 62.15329
    },
    "claude-haiku-5-5": {
-    "thai_thb": 8.350462,
-    "english_thb": 3.120228
+    "thai_thb": 8.316838,
+    "english_thb": 3.107664
    },
    "claude-haiku-4-5-20251001": {
-    "thai_thb": 83.218747,
-    "english_thb": 21.501309
+    "thai_thb": 82.883658,
+    "english_thb": 21.414732
    },
    "claude-sonnet-4-6": {
-    "thai_thb": 249.65624,
-    "english_thb": 64.503927
+    "thai_thb": 248.650973,
+    "english_thb": 64.244195
    }
   },
   "write_content": {
    "gpt-6-astra": {
-    "thai_thb": 2248.17545,
-    "english_thb": 1150.285046
+    "thai_thb": 2239.122934,
+    "english_thb": 1145.653302
    },
    "gpt-6-sol": {
-    "thai_thb": 449.63509,
-    "english_thb": 230.057009
+    "thai_thb": 447.824587,
+    "english_thb": 229.13066
    },
    "gpt-6-luna": {
-    "thai_thb": 22.481754,
-    "english_thb": 11.50285
+    "thai_thb": 22.391229,
+    "english_thb": 11.456533
    },
    "gpt-6.1-sol": {
-    "thai_thb": 449.63509,
-    "english_thb": 230.057009
+    "thai_thb": 447.824587,
+    "english_thb": 229.13066
    },
    "gpt-6.1-terra": {
-    "thai_thb": 224.817545,
-    "english_thb": 115.028505
+    "thai_thb": 223.912293,
+    "english_thb": 114.56533
    },
    "gpt-5.5": {
-    "thai_thb": 1333.545065,
-    "english_thb": 682.311937
+    "thai_thb": 1328.175405,
+    "english_thb": 679.564536
    },
    "gpt-5.6-sol": {
-    "thai_thb": 899.27018,
-    "english_thb": 460.114018
+    "thai_thb": 895.649174,
+    "english_thb": 458.261321
    },
    "gpt-5.4": {
-    "thai_thb": 666.772532,
-    "english_thb": 341.155969
+    "thai_thb": 664.087703,
+    "english_thb": 339.782268
    },
    "gpt-5.2": {
-    "thai_thb": 613.360911,
-    "english_thb": 313.827768
+    "thai_thb": 610.891148,
+    "english_thb": 312.564107
    },
    "gemini-3.8-flash": {
-    "thai_thb": 139.285641,
-    "english_thb": 87.045099
+    "thai_thb": 138.724793,
+    "english_thb": 86.694602
    },
    "gemini-4-argon": {
-    "thai_thb": 351.814631,
-    "english_thb": 231.649396
+    "thai_thb": 350.398012,
+    "english_thb": 230.716636
    },
    "gemini-3.6-flash": {
-    "thai_thb": 139.285641,
-    "english_thb": 87.045099
+    "thai_thb": 138.724793,
+    "english_thb": 86.694602
    },
    "gemini-3.5-flash-lite": {
-    "thai_thb": 90.319385,
-    "english_thb": 56.444151
+    "thai_thb": 89.955704,
+    "english_thb": 56.216873
    },
    "gemini-3.1-pro-preview": {
-    "thai_thb": 440.638634,
-    "english_thb": 275.372486
+    "thai_thb": 438.864356,
+    "english_thb": 274.263669
    },
    "claude-opus-5-5": {
-    "thai_thb": 1920.606186,
-    "english_thb": 717.652534
+    "thai_thb": 1912.872662,
+    "english_thb": 714.76283
    },
    "claude-fable-5-2": {
-    "thai_thb": 3841.212371,
-    "english_thb": 1435.305068
+    "thai_thb": 3825.745325,
+    "english_thb": 1429.525661
    },
    "claude-sonnet-5-5": {
-    "thai_thb": 960.303093,
-    "english_thb": 358.826267
+    "thai_thb": 956.436331,
+    "english_thb": 357.381415
    },
    "claude-haiku-5-5": {
-    "thai_thb": 48.015155,
-    "english_thb": 17.941313
+    "thai_thb": 47.821817,
+    "english_thb": 17.869071
    },
    "claude-haiku-4-5-20251001": {
-    "thai_thb": 478.507793,
-    "english_thb": 123.632527
+    "thai_thb": 476.581031,
+    "english_thb": 123.134708
    },
    "claude-sonnet-4-6": {
-    "thai_thb": 1435.523379,
-    "english_thb": 370.897582
+    "thai_thb": 1429.743093,
+    "english_thb": 369.404124
    }
   }
  },

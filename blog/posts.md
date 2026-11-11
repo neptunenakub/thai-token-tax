@@ -36,8 +36,8 @@ Gemini 4: 325.9
 คิดเป็นเงิน: แชทบอทลูกค้าบน LINE OA 10,000 บทสนทนาต่อเดือน
 
 ราคาป้ายเท่ากันที่ $4 / $20 ต่อล้าน token
-Claude Opus 5.5: 29,239 บาท
-GPT-5.6 Sol: 13,690 บาท
+Claude Opus 5.5: 29,121 บาท
+GPT-5.6 Sol: 13,635 บาท
 
 ขนาดงานเป็นสมมติฐาน ใส่ตัวเลขของคุณเองได้ในตัวคำนวณบนหน้าเว็บ
 ```
@@ -45,7 +45,7 @@ GPT-5.6 Sol: 13,690 บาท
 ```
 แต่ token มากกว่าไม่ได้แปลว่าแพงกว่าเสมอ
 
-งานเดียวกัน Claude Haiku 5.5 จ่าย 731 บาท น้อยกว่า Gemini 3.5 Flash-Lite ที่จ่าย 1,021 บาท ทั้งที่ใช้ token ไทยมากกว่า
+งานเดียวกัน Claude Haiku 5.5 จ่าย 728 บาท น้อยกว่า Gemini 3.5 Flash-Lite ที่จ่าย 1,017 บาท ทั้งที่ใช้ token ไทยมากกว่า
 
 ต้องคูณ token กับราคาต่อ token ของโมเดลนั้นเสมอ
 ```
@@ -59,7 +59,7 @@ GPT-5.6 Sol: 13,690 บาท
 ```
 วิธีวัด: endpoint นับ token ทางการของแต่ละค่าย หัก token โครงคำขอที่ตรวจแล้วว่าคงที่ และตรวจ Claude กับยอดที่ถูกคิดเงินจริง 90 คำขอ
 
-ราคา ณ 10 พฤศจิกายน 2026 โค้ดและข้อมูลดิบเปิดทั้งหมด รันซ้ำได้
+ราคา ณ 11 พฤศจิกายน 2026 โค้ดและข้อมูลดิบเปิดทั้งหมด รันซ้ำได้
 
 https://github.com/neptunenakub/thai-token-tax
 ```
@@ -89,9 +89,9 @@ APIs bill per token, so at the same price per token this is the ratio of the bil
 ```
 
 ```
-Two pairs of models had the same list price on 10 November 2026.
+Two pairs of models had the same list price on 11 November 2026.
 
-At $4 / $20 per million tokens, an example Thai chatbot workload comes to 29,239 baht on Claude Opus 5.5 and 13,690 baht on GPT-5.6 Sol.
+At $4 / $20 per million tokens, an example Thai chatbot workload comes to 29,121 baht on Claude Opus 5.5 and 13,635 baht on GPT-5.6 Sol.
 
 The workload size is an assumption.
 ```
@@ -105,7 +105,7 @@ From Claude Haiku 4.5 to Claude Opus 5.5 it fell from 3.870 to 2.676. Thai token
 ```
 More tokens is not always a higher bill.
 
-On the same workload Claude Haiku 5.5 costs 731 baht, less than Gemini 3.5 Flash-Lite at 1,021 baht, although it uses more Thai tokens. Prices per token differ.
+On the same workload Claude Haiku 5.5 costs 728 baht, less than Gemini 3.5 Flash-Lite at 1,017 baht, although it uses more Thai tokens. Prices per token differ.
 ```
 
 ```
@@ -121,7 +121,7 @@ https://github.com/neptunenakub/thai-token-tax
 ```
 I measured what Thai text costs on major AI models.
 
-The same Thai text takes 2.14× the tokens on current Claude models as on GPT, and 2.59× as on Gemini 3.x: 889.5, 416.5 and 344.1 tokens per 1,000 Thai characters. APIs bill per token, so at the same list price ($4 in / $20 out per million tokens) an example Thai chatbot workload comes to 29,239 baht on Claude Opus 5.5 and 13,690 baht on GPT-5.6 Sol.
+The same Thai text takes 2.14× the tokens on current Claude models as on GPT, and 2.59× as on Gemini 3.x: 889.5, 416.5 and 344.1 tokens per 1,000 Thai characters. APIs bill per token, so at the same list price ($4 in / $20 out per million tokens) an example Thai chatbot workload comes to 29,121 baht on Claude Opus 5.5 and 13,635 baht on GPT-5.6 Sol.
 
 This is cost, not answer quality. A model that spends more tokens may still answer Thai better, and more tokens is not always a higher bill: on the same workload Claude Haiku 5.5 costs less than Gemini 3.5 Flash-Lite.
 
@@ -143,7 +143,7 @@ Code, data and method: https://github.com/neptunenakub/thai-token-tax
 ```
 ผมวัดว่าข้อความภาษาไทยมีต้นทุนเท่าไหร่บนโมเดล AI ค่ายหลัก
 
-ข้อความไทยเดียวกันใช้ token บน Claude รุ่นปัจจุบันมากกว่า GPT 2.14 เท่า และมากกว่า Gemini 3.x 2.59 เท่า ค่า API คิดตาม token ที่ราคาป้ายเท่ากัน ($4 ขาเข้า / $20 ขาออก ต่อล้าน token) งานตัวอย่าง "แชทบอทลูกค้าบน LINE OA 10,000 บทสนทนาต่อเดือน" จึงมีค่าใช้จ่าย 29,239 บาท บน Claude Opus 5.5 และ 13,690 บาท บน GPT-5.6 Sol
+ข้อความไทยเดียวกันใช้ token บน Claude รุ่นปัจจุบันมากกว่า GPT 2.14 เท่า และมากกว่า Gemini 3.x 2.59 เท่า ค่า API คิดตาม token ที่ราคาป้ายเท่ากัน ($4 ขาเข้า / $20 ขาออก ต่อล้าน token) งานตัวอย่าง "แชทบอทลูกค้าบน LINE OA 10,000 บทสนทนาต่อเดือน" จึงมีค่าใช้จ่าย 29,121 บาท บน Claude Opus 5.5 และ 13,635 บาท บน GPT-5.6 Sol
 
 งานนี้วัดต้นทุน ไม่ใช่คุณภาพคำตอบ โมเดลที่ใช้ token มากกว่าอาจตอบภาษาไทยได้ดีกว่าก็ได้ และ token มากกว่าไม่ได้แปลว่าแพงกว่าเสมอ ในงานเดียวกัน Claude Haiku 5.5 จ่ายน้อยกว่า Gemini 3.5 Flash-Lite
 
@@ -173,15 +173,15 @@ token ต่อข้อความไทย 1,000 ตัวอักษร:
 - Gemini 3.x: 344.1
 - Gemini 4: 325.9
 
-ตัวอย่างเป็นเงิน (แชทบอทลูกค้าบน LINE OA 10,000 บทสนทนาต่อเดือน) ที่ราคาป้ายเท่ากัน $4 / $20 ต่อล้าน token: Claude Opus 5.5 29,239 บาท ส่วน GPT-5.6 Sol 13,690 บาท ต่างกัน 2.14 เท่า
+ตัวอย่างเป็นเงิน (แชทบอทลูกค้าบน LINE OA 10,000 บทสนทนาต่อเดือน) ที่ราคาป้ายเท่ากัน $4 / $20 ต่อล้าน token: Claude Opus 5.5 29,121 บาท ส่วน GPT-5.6 Sol 13,635 บาท ต่างกัน 2.14 เท่า
 
 ข้อควรรู้:
 - วัดต้นทุน ไม่ใช่คุณภาพคำตอบ โมเดลที่ใช้ token มากกว่าอาจตอบไทยได้ดีกว่าก็ได้
-- token มากกว่าไม่ได้แปลว่าแพงกว่าเสมอ งานเดียวกัน Claude Haiku 5.5 (731 บาท) จ่ายน้อยกว่า Gemini 3.5 Flash-Lite (1,021 บาท) เพราะราคาต่อ token ต่างกัน
+- token มากกว่าไม่ได้แปลว่าแพงกว่าเสมอ งานเดียวกัน Claude Haiku 5.5 (728 บาท) จ่ายน้อยกว่า Gemini 3.5 Flash-Lite (1,017 บาท) เพราะราคาต่อ token ต่างกัน
 - ขนาดงานตัวอย่างเป็นสมมติฐาน หน้าเว็บมีตัวคำนวณให้ใส่ตัวเลขของงานตัวเอง
 - โมเดลเปิดไม่มีราคาต่อ token ของตัวเอง ผมรายงานเฉพาะจำนวน token และพบว่าโมเดลที่ต่อยอดจากโมเดลฐานจะรับ tokenizer ของโมเดลฐานมาด้วย
 
-วัด 45 โมเดลด้วยคู่ประโยคไทย–อังกฤษ 1,012 คู่ (FLORES-200) ผ่าน endpoint นับ token ทางการ ราคา ณ 10 พฤศจิกายน 2026 โค้ดและข้อมูลดิบเปิดทั้งหมด รันซ้ำได้ ถ้าเจอจุดที่วัดผิดบอกได้เลยครับ
+วัด 45 โมเดลด้วยคู่ประโยคไทย–อังกฤษ 1,012 คู่ (FLORES-200) ผ่าน endpoint นับ token ทางการ ราคา ณ 11 พฤศจิกายน 2026 โค้ดและข้อมูลดิบเปิดทั้งหมด รันซ้ำได้ ถ้าเจอจุดที่วัดผิดบอกได้เลยครับ
 
 หน้าเว็บ + ตัวคำนวณ: https://neptunenakub.github.io/thai-token-tax/
 โค้ดและวิธีวัด: https://github.com/neptunenakub/thai-token-tax
@@ -214,7 +214,7 @@ Things that surprised me:
 - The counting endpoints include a constant framing overhead per request. I measure it, subtract it, and test that it is constant across lengths and languages. For Claude I also compared count_tokens with billed usage on 90 real requests: equal on every one (single-message requests only).
 - Several open models give identical counts on every sentence, because fine-tunes inherit the base tokenizer.
 
-Limits: this is cost, not answer quality. FLORES is news and encyclopedia prose, so chat text may tokenize at a different rate. Output tokens are assumed to follow the input rate. Prices are list prices as of 10 November 2026.
+Limits: this is cost, not answer quality. FLORES is news and encyclopedia prose, so chat text may tokenize at a different rate. Output tokens are assumed to follow the input rate. Prices are list prices as of 11 November 2026.
 
 Everything on the page is generated from the raw result files, and the local tokenizers rerun from a fresh clone without any key. Repo: https://github.com/neptunenakub/thai-token-tax
 
