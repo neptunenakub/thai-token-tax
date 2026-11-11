@@ -1,0 +1,24 @@
+{
+  "input": "counts_2026-11-10_open-llama33.csv",
+  "checks": [
+    {
+      "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+      "transformers_class": "TokenizersBackend",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27170
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 59357
+      }
+    }
+  ]
+}

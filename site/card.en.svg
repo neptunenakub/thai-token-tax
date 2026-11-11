@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" font-family='system-ui, -apple-system, "Segoe UI", "Leelawadee UI", "Noto Sans Thai", sans-serif' role="img" aria-label="The same Thai text takes 2.14× the tokens on Claude as on GPT, and 2.59× as on Gemini">
+<rect width="1080" height="1080" fill="#fcfcfb"/>
+<text x="72" y="104" font-size="34" font-weight="600" fill="#52514e" text-anchor="start">Thai Token Tax · ภาษีภาษา</text>
+<text x="72" y="204" font-size="60" font-weight="700" fill="#0b0b0b" text-anchor="start">The same Thai text takes 2.14×</text>
+<text x="72" y="282" font-size="60" font-weight="700" fill="#0b0b0b" text-anchor="start">the tokens on Claude as on GPT,</text>
+<text x="72" y="360" font-size="60" font-weight="700" fill="#0b0b0b" text-anchor="start">and 2.59× as on Gemini</text>
+<rect x="0" y="418" width="1080" height="262" fill="#f4f3ee"/>
+<text x="72" y="468" font-size="30" font-weight="400" fill="#52514e" text-anchor="start">Tokens Claude 5.5 spends on the same Thai text,</text>
+<text x="72" y="508" font-size="30" font-weight="400" fill="#52514e" text-anchor="start">compared with:</text>
+<rect x="72" y="534" width="444" height="3" fill="#0b0b0b"/>
+<text x="72" y="578" font-size="32" font-weight="400" fill="#52514e" text-anchor="start">GPT-5.x / 6</text>
+<text x="72" y="654" font-size="72" font-weight="700" fill="#0b0b0b" text-anchor="start">2.14×</text>
+<rect x="564" y="534" width="444" height="3" fill="#0b0b0b"/>
+<text x="564" y="578" font-size="32" font-weight="400" fill="#52514e" text-anchor="start">Gemini 3.x</text>
+<text x="564" y="654" font-size="72" font-weight="700" fill="#0b0b0b" text-anchor="start">2.59×</text>
+<text x="72" y="742" font-size="30" font-weight="400" fill="#52514e" text-anchor="start">Tokens per 1,000 Thai characters</text>
+<text x="72" y="799" font-size="32" font-weight="400" fill="#0b0b0b" text-anchor="start">Claude 5.5</text>
+<path d="M312 774h514a6 6 0 0 1 6 6v18a6 6 0 0 1 -6 6h-514z" fill="#2a78d6"/>
+<text x="848" y="800" font-size="34" font-weight="700" fill="#0b0b0b" text-anchor="start">889.5</text>
+<text x="72" y="849" font-size="32" font-weight="400" fill="#0b0b0b" text-anchor="start">GPT-5.x / 6</text>
+<path d="M312 824h237.475a6 6 0 0 1 6 6v18a6 6 0 0 1 -6 6h-237.475z" fill="#2a78d6"/>
+<text x="571.475" y="850" font-size="34" font-weight="700" fill="#0b0b0b" text-anchor="start">416.5</text>
+<text x="72" y="899" font-size="32" font-weight="400" fill="#0b0b0b" text-anchor="start">Gemini 3.x</text>
+<path d="M312 874h195.127a6 6 0 0 1 6 6v18a6 6 0 0 1 -6 6h-195.127z" fill="#2a78d6"/>
+<text x="529.127" y="900" font-size="34" font-weight="700" fill="#0b0b0b" text-anchor="start">344.1</text>
+<text x="72" y="949" font-size="32" font-weight="400" fill="#0b0b0b" text-anchor="start">Gemini 4</text>
+<path d="M312 924h184.506a6 6 0 0 1 6 6v18a6 6 0 0 1 -6 6h-184.506z" fill="#2a78d6"/>
+<text x="518.506" y="950" font-size="34" font-weight="700" fill="#0b0b0b" text-anchor="start">325.9</text>
+<rect x="72" y="972" width="936" height="2" fill="#e1e0d9"/>
+<text x="72" y="1016" font-size="34" font-weight="700" fill="#0b0b0b" text-anchor="start">Cost, not answer quality</text>
+<text x="72" y="1054" font-size="26" font-weight="400" fill="#52514e" text-anchor="start">Data 10 Nov 2026 · list prices 10 Nov 2026 · FLORES-200, 1,012 sentence pairs</text>
+</svg>

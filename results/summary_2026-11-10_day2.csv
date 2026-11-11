@@ -1,0 +1,44 @@
+source,family,model_id,tokenizer,library,baseline_lang,target_lang,coverage,n_sentences,baseline_tokens,target_tokens,premium,ci95_low,ci95_high,baseline_chars,target_chars,baseline_tokens_per_1k_chars,target_tokens_per_1k_chars,baseline_chars_per_token,target_chars_per_token,same_counts_as
+open,OpenAI,tiktoken/o200k_base,o200k_base,tiktoken==0.14.0,eng_Latn,tha_Thai,full,1012,26872,52520,1.954451,1.930416,1.978694,131964,126100,203.631293,416.494845,4.910837,2.400990,
+open,OpenAI,tiktoken/cl100k_base,cl100k_base,tiktoken==0.14.0,eng_Latn,tha_Thai,full,1012,27181,118037,4.342629,4.286521,4.399927,131964,126100,205.972841,936.058684,4.855009,1.068309,
+open,OpenAI,tiktoken/o200k_harmony,o200k_harmony,tiktoken==0.14.0,eng_Latn,tha_Thai,full,1012,26872,52520,1.954451,1.930416,1.978694,131964,126100,203.631293,416.494845,4.910837,2.400990,tiktoken/o200k_base
+open,Qwen,Qwen/Qwen3-8B,tokenizer.json@b968826d9c46,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27620,70195,2.541455,2.508058,2.575112,131964,126100,209.299506,556.661380,4.777842,1.796424,
+open,Qwen,Qwen/Qwen3.5-9B,tokenizer.json@c20223623576,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27529,33058,1.200843,1.186612,1.214996,131964,126100,208.609924,262.157018,4.793636,3.814508,
+open,Qwen,Qwen/Qwen3.8-27B,tokenizer.json@37561816e66b,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27529,33058,1.200843,1.186612,1.214996,131964,126100,208.609924,262.157018,4.793636,3.814508,Qwen/Qwen3.5-9B
+open,Typhoon,typhoon-ai/typhoon2.5-qwen3-4b,tokenizer.json@ce0a7416fe82,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27620,70195,2.541455,2.508058,2.575112,131964,126100,209.299506,556.661380,4.777842,1.796424,Qwen/Qwen3-8B
+open,Typhoon,typhoon-ai/typhoon2.1-gemma3-12b,tokenizer.json@928366e53564,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27113,43385,1.600155,1.580152,1.620725,131964,126100,205.457549,344.052339,4.867185,2.906535,
+open,Typhoon,typhoon-ai/llama3.1-typhoon2-8b-instruct,tokenizer.json@30e8c65ac393,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27170,59357,2.184652,2.158668,2.210767,131964,126100,205.889485,470.713719,4.856975,2.124434,
+open,Typhoon,typhoon-ai/typhoon-7b,tokenizer.json@546cbbc38283,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,30027,38328,1.276451,1.262167,1.291242,131964,126100,227.539329,303.949247,4.394845,3.290023,
+open,Typhoon,typhoon-ai/typhoon-s-thaillm-8b-instruct-research-preview,tokenizer.json@431f48e7703d,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27620,70195,2.541455,2.508058,2.575112,131964,126100,209.299506,556.661380,4.777842,1.796424,Qwen/Qwen3-8B
+open,OpenThaiGPT,openthaigpt/openthaigpt1.5-7b-instruct,tokenizer.json@44d757c03171,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27620,70195,2.541455,2.508058,2.575112,131964,126100,209.299506,556.661380,4.777842,1.796424,Qwen/Qwen3-8B
+open,OpenThaiGPT,openthaigpt/openthaigpt-1.6-72b-instruct,tokenizer.json@9dc3e43e8fae,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27620,70195,2.541455,2.508058,2.575112,131964,126100,209.299506,556.661380,4.777842,1.796424,Qwen/Qwen3-8B
+open,OpenThaiGPT,openthaigpt/openthaigpt-r1-32b-instruct,tokenizer.json@3e3512936b3c,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27620,70195,2.541455,2.508058,2.575112,131964,126100,209.299506,556.661380,4.777842,1.796424,Qwen/Qwen3-8B
+open,OpenThaiGPT,openthaigpt/openthaigpt-1.0.0-7b-chat,tokenizer.json@7412d9790820,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,31154,31894,1.023753,1.012796,1.035215,131964,126100,236.079537,252.926249,4.235861,3.953722,
+open,OpenThaiGPT,openthaigpt/openthaigpt-thaillm-8b-instruct-v0.7.2-research-preview,tokenizer.json@7b346b703b7f,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27620,70195,2.541455,2.508058,2.575112,131964,126100,209.299506,556.661380,4.777842,1.796424,Qwen/Qwen3-8B
+open,SEA-LION,aisingapore/Nemotron-SEA-LION-v4.8-30B-A3B,tokenizer.json@a2390696bfde,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27826,65795,2.364515,2.335370,2.394526,131964,126100,210.860538,521.768438,4.742471,1.916559,
+open,SEA-LION,aisingapore/Qwen-SEA-LION-v4.5-27B-IT,tokenizer.json@544e416f68a5,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27529,33058,1.200843,1.186612,1.214996,131964,126100,208.609924,262.157018,4.793636,3.814508,Qwen/Qwen3.5-9B
+open,SEA-LION,aisingapore/Qwen-SEA-LION-v4-32B-IT,tokenizer.json@f1169f468d67,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27620,70195,2.541455,2.508058,2.575112,131964,126100,209.299506,556.661380,4.777842,1.796424,Qwen/Qwen3-8B
+open,SEA-LION,aisingapore/Gemma-SEA-LION-v4-27B-IT,tokenizer.json@81dcc29c4739,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27113,43385,1.600155,1.580152,1.620725,131964,126100,205.457549,344.052339,4.867185,2.906535,typhoon-ai/typhoon2.1-gemma3-12b
+open,SEA-LION,aisingapore/Llama-SEA-LION-v3.5-8B-R,tokenizer.json@dfdbc9bd5817,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27170,59357,2.184652,2.158668,2.210767,131964,126100,205.889485,470.713719,4.856975,2.124434,typhoon-ai/llama3.1-typhoon2-8b-instruct
+open,SEA-LION,aisingapore/Gemma-SEA-LION-v3-9B-IT,tokenizer.json@c519e6d7bdb0,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27035,49795,1.841872,1.817362,1.866625,131964,126100,204.866479,394.885012,4.881228,2.532383,
+open,Gemma,google/gemma-4-31B-it,tokenizer.json@842da3794eaa,tokenizers==0.23.3,eng_Latn,tha_Thai,full,1012,27113,43385,1.600155,1.580152,1.620725,131964,126100,205.457549,344.052339,4.867185,2.906535,typhoon-ai/typhoon2.1-gemma3-12b
+openai,OpenAI,gpt-6-astra,POST /v1/responses/input_tokens,openai REST API,eng_Latn,tha_Thai,full,1012,26872,52520,1.954451,1.930416,1.978694,131964,126100,203.631293,416.494845,4.910837,2.400990,tiktoken/o200k_base
+openai,OpenAI,gpt-6-sol,POST /v1/responses/input_tokens,openai REST API,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,tiktoken/o200k_base
+openai,OpenAI,gpt-6-luna,POST /v1/responses/input_tokens,openai REST API,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,tiktoken/o200k_base
+openai,OpenAI,gpt-6.1-sol,POST /v1/responses/input_tokens,openai REST API,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,tiktoken/o200k_base
+openai,OpenAI,gpt-6.1-terra,POST /v1/responses/input_tokens,openai REST API,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,tiktoken/o200k_base
+openai,OpenAI,gpt-5.5,POST /v1/responses/input_tokens,openai REST API,eng_Latn,tha_Thai,full,1012,26872,52520,1.954451,1.930416,1.978694,131964,126100,203.631293,416.494845,4.910837,2.400990,tiktoken/o200k_base
+openai,OpenAI,gpt-5.6-sol,POST /v1/responses/input_tokens,openai REST API,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,tiktoken/o200k_base
+openai,OpenAI,gpt-5.4,POST /v1/responses/input_tokens,openai REST API,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,tiktoken/o200k_base
+openai,OpenAI,gpt-5.2,POST /v1/responses/input_tokens,openai REST API,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,tiktoken/o200k_base
+gemini,Gemini,gemini-3.8-flash,POST v1beta/models/{model}:countTokens,gemini REST API,eng_Latn,tha_Thai,full,1012,27113,43385,1.600155,1.580152,1.620725,131964,126100,205.457549,344.052339,4.867185,2.906535,typhoon-ai/typhoon2.1-gemma3-12b
+gemini,Gemini,gemini-4-argon,POST v1beta/models/{model}:countTokens,gemini REST API,eng_Latn,tha_Thai,full,1012,27058,41094,1.518738,1.499759,1.537835,131964,126100,205.040769,325.884219,4.877079,3.068574,
+gemini,Gemini,gemini-3.6-flash,POST v1beta/models/{model}:countTokens,gemini REST API,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,typhoon-ai/typhoon2.1-gemma3-12b
+gemini,Gemini,gemini-3.5-flash-lite,POST v1beta/models/{model}:countTokens,gemini REST API,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,typhoon-ai/typhoon2.1-gemma3-12b
+gemini,Gemini,gemini-3.1-pro-preview,POST v1beta/models/{model}:countTokens,gemini REST API,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,typhoon-ai/typhoon2.1-gemma3-12b
+anthropic,Claude,claude-opus-5-5,POST /v1/messages/count_tokens,anthropic==2.7.0,eng_Latn,tha_Thai,full,1012,41913,112169,2.676234,2.645034,2.708533,131964,126100,317.609348,889.524187,3.148522,1.124197,
+anthropic,Claude,claude-fable-5-2,POST /v1/messages/count_tokens,anthropic==2.7.0,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,claude-opus-5-5
+anthropic,Claude,claude-sonnet-5-5,POST /v1/messages/count_tokens,anthropic==2.7.0,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,claude-opus-5-5
+anthropic,Claude,claude-haiku-5-5,POST /v1/messages/count_tokens,anthropic==2.7.0,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,claude-opus-5-5
+anthropic,Claude,claude-haiku-4-5-20251001,POST /v1/messages/count_tokens,anthropic==2.7.0,eng_Latn,tha_Thai,full,1012,28882,111785,3.870404,3.819974,3.922383,131964,126100,218.862720,886.478985,4.569074,1.128058,
+anthropic,Claude,claude-sonnet-4-6,POST /v1/messages/count_tokens,anthropic==2.7.0,eng_Latn,tha_Thai,sample,100,,,,,,,,,,,,claude-haiku-4-5-20251001

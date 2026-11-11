@@ -1,0 +1,47 @@
+{
+  "input": "counts_2026-11-10_anthropic.csv",
+  "checks": [
+    {
+      "model_id": "claude-opus-5-5",
+      "overhead_subtracted": 8,
+      "repeat_check_sentences": 50,
+      "repeat_check_mismatch": 0,
+      "length_check_raw_minus_words": {
+        "1": 8,
+        "2": 8,
+        "5": 8,
+        "20": 8,
+        "100": 8,
+        "500": 8
+      },
+      "length_check_constant": true,
+      "content_check_triples": 24,
+      "content_check_distinct_differences": [
+        -12
+      ],
+      "content_check_constant": true,
+      "tiktoken_check": "tiktoken does not know this model"
+    },
+    {
+      "model_id": "claude-haiku-4-5-20251001",
+      "overhead_subtracted": 7,
+      "repeat_check_sentences": 50,
+      "repeat_check_mismatch": 0,
+      "length_check_raw_minus_words": {
+        "1": 7,
+        "2": 7,
+        "5": 7,
+        "20": 7,
+        "100": 7,
+        "500": 7
+      },
+      "length_check_constant": true,
+      "content_check_triples": 24,
+      "content_check_distinct_differences": [
+        -8
+      ],
+      "content_check_constant": true,
+      "tiktoken_check": "tiktoken does not know this model"
+    }
+  ]
+}

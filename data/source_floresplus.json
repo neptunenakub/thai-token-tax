@@ -1,0 +1,79 @@
+{
+  "dataset": "FLORES+",
+  "name_in_results": "floresplus",
+  "split": "devtest",
+  "languages": [
+    "eng_Latn",
+    "tha_Thai"
+  ],
+  "source": "https://huggingface.co/datasets/openlanguagedata/flores_plus",
+  "revision": "1147e2dc59f37fbb5c22fd8478770de02cd399f9",
+  "dataset_last_modified": "2026-10-25T18:20:10Z",
+  "version_in_changelog": "5.0 (CHANGELOG.md at this revision)",
+  "license": "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)",
+  "redistribution_request": "The dataset terms ask users not to re-host FLORES+ where web crawlers can pick it up and not to use it as training data. No FLORES+ sentence is committed to this repository.",
+  "sent_id": "FLORES+ id + 1: the same 1-based numbering as FLORES-200",
+  "files": {
+    "eng_Latn": {
+      "path": "devtest/eng_Latn.jsonl",
+      "sha256": "afa116a2ffb7de95aa320c11c229301d76a8108cba3125744c10304ffaa128bd"
+    },
+    "tha_Thai": {
+      "path": "devtest/tha_Thai.jsonl",
+      "sha256": "0bf1910538fd03e0233f8ffd95a8b98afc0bf55f0ac3f2fe6ae05d57c4afaf8f"
+    }
+  },
+  "normalized_tsv": {
+    "path": "data/floresplus_devtest.tsv",
+    "sha256": "9df6db4cc0d577297870ceb68ff33f57d8c906df06d857be42843efaefc1924f",
+    "rows": 1012
+  },
+  "comparison_with_flores200": {
+    "pairs": 1012,
+    "eng_Latn_sentences_that_differ": 0,
+    "tha_Thai_sentences_that_differ": 0,
+    "pairs_where_both_languages_differ": 0,
+    "differing_sent_ids": {
+      "eng_Latn": [],
+      "tha_Thai": []
+    }
+  },
+  "normalization": {
+    "eng_Latn": {
+      "sentences": 1012,
+      "changed_by_nfc": 0,
+      "changed_by_control_or_format_strip": 1,
+      "changed_by_trim": 0,
+      "changed_total": 1,
+      "removed_or_replaced_characters": {
+        "U+200B ZERO WIDTH SPACE": 2
+      },
+      "sent_ids_changed_by_nfc": [],
+      "sent_ids_changed_by_control_or_format_strip": [
+        683
+      ],
+      "sent_ids_changed_by_trim": []
+    },
+    "tha_Thai": {
+      "sentences": 1012,
+      "changed_by_nfc": 0,
+      "changed_by_control_or_format_strip": 6,
+      "changed_by_trim": 0,
+      "changed_total": 6,
+      "removed_or_replaced_characters": {
+        "U+200B ZERO WIDTH SPACE": 9
+      },
+      "sent_ids_changed_by_nfc": [],
+      "sent_ids_changed_by_control_or_format_strip": [
+        191,
+        310,
+        469,
+        492,
+        680,
+        741
+      ],
+      "sent_ids_changed_by_trim": []
+    }
+  },
+  "prepared_utc": "2026-11-10T09:31:03Z"
+}

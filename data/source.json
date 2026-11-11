@@ -1,0 +1,35 @@
+{
+  "dataset": "FLORES-200",
+  "split": "devtest",
+  "languages": [
+    "eng_Latn",
+    "tha_Thai"
+  ],
+  "sent_id": "1-based line number in the original .devtest files",
+  "official_release": {
+    "url": "https://dl.fbaipublicfiles.com/nllb/flores200_dataset.tar.gz",
+    "download": "reused existing file (sha256 matches)",
+    "downloaded_utc": "2026-11-10T05:40:26Z",
+    "bytes": 25585843,
+    "sha256": "b8b0b76783024b85797e5cc75064eb83fc5288b41e9654dabc7be6ae944011f6"
+  },
+  "license": "CC BY-SA 4.0 (https://github.com/facebookresearch/flores/blob/main/README.md)",
+  "member_sha256": {
+    "./flores200_dataset/devtest/eng_Latn.devtest": "612e9fbe87997617c0fa8fa8929654a4f49b728d96738112c2b86ef6a1d78d88",
+    "./flores200_dataset/devtest/tha_Thai.devtest": "d9bed1bf963821eab20051b18674950f345b67b0d0925290eaa6836eb06e76ca",
+    "./flores200_dataset/metadata_devtest.tsv": "8edac47f861fcf6b54dad2068c10ba8f741da8b8676861c6bc27fcd9f5483b36"
+  },
+  "preferred_source_probe_flores_plus": {
+    "repo": "openlanguagedata/flores_plus",
+    "probe_file": "https://huggingface.co/datasets/openlanguagedata/flores_plus/resolve/main/devtest/tha_Thai.jsonl",
+    "checked_utc": "2026-11-10T07:28:19Z",
+    "anonymous_http_status": 401,
+    "hf_token_present": false
+  },
+  "normalized_tsv": {
+    "path": "data/flores200_devtest.tsv",
+    "sha256": "9df6db4cc0d577297870ceb68ff33f57d8c906df06d857be42843efaefc1924f",
+    "rows": 1012
+  },
+  "prepared_utc": "2026-11-10T07:28:20Z"
+}

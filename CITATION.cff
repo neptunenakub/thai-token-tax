@@ -1,0 +1,30 @@
+# How to cite this project. Format: https://citation-file-format.github.io/
+cff-version: 1.2.0
+message: "If you use these results, please cite this project."
+type: software
+title: "Thai Token Tax: how many more tokens Thai text costs than the same English text on major AI models"
+abstract: >-
+  A reproducible benchmark of how many tokens the tokenizers of major AI models spend on Thai
+  text compared with the same content in English, and what that costs in baht at official list
+  prices. It measures cost, not answer quality.
+authors:
+  - name: "Thai Token Tax authors"
+version: 0.1.0
+license:
+  - MIT
+  - CC-BY-4.0
+keywords:
+  - tokenizer
+  - Thai
+  - large language models
+  - benchmark
+  - cost
+repository-code: "https://github.com/neptunenakub/thai-token-tax"
+url: "https://neptunenakub.github.io/thai-token-tax/"
+references:
+  - type: article
+    title: "No Language Left Behind: Scaling Human-Centered Machine Translation"
+    authors:
+      - name: "NLLB Team"
+    year: 2022
+    notes: "FLORES-200, the dataset measured here (CC BY-SA 4.0). arXiv:2207.04672"

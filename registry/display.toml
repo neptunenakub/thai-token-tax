@@ -1,0 +1,161 @@
+# What the site shows, in words. No measurement lives here: every number on the site comes
+# from results/ through `ttt site`. This file only names things and picks which models the
+# headline talks about.
+#
+# [[group]]: a short name for a tokenizer group (all models that give identical token counts).
+#   leader  the group's first fully measured model (the `same_counts_as` target in the summary)
+#   en, th  the short name shown on the chart
+#   named   model ids the short name mentions. `ttt site` stops if one of them is not in the
+#           group, so a label can never claim a model the measurement does not support.
+# A group without an entry here is shown under its leader's model id.
+
+# Model families sold as pay-per-token APIs. A tokenizer group with a member from one of these
+# families is drawn as "API"; the others are "open models only".
+api_families = ["OpenAI", "Gemini", "Claude"]
+
+[headline]
+scenario = "line_oa_chatbot"
+claude = "claude-opus-5-5"
+gpt = "gpt-5.5"
+gemini = "gemini-3.8-flash"
+gemini_other = "gemini-4-argon"
+
+# Short names of the four headline tokenizers: first screen of the site and the share card.
+[headline.short]
+claude = "Claude 5.5"
+gpt = "GPT-5.x / 6"
+gemini = "Gemini 3.x"
+gemini_other = "Gemini 4"
+
+# "More tokens is not always a higher bill": shown only if the numbers still say so.
+[counterexample]
+more_tokens = "claude-haiku-5-5"
+fewer_tokens = "gemini-3.5-flash-lite"
+
+# Two tokenizer generations of one vendor, for the note on why premiums of different models
+# cannot be compared. Shown only if Thai stayed within 2% while English rose by more than 10%.
+[generations]
+older = "claude-haiku-4-5-20251001"
+newer = "claude-opus-5-5"
+
+# The group whose members include current Thai models (for the factual note under the chart).
+[thai_models]
+group = "Qwen/Qwen3-8B"
+
+# Display names for API models. A model without an entry is shown by its id.
+[names]
+"claude-opus-5-5" = "Claude Opus 5.5"
+"claude-fable-5-2" = "Claude Fable 5.2"
+"claude-sonnet-5-5" = "Claude Sonnet 5.5"
+"claude-haiku-5-5" = "Claude Haiku 5.5"
+"claude-haiku-4-5-20251001" = "Claude Haiku 4.5"
+"claude-sonnet-4-6" = "Claude Sonnet 4.6"
+"gpt-6-astra" = "GPT-6 Astra"
+"gpt-6-sol" = "GPT-6 Sol"
+"gpt-6-luna" = "GPT-6 Luna"
+"gpt-6.1-sol" = "GPT-6.1 Sol"
+"gpt-6.1-terra" = "GPT-6.1 Terra"
+"gpt-5.6-sol" = "GPT-5.6 Sol"
+"gpt-5.5" = "GPT-5.5"
+"gpt-5.4" = "GPT-5.4"
+"gpt-5.2" = "GPT-5.2"
+"gemini-4-argon" = "Gemini 4 Argon"
+"gemini-3.8-flash" = "Gemini 3.8 Flash"
+"gemini-3.6-flash" = "Gemini 3.6 Flash"
+"gemini-3.5-flash-lite" = "Gemini 3.5 Flash-Lite"
+"gemini-3.1-pro-preview" = "Gemini 3.1 Pro Preview"
+
+# Licence names shown in the site footer and the README. The legal texts are the files
+# LICENSE (code) and LICENSE-DATA (results and site text). `holder` is the copyright holder.
+[licences]
+code = "MIT"
+results = "CC BY 4.0"
+dataset = "CC BY-SA 4.0"
+holder = "Thai Token Tax authors"
+
+# Pairs with the SAME official list price (`ttt site` checks that they really are the same).
+[[same_price_pair]]
+a = "claude-opus-5-5"
+b = "gpt-5.6-sol"
+
+[[same_price_pair]]
+a = "claude-haiku-5-5"
+b = "gpt-6-luna"
+
+[[group]]
+leader = "claude-opus-5-5"
+en = "Claude Opus 5.5, Sonnet 5.5, Haiku 5.5, Fable 5.2"
+th = "Claude Opus 5.5, Sonnet 5.5, Haiku 5.5, Fable 5.2"
+named = ["claude-opus-5-5", "claude-sonnet-5-5", "claude-haiku-5-5", "claude-fable-5-2"]
+
+[[group]]
+leader = "claude-haiku-4-5-20251001"
+en = "Claude Haiku 4.5, Sonnet 4.6"
+th = "Claude Haiku 4.5, Sonnet 4.6"
+named = ["claude-haiku-4-5-20251001", "claude-sonnet-4-6"]
+
+[[group]]
+leader = "tiktoken/o200k_base"
+en = "GPT-5.x and GPT-6"
+th = "GPT-5.x และ GPT-6"
+named = ["gpt-5.5", "gpt-5.6-sol", "gpt-5.4", "gpt-5.2", "gpt-6-astra", "gpt-6-sol", "gpt-6-luna", "gpt-6.1-sol", "gpt-6.1-terra"]
+
+[[group]]
+leader = "tiktoken/cl100k_base"
+en = "GPT-4, GPT-3.5 (older generation)"
+th = "GPT-4, GPT-3.5 (รุ่นเก่า)"
+named = ["tiktoken/cl100k_base"]
+
+[[group]]
+leader = "gemini-4-argon"
+en = "Gemini 4 Argon"
+th = "Gemini 4 Argon"
+named = ["gemini-4-argon"]
+
+[[group]]
+leader = "typhoon-ai/typhoon2.1-gemma3-12b"
+en = "Gemini 3.x, Gemma 4, Typhoon 2.1"
+th = "Gemini 3.x, Gemma 4, Typhoon 2.1"
+named = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash-lite", "gemini-3.1-pro-preview", "google/gemma-4-31B-it", "typhoon-ai/typhoon2.1-gemma3-12b"]
+
+[[group]]
+leader = "Qwen/Qwen3.5-9B"
+en = "Qwen3.5, Qwen3.8, Qwen-SEA-LION v4.5"
+th = "Qwen3.5, Qwen3.8, Qwen-SEA-LION v4.5"
+named = ["Qwen/Qwen3.5-9B", "Qwen/Qwen3.8-27B", "aisingapore/Qwen-SEA-LION-v4.5-27B-IT"]
+
+[[group]]
+leader = "Qwen/Qwen3-8B"
+en = "Qwen3, Typhoon 2.5, OpenThaiGPT 1.5 / 1.6 / R1"
+th = "Qwen3, Typhoon 2.5, OpenThaiGPT 1.5 / 1.6 / R1"
+named = ["Qwen/Qwen3-8B", "typhoon-ai/typhoon2.5-qwen3-4b", "openthaigpt/openthaigpt1.5-7b-instruct", "openthaigpt/openthaigpt-1.6-72b-instruct", "openthaigpt/openthaigpt-r1-32b-instruct"]
+
+[[group]]
+leader = "typhoon-ai/llama3.1-typhoon2-8b-instruct"
+en = "Llama 3.1, Llama 3.3, Typhoon 2 (Llama 3.1)"
+th = "Llama 3.1, Llama 3.3, Typhoon 2 (Llama 3.1)"
+named = ["meta-llama/Llama-3.1-8B-Instruct", "meta-llama/Llama-3.3-70B-Instruct", "typhoon-ai/llama3.1-typhoon2-8b-instruct"]
+
+[[group]]
+leader = "aisingapore/Nemotron-SEA-LION-v4.8-30B-A3B"
+en = "Nemotron-SEA-LION v4.8"
+th = "Nemotron-SEA-LION v4.8"
+named = ["aisingapore/Nemotron-SEA-LION-v4.8-30B-A3B"]
+
+[[group]]
+leader = "aisingapore/Gemma-SEA-LION-v3-9B-IT"
+en = "Gemma-SEA-LION v3"
+th = "Gemma-SEA-LION v3"
+named = ["aisingapore/Gemma-SEA-LION-v3-9B-IT"]
+
+[[group]]
+leader = "typhoon-ai/typhoon-7b"
+en = "Typhoon 7B"
+th = "Typhoon 7B"
+named = ["typhoon-ai/typhoon-7b"]
+
+[[group]]
+leader = "openthaigpt/openthaigpt-1.0.0-7b-chat"
+en = "OpenThaiGPT 1.0.0"
+th = "OpenThaiGPT 1.0.0"
+named = ["openthaigpt/openthaigpt-1.0.0-7b-chat"]

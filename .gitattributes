@@ -1,0 +1,3 @@
+# Store every file byte-for-byte (no CRLF conversion), so the SHA-256 values
+# recorded in data/ and results/ stay valid on any machine.
+* -text

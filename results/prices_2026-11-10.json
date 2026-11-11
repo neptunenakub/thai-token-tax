@@ -1,0 +1,355 @@
+{
+  "created_utc": "2026-11-10T09:25:04Z",
+  "unit": "US dollars per 1,000,000 tokens",
+  "tier": "standard list price for text: not batch, not cached, shortest-context tier, the price in force on the fetch date",
+  "sources": {
+    "anthropic": {
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing.md",
+      "fetched_utc": "2026-11-10T09:24:58Z",
+      "page_sha256": "4fe2b894c1ec51f87e10428bb630886489c6a668fb674bc607a2c36a6834aabb",
+      "page_bytes": 55227
+    },
+    "openai": {
+      "url": "https://developers.openai.com/api/docs/pricing.md",
+      "fetched_utc": "2026-11-10T09:24:58Z",
+      "page_sha256": "7a62cd6710ca281c30cdce94f939532fcc0a88b1bd3fd63d1e84085fc0db716a",
+      "page_bytes": 21006
+    },
+    "gemini": {
+      "url": "https://ai.google.dev/gemini-api/docs/pricing.md.txt",
+      "fetched_utc": "2026-11-10T09:25:03Z",
+      "page_sha256": "ad2140dd935ccca0a66bb70f7c1b59b5e4c74d6180b599a8c32e0dcf4a422a2e",
+      "page_bytes": 103583
+    }
+  },
+  "models": {
+    "claude-opus-5-5": {
+      "provider": "anthropic",
+      "input_usd_per_mtok": 4.0,
+      "output_usd_per_mtok": 20.0,
+      "page_row": "Claude Opus 5.5",
+      "page_text_input": "$4 / MTok",
+      "page_text_output": "$20 / MTok",
+      "page_row_cells": {
+        "Model": "Claude Opus 5.5",
+        "Base input tokens": "$4 / MTok",
+        "5m cache writes": "$5 / MTok",
+        "1h cache writes": "$8 / MTok",
+        "Cache hits and refreshes": "$0.20 / MTok<sup>2</sup>",
+        "Output tokens": "$20 / MTok"
+      }
+    },
+    "claude-fable-5-2": {
+      "provider": "anthropic",
+      "input_usd_per_mtok": 8.0,
+      "output_usd_per_mtok": 40.0,
+      "page_row": "Claude Fable 5.2",
+      "page_text_input": "$8 / MTok",
+      "page_text_output": "$40 / MTok",
+      "page_row_cells": {
+        "Model": "Claude Fable 5.2",
+        "Base input tokens": "$8 / MTok",
+        "5m cache writes": "$10 / MTok",
+        "1h cache writes": "$16 / MTok",
+        "Cache hits and refreshes": "$0.20 / MTok<sup>1</sup>",
+        "Output tokens": "$40 / MTok"
+      }
+    },
+    "claude-sonnet-5-5": {
+      "provider": "anthropic",
+      "input_usd_per_mtok": 2.0,
+      "output_usd_per_mtok": 10.0,
+      "page_row": "Claude Sonnet 5.5",
+      "page_text_input": "$2 / MTok",
+      "page_text_output": "$10 / MTok",
+      "page_row_cells": {
+        "Model": "Claude Sonnet 5.5",
+        "Base input tokens": "$2 / MTok",
+        "5m cache writes": "$2.50 / MTok",
+        "1h cache writes": "$4 / MTok",
+        "Cache hits and refreshes": "$0.10 / MTok<sup>2</sup>",
+        "Output tokens": "$10 / MTok"
+      }
+    },
+    "claude-haiku-5-5": {
+      "provider": "anthropic",
+      "input_usd_per_mtok": 0.1,
+      "output_usd_per_mtok": 0.5,
+      "page_row": "Claude Haiku 5.5 (for prompts up to 100,000 tokens)",
+      "page_text_input": "$0.10 / MTok",
+      "page_text_output": "$0.50 / MTok",
+      "page_row_cells": {
+        "Model": "Claude Haiku 5.5 (for prompts up to 100,000 tokens)",
+        "Base input tokens": "$0.10 / MTok",
+        "5m cache writes": "$0.125 / MTok",
+        "1h cache writes": "$0.20 / MTok",
+        "Cache hits and refreshes": "$0.01 / MTok",
+        "Output tokens": "$0.50 / MTok"
+      }
+    },
+    "claude-haiku-4-5-20251001": {
+      "provider": "anthropic",
+      "input_usd_per_mtok": 1.0,
+      "output_usd_per_mtok": 5.0,
+      "page_row": "Claude Haiku 4.5",
+      "page_text_input": "$1 / MTok",
+      "page_text_output": "$5 / MTok",
+      "page_row_cells": {
+        "Model": "Claude Haiku 4.5",
+        "Base input tokens": "$1 / MTok",
+        "5m cache writes": "$1.25 / MTok",
+        "1h cache writes": "$2 / MTok",
+        "Cache hits and refreshes": "$0.10 / MTok",
+        "Output tokens": "$5 / MTok"
+      }
+    },
+    "claude-sonnet-4-6": {
+      "provider": "anthropic",
+      "input_usd_per_mtok": 3.0,
+      "output_usd_per_mtok": 15.0,
+      "page_row": "Claude Sonnet 4.6",
+      "page_text_input": "$3 / MTok",
+      "page_text_output": "$15 / MTok",
+      "page_row_cells": {
+        "Model": "Claude Sonnet 4.6",
+        "Base input tokens": "$3 / MTok",
+        "5m cache writes": "$3.75 / MTok",
+        "1h cache writes": "$6 / MTok",
+        "Cache hits and refreshes": "$0.30 / MTok",
+        "Output tokens": "$15 / MTok"
+      }
+    },
+    "gpt-6-astra": {
+      "provider": "openai",
+      "input_usd_per_mtok": 10.0,
+      "output_usd_per_mtok": 50.0,
+      "page_row": "gpt-6-astra",
+      "page_text_input": "$10.00",
+      "page_text_output": "$50.00",
+      "page_row_cells": {
+        "Model": "gpt-6-astra",
+        "Short context input": "$10.00",
+        "Short context output": "$50.00",
+        "Short context cached input": "$1.00",
+        "Short context 30m write": "$12.50",
+        "Short context 12h write": "$25.00",
+        "Long context input": "$20.00",
+        "Long context output": "$75.00",
+        "Long context cached input": "$2.00",
+        "Long context 30m write": "$25.00",
+        "Long context 12h write": "$50.00"
+      }
+    },
+    "gpt-6-sol": {
+      "provider": "openai",
+      "input_usd_per_mtok": 2.0,
+      "output_usd_per_mtok": 10.0,
+      "page_row": "gpt-6-sol",
+      "page_text_input": "$2.00",
+      "page_text_output": "$10.00",
+      "page_row_cells": {
+        "Model": "gpt-6-sol",
+        "Short context input": "$2.00",
+        "Short context output": "$10.00",
+        "Short context cached input": "$0.20",
+        "Short context 30m write": "$2.50",
+        "Short context 12h write": "$5.00",
+        "Long context input": "$4.00",
+        "Long context output": "$15.00",
+        "Long context cached input": "$0.40",
+        "Long context 30m write": "$5.00",
+        "Long context 12h write": "$10.00"
+      }
+    },
+    "gpt-6-luna": {
+      "provider": "openai",
+      "input_usd_per_mtok": 0.1,
+      "output_usd_per_mtok": 0.5,
+      "page_row": "gpt-6-luna",
+      "page_text_input": "$0.10",
+      "page_text_output": "$0.50",
+      "page_row_cells": {
+        "Model": "gpt-6-luna",
+        "Short context input": "$0.10",
+        "Short context output": "$0.50",
+        "Short context cached input": "$0.01",
+        "Short context 30m write": "$0.125",
+        "Short context 12h write": "$0.25",
+        "Long context input": "$0.20",
+        "Long context output": "$0.75",
+        "Long context cached input": "$0.02",
+        "Long context 30m write": "$0.25",
+        "Long context 12h write": "$0.50"
+      }
+    },
+    "gpt-6.1-sol": {
+      "provider": "openai",
+      "input_usd_per_mtok": 2.0,
+      "output_usd_per_mtok": 10.0,
+      "page_row": "gpt-6.1-sol",
+      "page_text_input": "$2.00",
+      "page_text_output": "$10.00",
+      "page_row_cells": {
+        "Model": "gpt-6.1-sol",
+        "Short context input": "$2.00",
+        "Short context output": "$10.00",
+        "Short context cached input": "$0.10",
+        "Short context 30m write": "$2.50",
+        "Short context 12h write": "$5.00",
+        "Long context input": "$4.00",
+        "Long context output": "$15.00",
+        "Long context cached input": "$0.20",
+        "Long context 30m write": "$5.00",
+        "Long context 12h write": "$10.00"
+      }
+    },
+    "gpt-6.1-terra": {
+      "provider": "openai",
+      "input_usd_per_mtok": 1.0,
+      "output_usd_per_mtok": 5.0,
+      "page_row": "gpt-6.1-terra",
+      "page_text_input": "$1.00",
+      "page_text_output": "$5.00",
+      "page_row_cells": {
+        "Model": "gpt-6.1-terra",
+        "Short context input": "$1.00",
+        "Short context output": "$5.00",
+        "Short context cached input": "$0.05",
+        "Short context 30m write": "$1.25",
+        "Short context 12h write": "$2.50",
+        "Long context input": "$2.00",
+        "Long context output": "$7.50",
+        "Long context cached input": "$0.10",
+        "Long context 30m write": "$2.50",
+        "Long context 12h write": "$5.00"
+      }
+    },
+    "gpt-5.6-sol": {
+      "provider": "openai",
+      "input_usd_per_mtok": 4.0,
+      "output_usd_per_mtok": 20.0,
+      "page_row": "gpt-5.6-sol",
+      "page_text_input": "$4.00",
+      "page_text_output": "$20.00",
+      "page_row_cells": {
+        "Model": "gpt-5.6-sol",
+        "Short context input": "$4.00",
+        "Short context output": "$20.00",
+        "Short context cached input": "$0.40",
+        "Short context 30m write": "$5.00",
+        "Short context 12h write": "$10.00",
+        "Long context input": "$8.00",
+        "Long context output": "$30.00",
+        "Long context cached input": "$0.80",
+        "Long context 30m write": "$10.00",
+        "Long context 12h write": "$20.00"
+      }
+    },
+    "gpt-5.5": {
+      "provider": "openai",
+      "input_usd_per_mtok": 5.0,
+      "output_usd_per_mtok": 30.0,
+      "page_row": "gpt-5.5 (<272K context length)",
+      "page_text_input": "$5.00",
+      "page_text_output": "$30.00",
+      "page_row_cells": {
+        "Model": "gpt-5.5 (<272K context length)",
+        "Short context input": "$5.00",
+        "Short context output": "$30.00",
+        "Short context cached input": "$0.50",
+        "Short context 30m write": "-",
+        "Short context 12h write": "-",
+        "Long context input": "$10.00",
+        "Long context output": "$45.00",
+        "Long context cached input": "$1.00",
+        "Long context 30m write": "-",
+        "Long context 12h write": "-"
+      }
+    },
+    "gpt-5.4": {
+      "provider": "openai",
+      "input_usd_per_mtok": 2.5,
+      "output_usd_per_mtok": 15.0,
+      "page_row": "gpt-5.4 (<272K context length)",
+      "page_text_input": "$2.50",
+      "page_text_output": "$15.00",
+      "page_row_cells": {
+        "Model": "gpt-5.4 (<272K context length)",
+        "Short context input": "$2.50",
+        "Short context output": "$15.00",
+        "Short context cached input": "$0.25",
+        "Short context 30m write": "-",
+        "Short context 12h write": "-",
+        "Long context input": "$5.00",
+        "Long context output": "$22.50",
+        "Long context cached input": "$0.50",
+        "Long context 30m write": "-",
+        "Long context 12h write": "-"
+      }
+    },
+    "gpt-5.2": {
+      "provider": "openai",
+      "input_usd_per_mtok": 1.75,
+      "output_usd_per_mtok": 14.0,
+      "page_row": "gpt-5.2",
+      "page_text_input": "$1.75",
+      "page_text_output": "$14.00",
+      "page_row_cells": {
+        "Model": "gpt-5.2",
+        "Input": "$1.75",
+        "Output": "$14.00",
+        "Cached input": "$0.175"
+      }
+    },
+    "gemini-3.8-flash": {
+      "provider": "gemini",
+      "input_usd_per_mtok": 0.75,
+      "output_usd_per_mtok": 3.75,
+      "page_row": "gemini-3.8-flash",
+      "page_text_input": "$0.75 through December 31, 2026. $1.50 starting January 1, 2027.",
+      "page_text_output": "$3.75 through December 31, 2026. $7.50 starting January 1, 2027."
+    },
+    "gemini-4-argon": {
+      "provider": "gemini",
+      "input_usd_per_mtok": 2.0,
+      "output_usd_per_mtok": 10.0,
+      "page_row": "gemini-4-argon",
+      "page_text_input": "$2.00 through November 30, 2026. $4.00 starting December 1, 2026.",
+      "page_text_output": "$10.00 through November 30, 2026. $20.00 starting December 1, 2026."
+    },
+    "gemini-3.6-flash": {
+      "provider": "gemini",
+      "input_usd_per_mtok": 0.75,
+      "output_usd_per_mtok": 3.75,
+      "page_row": "gemini-3.6-flash",
+      "page_text_input": "$0.75 through December 31, 2026. $1.50 starting January 1, 2027.",
+      "page_text_output": "$3.75 through December 31, 2026. $7.50 starting January 1, 2027."
+    },
+    "gemini-3.5-flash-lite": {
+      "provider": "gemini",
+      "input_usd_per_mtok": 0.3,
+      "output_usd_per_mtok": 2.5,
+      "page_row": "gemini-3.5-flash-lite",
+      "page_text_input": "$0.30 (text / image / video / audio)",
+      "page_text_output": "$2.50"
+    },
+    "gemini-3.1-pro-preview": {
+      "provider": "gemini",
+      "input_usd_per_mtok": 2.0,
+      "output_usd_per_mtok": 12.0,
+      "page_row": "gemini-3.1-pro-preview",
+      "page_text_input": "$2.00, prompts <= 200k tokens $4.00, prompts > 200k tokens",
+      "page_text_output": "$12.00, prompts <= 200k tokens $18.00, prompts > 200k"
+    }
+  },
+  "missing": [],
+  "exchange_rate": {
+    "thb_per_usd": 33.527,
+    "rate_date": "09 November 2026",
+    "what": "Bank of Thailand weighted-average interbank exchange rate, baht per US dollar",
+    "page": "https://www.bot.or.th/en/statistics/exchange-rate.html",
+    "url": "https://www.bot.or.th/content/bot/en/statistics/exchange-rate/jcr:content/root/container/statisticstable2.results.level3cache.json",
+    "fetched_utc": "2026-11-10T09:25:04Z",
+    "data_sha256": "cf02930e304687ef52bf8a161f8c16085568276d86aa602f41aa886bfbbb1e42"
+  }
+}

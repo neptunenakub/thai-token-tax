@@ -1,0 +1,1379 @@
+{
+ "inputs": {
+  "summary_2026-11-10_day2c.csv": "ccb5a2d7be263ba46dd8e00e30d2bdbfc6de6f659ec66068b2f89bfef14221e5",
+  "costs_2026-11-10_day2c.csv": "a07e012d538c7093b12853c4c2176abdf86ae36a171d4be48090d5f328362eea",
+  "prices_2026-11-10.json": "fdcc7977310d8d566b50ff4776e16d9b7f38df970733076d3a1de429dfc5b6ed",
+  "billing_check_2026-11-10.json": "c4055240b26ee97e5040bc55b21475167111fdba516277151c222ba6b3d33f88"
+ },
+ "dates": {
+  "data": "2026-11-10",
+  "prices": "2026-11-10",
+  "exchange_rate": "2026-11-09",
+  "billing_check": "2026-11-10"
+ },
+ "dataset": {
+  "sentence_pairs": 1012,
+  "thai_chars": 126100,
+  "english_chars": 131964,
+  "english_chars_per_thai_char": 1.0465027755749405
+ },
+ "exchange_rate": {
+  "thb_per_usd": 33.527,
+  "page": "https://www.bot.or.th/en/statistics/exchange-rate.html"
+ },
+ "price_sources": {
+  "anthropic": "https://platform.claude.com/docs/en/about-claude/pricing.md",
+  "openai": "https://developers.openai.com/api/docs/pricing.md",
+  "gemini": "https://ai.google.dev/gemini-api/docs/pricing.md.txt"
+ },
+ "price_page_text": {
+  "gemini-3.8-flash": {
+   "input": "$0.75 through December 31, 2026. $1.50 starting January 1, 2027.",
+   "output": "$3.75 through December 31, 2026. $7.50 starting January 1, 2027."
+  },
+  "gemini-4-argon": {
+   "input": "$2.00 through November 30, 2026. $4.00 starting December 1, 2026.",
+   "output": "$10.00 through November 30, 2026. $20.00 starting December 1, 2026."
+  },
+  "gemini-3.6-flash": {
+   "input": "$0.75 through December 31, 2026. $1.50 starting January 1, 2027.",
+   "output": "$3.75 through December 31, 2026. $7.50 starting January 1, 2027."
+  }
+ },
+ "headline": {
+  "scenario": "line_oa_chatbot",
+  "same_price_ratio": 2.135738767657545,
+  "claude_thai_tokens_per_1k_chars": 889.524187,
+  "gpt_thai_tokens_per_1k_chars": 416.494845,
+  "gemini_thai_tokens_per_1k_chars": 344.052339,
+  "gemini_other_thai_tokens_per_1k_chars": 325.884219,
+  "claude_over_gpt_tokens": 2.1357387676671005,
+  "claude_over_gemini_tokens": 2.585432755915663,
+  "short": {
+   "claude": "Claude 5.5",
+   "gpt": "GPT-5.x / 6",
+   "gemini": "Gemini 3.x",
+   "gemini_other": "Gemini 4"
+  }
+ },
+ "names": {
+  "claude-opus-5-5": "Claude Opus 5.5",
+  "claude-fable-5-2": "Claude Fable 5.2",
+  "claude-sonnet-5-5": "Claude Sonnet 5.5",
+  "claude-haiku-5-5": "Claude Haiku 5.5",
+  "claude-haiku-4-5-20251001": "Claude Haiku 4.5",
+  "claude-sonnet-4-6": "Claude Sonnet 4.6",
+  "gpt-6-astra": "GPT-6 Astra",
+  "gpt-6-sol": "GPT-6 Sol",
+  "gpt-6-luna": "GPT-6 Luna",
+  "gpt-6.1-sol": "GPT-6.1 Sol",
+  "gpt-6.1-terra": "GPT-6.1 Terra",
+  "gpt-5.6-sol": "GPT-5.6 Sol",
+  "gpt-5.5": "GPT-5.5",
+  "gpt-5.4": "GPT-5.4",
+  "gpt-5.2": "GPT-5.2",
+  "gemini-4-argon": "Gemini 4 Argon",
+  "gemini-3.8-flash": "Gemini 3.8 Flash",
+  "gemini-3.6-flash": "Gemini 3.6 Flash",
+  "gemini-3.5-flash-lite": "Gemini 3.5 Flash-Lite",
+  "gemini-3.1-pro-preview": "Gemini 3.1 Pro Preview"
+ },
+ "notes": {
+  "counterexample": {
+   "more_tokens": "claude-haiku-5-5",
+   "fewer_tokens": "gemini-3.5-flash-lite",
+   "more_tokens_thai_per_1k_chars": 889.524187,
+   "fewer_tokens_thai_per_1k_chars": 344.052339,
+   "more_tokens_thai_thb": 730.963628,
+   "fewer_tokens_thai_thb": 1021.197336
+  },
+  "generations": {
+   "older": "claude-haiku-4-5-20251001",
+   "newer": "claude-opus-5-5"
+  },
+  "thai_models_group": "Qwen/Qwen3-8B"
+ },
+ "same_price_pairs": [
+  {
+   "a": "claude-opus-5-5",
+   "b": "gpt-5.6-sol",
+   "input_usd_per_mtok": 4.0,
+   "output_usd_per_mtok": 20.0,
+   "a_thai_thb": 29238.5451,
+   "b_thai_thb": 13690.131744,
+   "ratio": 2.135738767657545
+  },
+  {
+   "a": "claude-haiku-5-5",
+   "b": "gpt-6-luna",
+   "input_usd_per_mtok": 0.1,
+   "output_usd_per_mtok": 0.5,
+   "a_thai_thb": 730.963628,
+   "b_thai_thb": 342.253294,
+   "ratio": 2.13573876662236
+  }
+ ],
+ "groups": [
+  {
+   "leader": "tiktoken/cl100k_base",
+   "label": {
+    "en": "GPT-4, GPT-3.5 (older generation)",
+    "th": "GPT-4, GPT-3.5 (รุ่นเก่า)"
+   },
+   "api": true,
+   "thai_tokens_per_1k_chars": 936.058684,
+   "english_tokens_per_1k_chars": 205.972841,
+   "premium": 4.342629,
+   "premium_ci_low": 4.286521,
+   "premium_ci_high": 4.399927,
+   "thai_tokens": 118037,
+   "english_tokens": 27181,
+   "members": [
+    {
+     "model_id": "tiktoken/cl100k_base",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    }
+   ]
+  },
+  {
+   "leader": "claude-opus-5-5",
+   "label": {
+    "en": "Claude Opus 5.5, Sonnet 5.5, Haiku 5.5, Fable 5.2",
+    "th": "Claude Opus 5.5, Sonnet 5.5, Haiku 5.5, Fable 5.2"
+   },
+   "api": true,
+   "thai_tokens_per_1k_chars": 889.524187,
+   "english_tokens_per_1k_chars": 317.609348,
+   "premium": 2.676234,
+   "premium_ci_low": 2.645034,
+   "premium_ci_high": 2.708533,
+   "thai_tokens": 112169,
+   "english_tokens": 41913,
+   "members": [
+    {
+     "model_id": "claude-opus-5-5",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "claude-fable-5-2",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    },
+    {
+     "model_id": "claude-sonnet-5-5",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    },
+    {
+     "model_id": "claude-haiku-5-5",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    }
+   ]
+  },
+  {
+   "leader": "claude-haiku-4-5-20251001",
+   "label": {
+    "en": "Claude Haiku 4.5, Sonnet 4.6",
+    "th": "Claude Haiku 4.5, Sonnet 4.6"
+   },
+   "api": true,
+   "thai_tokens_per_1k_chars": 886.478985,
+   "english_tokens_per_1k_chars": 218.86272,
+   "premium": 3.870404,
+   "premium_ci_low": 3.819974,
+   "premium_ci_high": 3.922383,
+   "thai_tokens": 111785,
+   "english_tokens": 28882,
+   "members": [
+    {
+     "model_id": "claude-haiku-4-5-20251001",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "claude-sonnet-4-6",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    }
+   ]
+  },
+  {
+   "leader": "Qwen/Qwen3-8B",
+   "label": {
+    "en": "Qwen3, Typhoon 2.5, OpenThaiGPT 1.5 / 1.6 / R1",
+    "th": "Qwen3, Typhoon 2.5, OpenThaiGPT 1.5 / 1.6 / R1"
+   },
+   "api": false,
+   "thai_tokens_per_1k_chars": 556.66138,
+   "english_tokens_per_1k_chars": 209.299506,
+   "premium": 2.541455,
+   "premium_ci_low": 2.508058,
+   "premium_ci_high": 2.575112,
+   "thai_tokens": 70195,
+   "english_tokens": 27620,
+   "members": [
+    {
+     "model_id": "Qwen/Qwen3-8B",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "typhoon-ai/typhoon2.5-qwen3-4b",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "typhoon-ai/typhoon-s-thaillm-8b-instruct-research-preview",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "openthaigpt/openthaigpt1.5-7b-instruct",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "openthaigpt/openthaigpt-1.6-72b-instruct",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "openthaigpt/openthaigpt-r1-32b-instruct",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "openthaigpt/openthaigpt-thaillm-8b-instruct-v0.7.2-research-preview",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "aisingapore/Qwen-SEA-LION-v4-32B-IT",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    }
+   ]
+  },
+  {
+   "leader": "aisingapore/Nemotron-SEA-LION-v4.8-30B-A3B",
+   "label": {
+    "en": "Nemotron-SEA-LION v4.8",
+    "th": "Nemotron-SEA-LION v4.8"
+   },
+   "api": false,
+   "thai_tokens_per_1k_chars": 521.768438,
+   "english_tokens_per_1k_chars": 210.860538,
+   "premium": 2.364515,
+   "premium_ci_low": 2.33537,
+   "premium_ci_high": 2.394526,
+   "thai_tokens": 65795,
+   "english_tokens": 27826,
+   "members": [
+    {
+     "model_id": "aisingapore/Nemotron-SEA-LION-v4.8-30B-A3B",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    }
+   ]
+  },
+  {
+   "leader": "typhoon-ai/llama3.1-typhoon2-8b-instruct",
+   "label": {
+    "en": "Llama 3.1, Llama 3.3, Typhoon 2 (Llama 3.1)",
+    "th": "Llama 3.1, Llama 3.3, Typhoon 2 (Llama 3.1)"
+   },
+   "api": false,
+   "thai_tokens_per_1k_chars": 470.713719,
+   "english_tokens_per_1k_chars": 205.889485,
+   "premium": 2.184652,
+   "premium_ci_low": 2.158668,
+   "premium_ci_high": 2.210767,
+   "thai_tokens": 59357,
+   "english_tokens": 27170,
+   "members": [
+    {
+     "model_id": "typhoon-ai/llama3.1-typhoon2-8b-instruct",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "aisingapore/Llama-SEA-LION-v3.5-8B-R",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    }
+   ]
+  },
+  {
+   "leader": "tiktoken/o200k_base",
+   "label": {
+    "en": "GPT-5.x and GPT-6",
+    "th": "GPT-5.x และ GPT-6"
+   },
+   "api": true,
+   "thai_tokens_per_1k_chars": 416.494845,
+   "english_tokens_per_1k_chars": 203.631293,
+   "premium": 1.954451,
+   "premium_ci_low": 1.930416,
+   "premium_ci_high": 1.978694,
+   "thai_tokens": 52520,
+   "english_tokens": 26872,
+   "members": [
+    {
+     "model_id": "tiktoken/o200k_base",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "tiktoken/o200k_harmony",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "gpt-6-astra",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "gpt-6-sol",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    },
+    {
+     "model_id": "gpt-6-luna",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    },
+    {
+     "model_id": "gpt-6.1-sol",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    },
+    {
+     "model_id": "gpt-6.1-terra",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    },
+    {
+     "model_id": "gpt-5.5",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "gpt-5.6-sol",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    },
+    {
+     "model_id": "gpt-5.4",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    },
+    {
+     "model_id": "gpt-5.2",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    }
+   ]
+  },
+  {
+   "leader": "aisingapore/Gemma-SEA-LION-v3-9B-IT",
+   "label": {
+    "en": "Gemma-SEA-LION v3",
+    "th": "Gemma-SEA-LION v3"
+   },
+   "api": false,
+   "thai_tokens_per_1k_chars": 394.885012,
+   "english_tokens_per_1k_chars": 204.866479,
+   "premium": 1.841872,
+   "premium_ci_low": 1.817362,
+   "premium_ci_high": 1.866625,
+   "thai_tokens": 49795,
+   "english_tokens": 27035,
+   "members": [
+    {
+     "model_id": "aisingapore/Gemma-SEA-LION-v3-9B-IT",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    }
+   ]
+  },
+  {
+   "leader": "typhoon-ai/typhoon2.1-gemma3-12b",
+   "label": {
+    "en": "Gemini 3.x, Gemma 4, Typhoon 2.1",
+    "th": "Gemini 3.x, Gemma 4, Typhoon 2.1"
+   },
+   "api": true,
+   "thai_tokens_per_1k_chars": 344.052339,
+   "english_tokens_per_1k_chars": 205.457549,
+   "premium": 1.600155,
+   "premium_ci_low": 1.580152,
+   "premium_ci_high": 1.620725,
+   "thai_tokens": 43385,
+   "english_tokens": 27113,
+   "members": [
+    {
+     "model_id": "typhoon-ai/typhoon2.1-gemma3-12b",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "aisingapore/Gemma-SEA-LION-v4-27B-IT",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "google/gemma-4-31B-it",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "gemini-3.8-flash",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "gemini-3.6-flash",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    },
+    {
+     "model_id": "gemini-3.5-flash-lite",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    },
+    {
+     "model_id": "gemini-3.1-pro-preview",
+     "coverage": "sample",
+     "sentence_pairs": 100
+    }
+   ]
+  },
+  {
+   "leader": "gemini-4-argon",
+   "label": {
+    "en": "Gemini 4 Argon",
+    "th": "Gemini 4 Argon"
+   },
+   "api": true,
+   "thai_tokens_per_1k_chars": 325.884219,
+   "english_tokens_per_1k_chars": 205.040769,
+   "premium": 1.518738,
+   "premium_ci_low": 1.499759,
+   "premium_ci_high": 1.537835,
+   "thai_tokens": 41094,
+   "english_tokens": 27058,
+   "members": [
+    {
+     "model_id": "gemini-4-argon",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    }
+   ]
+  },
+  {
+   "leader": "typhoon-ai/typhoon-7b",
+   "label": {
+    "en": "Typhoon 7B",
+    "th": "Typhoon 7B"
+   },
+   "api": false,
+   "thai_tokens_per_1k_chars": 303.949247,
+   "english_tokens_per_1k_chars": 227.539329,
+   "premium": 1.276451,
+   "premium_ci_low": 1.262167,
+   "premium_ci_high": 1.291242,
+   "thai_tokens": 38328,
+   "english_tokens": 30027,
+   "members": [
+    {
+     "model_id": "typhoon-ai/typhoon-7b",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    }
+   ]
+  },
+  {
+   "leader": "Qwen/Qwen3.5-9B",
+   "label": {
+    "en": "Qwen3.5, Qwen3.8, Qwen-SEA-LION v4.5",
+    "th": "Qwen3.5, Qwen3.8, Qwen-SEA-LION v4.5"
+   },
+   "api": false,
+   "thai_tokens_per_1k_chars": 262.157018,
+   "english_tokens_per_1k_chars": 208.609924,
+   "premium": 1.200843,
+   "premium_ci_low": 1.186612,
+   "premium_ci_high": 1.214996,
+   "thai_tokens": 33058,
+   "english_tokens": 27529,
+   "members": [
+    {
+     "model_id": "Qwen/Qwen3.5-9B",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "Qwen/Qwen3.8-27B",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    },
+    {
+     "model_id": "aisingapore/Qwen-SEA-LION-v4.5-27B-IT",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    }
+   ]
+  },
+  {
+   "leader": "openthaigpt/openthaigpt-1.0.0-7b-chat",
+   "label": {
+    "en": "OpenThaiGPT 1.0.0",
+    "th": "OpenThaiGPT 1.0.0"
+   },
+   "api": false,
+   "thai_tokens_per_1k_chars": 252.926249,
+   "english_tokens_per_1k_chars": 236.079537,
+   "premium": 1.023753,
+   "premium_ci_low": 1.012796,
+   "premium_ci_high": 1.035215,
+   "thai_tokens": 31894,
+   "english_tokens": 31154,
+   "members": [
+    {
+     "model_id": "openthaigpt/openthaigpt-1.0.0-7b-chat",
+     "coverage": "full",
+     "sentence_pairs": 1012
+    }
+   ]
+  }
+ ],
+ "models": [
+  {
+   "model_id": "tiktoken/o200k_base",
+   "family": "OpenAI",
+   "api": true,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "tiktoken/o200k_base",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "tiktoken/cl100k_base",
+   "family": "OpenAI",
+   "api": true,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "tiktoken/cl100k_base",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "tiktoken/o200k_harmony",
+   "family": "OpenAI",
+   "api": true,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "tiktoken/o200k_base",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "Qwen/Qwen3-8B",
+   "family": "Qwen",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "Qwen/Qwen3-8B",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "Qwen/Qwen3.5-9B",
+   "family": "Qwen",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "Qwen/Qwen3.5-9B",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "Qwen/Qwen3.8-27B",
+   "family": "Qwen",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "Qwen/Qwen3.5-9B",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "typhoon-ai/typhoon2.5-qwen3-4b",
+   "family": "Typhoon",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "Qwen/Qwen3-8B",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "typhoon-ai/typhoon2.1-gemma3-12b",
+   "family": "Typhoon",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "typhoon-ai/typhoon2.1-gemma3-12b",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "typhoon-ai/llama3.1-typhoon2-8b-instruct",
+   "family": "Typhoon",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "typhoon-ai/llama3.1-typhoon2-8b-instruct",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "typhoon-ai/typhoon-7b",
+   "family": "Typhoon",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "typhoon-ai/typhoon-7b",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "typhoon-ai/typhoon-s-thaillm-8b-instruct-research-preview",
+   "family": "Typhoon",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "Qwen/Qwen3-8B",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "openthaigpt/openthaigpt1.5-7b-instruct",
+   "family": "OpenThaiGPT",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "Qwen/Qwen3-8B",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "openthaigpt/openthaigpt-1.6-72b-instruct",
+   "family": "OpenThaiGPT",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "Qwen/Qwen3-8B",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "openthaigpt/openthaigpt-r1-32b-instruct",
+   "family": "OpenThaiGPT",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "Qwen/Qwen3-8B",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "openthaigpt/openthaigpt-1.0.0-7b-chat",
+   "family": "OpenThaiGPT",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "openthaigpt/openthaigpt-1.0.0-7b-chat",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "openthaigpt/openthaigpt-thaillm-8b-instruct-v0.7.2-research-preview",
+   "family": "OpenThaiGPT",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "Qwen/Qwen3-8B",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "aisingapore/Nemotron-SEA-LION-v4.8-30B-A3B",
+   "family": "SEA-LION",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "aisingapore/Nemotron-SEA-LION-v4.8-30B-A3B",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "aisingapore/Qwen-SEA-LION-v4.5-27B-IT",
+   "family": "SEA-LION",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "Qwen/Qwen3.5-9B",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "aisingapore/Qwen-SEA-LION-v4-32B-IT",
+   "family": "SEA-LION",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "Qwen/Qwen3-8B",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "aisingapore/Gemma-SEA-LION-v4-27B-IT",
+   "family": "SEA-LION",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "typhoon-ai/typhoon2.1-gemma3-12b",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "aisingapore/Llama-SEA-LION-v3.5-8B-R",
+   "family": "SEA-LION",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "typhoon-ai/llama3.1-typhoon2-8b-instruct",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "aisingapore/Gemma-SEA-LION-v3-9B-IT",
+   "family": "SEA-LION",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "aisingapore/Gemma-SEA-LION-v3-9B-IT",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "google/gemma-4-31B-it",
+   "family": "Gemma",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "typhoon-ai/typhoon2.1-gemma3-12b",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+   "family": "Llama",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "typhoon-ai/llama3.1-typhoon2-8b-instruct",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+   "family": "Llama",
+   "api": false,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "typhoon-ai/llama3.1-typhoon2-8b-instruct",
+   "input_usd_per_mtok": null,
+   "output_usd_per_mtok": null
+  },
+  {
+   "model_id": "gpt-6-astra",
+   "family": "OpenAI",
+   "api": true,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "tiktoken/o200k_base",
+   "input_usd_per_mtok": 10.0,
+   "output_usd_per_mtok": 50.0
+  },
+  {
+   "model_id": "gpt-6-sol",
+   "family": "OpenAI",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "tiktoken/o200k_base",
+   "input_usd_per_mtok": 2.0,
+   "output_usd_per_mtok": 10.0
+  },
+  {
+   "model_id": "gpt-6-luna",
+   "family": "OpenAI",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "tiktoken/o200k_base",
+   "input_usd_per_mtok": 0.1,
+   "output_usd_per_mtok": 0.5
+  },
+  {
+   "model_id": "gpt-6.1-sol",
+   "family": "OpenAI",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "tiktoken/o200k_base",
+   "input_usd_per_mtok": 2.0,
+   "output_usd_per_mtok": 10.0
+  },
+  {
+   "model_id": "gpt-6.1-terra",
+   "family": "OpenAI",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "tiktoken/o200k_base",
+   "input_usd_per_mtok": 1.0,
+   "output_usd_per_mtok": 5.0
+  },
+  {
+   "model_id": "gpt-5.5",
+   "family": "OpenAI",
+   "api": true,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "tiktoken/o200k_base",
+   "input_usd_per_mtok": 5.0,
+   "output_usd_per_mtok": 30.0
+  },
+  {
+   "model_id": "gpt-5.6-sol",
+   "family": "OpenAI",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "tiktoken/o200k_base",
+   "input_usd_per_mtok": 4.0,
+   "output_usd_per_mtok": 20.0
+  },
+  {
+   "model_id": "gpt-5.4",
+   "family": "OpenAI",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "tiktoken/o200k_base",
+   "input_usd_per_mtok": 2.5,
+   "output_usd_per_mtok": 15.0
+  },
+  {
+   "model_id": "gpt-5.2",
+   "family": "OpenAI",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "tiktoken/o200k_base",
+   "input_usd_per_mtok": 1.75,
+   "output_usd_per_mtok": 14.0
+  },
+  {
+   "model_id": "gemini-3.8-flash",
+   "family": "Gemini",
+   "api": true,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "typhoon-ai/typhoon2.1-gemma3-12b",
+   "input_usd_per_mtok": 0.75,
+   "output_usd_per_mtok": 3.75
+  },
+  {
+   "model_id": "gemini-4-argon",
+   "family": "Gemini",
+   "api": true,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "gemini-4-argon",
+   "input_usd_per_mtok": 2.0,
+   "output_usd_per_mtok": 10.0
+  },
+  {
+   "model_id": "gemini-3.6-flash",
+   "family": "Gemini",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "typhoon-ai/typhoon2.1-gemma3-12b",
+   "input_usd_per_mtok": 0.75,
+   "output_usd_per_mtok": 3.75
+  },
+  {
+   "model_id": "gemini-3.5-flash-lite",
+   "family": "Gemini",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "typhoon-ai/typhoon2.1-gemma3-12b",
+   "input_usd_per_mtok": 0.3,
+   "output_usd_per_mtok": 2.5
+  },
+  {
+   "model_id": "gemini-3.1-pro-preview",
+   "family": "Gemini",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "typhoon-ai/typhoon2.1-gemma3-12b",
+   "input_usd_per_mtok": 2.0,
+   "output_usd_per_mtok": 12.0
+  },
+  {
+   "model_id": "claude-opus-5-5",
+   "family": "Claude",
+   "api": true,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "claude-opus-5-5",
+   "input_usd_per_mtok": 4.0,
+   "output_usd_per_mtok": 20.0
+  },
+  {
+   "model_id": "claude-fable-5-2",
+   "family": "Claude",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "claude-opus-5-5",
+   "input_usd_per_mtok": 8.0,
+   "output_usd_per_mtok": 40.0
+  },
+  {
+   "model_id": "claude-sonnet-5-5",
+   "family": "Claude",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "claude-opus-5-5",
+   "input_usd_per_mtok": 2.0,
+   "output_usd_per_mtok": 10.0
+  },
+  {
+   "model_id": "claude-haiku-5-5",
+   "family": "Claude",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "claude-opus-5-5",
+   "input_usd_per_mtok": 0.1,
+   "output_usd_per_mtok": 0.5
+  },
+  {
+   "model_id": "claude-haiku-4-5-20251001",
+   "family": "Claude",
+   "api": true,
+   "coverage": "full",
+   "sentence_pairs": 1012,
+   "group": "claude-haiku-4-5-20251001",
+   "input_usd_per_mtok": 1.0,
+   "output_usd_per_mtok": 5.0
+  },
+  {
+   "model_id": "claude-sonnet-4-6",
+   "family": "Claude",
+   "api": true,
+   "coverage": "sample",
+   "sentence_pairs": 100,
+   "group": "claude-haiku-4-5-20251001",
+   "input_usd_per_mtok": 3.0,
+   "output_usd_per_mtok": 15.0
+  }
+ ],
+ "scenarios": [
+  {
+   "id": "line_oa_chatbot",
+   "name": "LINE OA customer chatbot, 10,000 conversations a month",
+   "name_th": "แชทบอทลูกค้าบน LINE OA 10,000 บทสนทนาต่อเดือน",
+   "unit": "conversations per month",
+   "unit_th": "บทสนทนาต่อเดือน",
+   "unit_singular": "conversation",
+   "units": 10000,
+   "turns": 6,
+   "system_chars": 2000,
+   "input_chars": 60,
+   "output_chars": 250,
+   "resend_history": true
+  },
+  {
+   "id": "summarize_documents",
+   "name": "Summarising 100 Thai documents",
+   "name_th": "สรุปเอกสารภาษาไทย 100 ฉบับ",
+   "unit": "documents",
+   "unit_th": "ฉบับ",
+   "unit_singular": "document",
+   "units": 100,
+   "turns": 1,
+   "system_chars": 500,
+   "input_chars": 20000,
+   "output_chars": 1500,
+   "resend_history": false
+  },
+  {
+   "id": "write_content",
+   "name": "Writing 1,000 Thai content pieces",
+   "name_th": "เขียน content ภาษาไทย 1,000 ชิ้น",
+   "unit": "content pieces",
+   "unit_th": "ชิ้น",
+   "unit_singular": "piece",
+   "units": 1000,
+   "turns": 1,
+   "system_chars": 800,
+   "input_chars": 300,
+   "output_chars": 3000,
+   "resend_history": false
+  }
+ ],
+ "costs": {
+  "line_oa_chatbot": {
+   "gpt-6-astra": {
+    "thai_thb": 34225.32936,
+    "english_thb": 17511.482285
+   },
+   "gpt-6-sol": {
+    "thai_thb": 6845.065872,
+    "english_thb": 3502.296457
+   },
+   "gpt-6-luna": {
+    "thai_thb": 342.253294,
+    "english_thb": 175.114823
+   },
+   "gpt-6.1-sol": {
+    "thai_thb": 6845.065872,
+    "english_thb": 3502.296457
+   },
+   "gpt-6.1-terra": {
+    "thai_thb": 3422.532936,
+    "english_thb": 1751.148229
+   },
+   "gpt-5.5": {
+    "thai_thb": 18159.95138,
+    "english_thb": 9291.588214
+   },
+   "gpt-5.6-sol": {
+    "thai_thb": 13690.131744,
+    "english_thb": 7004.592914
+   },
+   "gpt-5.4": {
+    "thai_thb": 9079.97569,
+    "english_thb": 4645.794107
+   },
+   "gpt-5.2": {
+    "thai_thb": 7089.083673,
+    "english_thb": 3627.148825
+   },
+   "gemini-3.8-flash": {
+    "thai_thb": 2120.429237,
+    "english_thb": 1325.139979
+   },
+   "gemini-4-argon": {
+    "thai_thb": 5355.886087,
+    "english_thb": 3526.538324
+   },
+   "gemini-3.6-flash": {
+    "thai_thb": 2120.429237,
+    "english_thb": 1325.139979
+   },
+   "gemini-3.5-flash-lite": {
+    "thai_thb": 1021.197336,
+    "english_thb": 638.186549
+   },
+   "gemini-3.1-pro-preview": {
+    "thai_thb": 6000.529249,
+    "english_thb": 3749.967724
+   },
+   "claude-opus-5-5": {
+    "thai_thb": 29238.5451,
+    "english_thb": 10925.256898
+   },
+   "claude-fable-5-2": {
+    "thai_thb": 58477.0902,
+    "english_thb": 21850.513796
+   },
+   "claude-sonnet-5-5": {
+    "thai_thb": 14619.27255,
+    "english_thb": 5462.628449
+   },
+   "claude-haiku-5-5": {
+    "thai_thb": 730.963628,
+    "english_thb": 273.131422
+   },
+   "claude-haiku-4-5-20251001": {
+    "thai_thb": 7284.612426,
+    "english_thb": 1882.13245
+   },
+   "claude-sonnet-4-6": {
+    "thai_thb": 21853.837278,
+    "english_thb": 5646.39735
+   }
+  },
+  "summarize_documents": {
+   "gpt-6-astra": {
+    "thai_thb": 390.987035,
+    "english_thb": 200.049573
+   },
+   "gpt-6-sol": {
+    "thai_thb": 78.197407,
+    "english_thb": 40.009915
+   },
+   "gpt-6-luna": {
+    "thai_thb": 3.90987,
+    "english_thb": 2.000496
+   },
+   "gpt-6.1-sol": {
+    "thai_thb": 78.197407,
+    "english_thb": 40.009915
+   },
+   "gpt-6.1-terra": {
+    "thai_thb": 39.098703,
+    "english_thb": 20.004957
+   },
+   "gpt-5.5": {
+    "thai_thb": 205.966384,
+    "english_thb": 105.383257
+   },
+   "gpt-5.6-sol": {
+    "thai_thb": 156.394814,
+    "english_thb": 80.019829
+   },
+   "gpt-5.4": {
+    "thai_thb": 102.983192,
+    "english_thb": 52.691629
+   },
+   "gpt-5.2": {
+    "thai_thb": 79.419241,
+    "english_thb": 40.63507
+   },
+   "gemini-3.8-flash": {
+    "thai_thb": 24.22359,
+    "english_thb": 15.138278
+   },
+   "gemini-4-argon": {
+    "thai_thb": 61.185153,
+    "english_thb": 40.286852
+   },
+   "gemini-3.6-flash": {
+    "thai_thb": 24.22359,
+    "english_thb": 15.138278
+   },
+   "gemini-3.5-flash-lite": {
+    "thai_thb": 11.419692,
+    "english_thb": 7.136617
+   },
+   "gemini-3.1-pro-preview": {
+    "thai_thb": 68.056752,
+    "english_thb": 42.531352
+   },
+   "claude-opus-5-5": {
+    "thai_thb": 334.018467,
+    "english_thb": 124.809136
+   },
+   "claude-fable-5-2": {
+    "thai_thb": 668.036934,
+    "english_thb": 249.618273
+   },
+   "claude-sonnet-5-5": {
+    "thai_thb": 167.009234,
+    "english_thb": 62.404568
+   },
+   "claude-haiku-5-5": {
+    "thai_thb": 8.350462,
+    "english_thb": 3.120228
+   },
+   "claude-haiku-4-5-20251001": {
+    "thai_thb": 83.218747,
+    "english_thb": 21.501309
+   },
+   "claude-sonnet-4-6": {
+    "thai_thb": 249.65624,
+    "english_thb": 64.503927
+   }
+  },
+  "write_content": {
+   "gpt-6-astra": {
+    "thai_thb": 2248.17545,
+    "english_thb": 1150.285046
+   },
+   "gpt-6-sol": {
+    "thai_thb": 449.63509,
+    "english_thb": 230.057009
+   },
+   "gpt-6-luna": {
+    "thai_thb": 22.481754,
+    "english_thb": 11.50285
+   },
+   "gpt-6.1-sol": {
+    "thai_thb": 449.63509,
+    "english_thb": 230.057009
+   },
+   "gpt-6.1-terra": {
+    "thai_thb": 224.817545,
+    "english_thb": 115.028505
+   },
+   "gpt-5.5": {
+    "thai_thb": 1333.545065,
+    "english_thb": 682.311937
+   },
+   "gpt-5.6-sol": {
+    "thai_thb": 899.27018,
+    "english_thb": 460.114018
+   },
+   "gpt-5.4": {
+    "thai_thb": 666.772532,
+    "english_thb": 341.155969
+   },
+   "gpt-5.2": {
+    "thai_thb": 613.360911,
+    "english_thb": 313.827768
+   },
+   "gemini-3.8-flash": {
+    "thai_thb": 139.285641,
+    "english_thb": 87.045099
+   },
+   "gemini-4-argon": {
+    "thai_thb": 351.814631,
+    "english_thb": 231.649396
+   },
+   "gemini-3.6-flash": {
+    "thai_thb": 139.285641,
+    "english_thb": 87.045099
+   },
+   "gemini-3.5-flash-lite": {
+    "thai_thb": 90.319385,
+    "english_thb": 56.444151
+   },
+   "gemini-3.1-pro-preview": {
+    "thai_thb": 440.638634,
+    "english_thb": 275.372486
+   },
+   "claude-opus-5-5": {
+    "thai_thb": 1920.606186,
+    "english_thb": 717.652534
+   },
+   "claude-fable-5-2": {
+    "thai_thb": 3841.212371,
+    "english_thb": 1435.305068
+   },
+   "claude-sonnet-5-5": {
+    "thai_thb": 960.303093,
+    "english_thb": 358.826267
+   },
+   "claude-haiku-5-5": {
+    "thai_thb": 48.015155,
+    "english_thb": 17.941313
+   },
+   "claude-haiku-4-5-20251001": {
+    "thai_thb": 478.507793,
+    "english_thb": 123.632527
+   },
+   "claude-sonnet-4-6": {
+    "thai_thb": 1435.523379,
+    "english_thb": 370.897582
+   }
+  }
+ },
+ "billing_check": {
+  "texts": 90,
+  "all_equal": true,
+  "models": {
+   "claude-haiku-5-5": {
+    "texts": 40,
+    "billed_overhead_tokens": [
+     8
+    ],
+    "overhead_subtracted": 8
+   },
+   "claude-haiku-4-5-20251001": {
+    "texts": 40,
+    "billed_overhead_tokens": [
+     7
+    ],
+    "overhead_subtracted": 7
+   },
+   "claude-opus-5-5": {
+    "texts": 10,
+    "billed_overhead_tokens": [
+     8
+    ],
+    "overhead_subtracted": 8
+   }
+  }
+ },
+ "flores_plus": {
+  "version": "5.0",
+  "sentence_pairs": 1012,
+  "thai_sentences_that_differ": 0,
+  "english_sentences_that_differ": 0
+ },
+ "blocked": [
+  {
+   "model_id": "aisingapore/SEA-LION-v1-7B",
+   "family": "SEA-LION",
+   "kind": "custom_code",
+   "http_status": 404
+  },
+  {
+   "model_id": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+   "family": "Llama",
+   "kind": "gated",
+   "http_status": 403
+  },
+  {
+   "model_id": "google/gemma-3-27b-it",
+   "family": "Gemma",
+   "kind": "gated",
+   "http_status": 403
+  },
+  {
+   "model_id": "gemini-2.5-pro",
+   "family": "Gemini",
+   "kind": "withdrawn",
+   "http_status": 404
+  },
+  {
+   "model_id": "gemini-2.5-flash",
+   "family": "Gemini",
+   "kind": "withdrawn",
+   "http_status": 404
+  }
+ ],
+ "licences": {
+  "code": "MIT",
+  "results": "CC BY 4.0",
+  "dataset": "CC BY-SA 4.0",
+  "holder": "Thai Token Tax authors"
+ }
+}

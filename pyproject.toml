@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thai-token-tax"
+version = "0.1.0"
+description = "How many more tokens Thai text costs than the same English text, per tokenizer. Measures cost, not answer quality."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "LICENSE-DATA"]
+requires-python = ">=3.11"
+# Pinned on purpose: a benchmark must give the same numbers on every machine.
+dependencies = [
+    "tiktoken==0.14.0",        # OpenAI encodings
+    "tokenizers==0.23.3",      # Hugging Face tokenizer.json (main counting method)
+    "huggingface_hub==2.4.0",  # downloads tokenizer files only, never weights
+    "numpy==2.5.4",            # bootstrap CI
+    "transformers==5.22.2",    # `ttt verify` only
+    "sentencepiece==0.2.3",    # `ttt verify` only
+    "protobuf==7.36.2",        # needed by transformers/sentencepiece tokenizers
+    "anthropic==2.7.0",        # Claude count_tokens (official SDK)
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0", "ruff==0.17.4"]
+
+[project.scripts]
+ttt = "thai_token_tax.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

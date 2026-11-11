@@ -1,0 +1,32 @@
+| tokenizer | identical per-sentence counts | premium FLORES-200 (95% CI) | premium FLORES+ | inside CI | Thai tokens / 1,000 chars FLORES-200 (95% CI) | FLORES+ | inside CI |
+|---|---|---|---:|---|---|---:|---|
+| `tiktoken/o200k_base` | yes | 1.954 (1.930–1.979) | 1.954 | yes | 416.5 (413.9–419.1) | 416.5 | yes |
+| `tiktoken/cl100k_base` | yes | 4.343 (4.287–4.400) | 4.343 | yes | 936.1 (932.4–939.6) | 936.1 | yes |
+| `tiktoken/o200k_harmony` | yes | 1.954 (1.930–1.979) | 1.954 | yes | 416.5 (413.9–419.1) | 416.5 | yes |
+| `Qwen/Qwen3-8B` | yes | 2.541 (2.508–2.575) | 2.541 | yes | 556.7 (553.5–559.8) | 556.7 | yes |
+| `Qwen/Qwen3.5-9B` | yes | 1.201 (1.187–1.215) | 1.201 | yes | 262.2 (259.2–265.1) | 262.2 | yes |
+| `Qwen/Qwen3.8-27B` | yes | 1.201 (1.187–1.215) | 1.201 | yes | 262.2 (259.2–265.1) | 262.2 | yes |
+| `typhoon-ai/typhoon2.5-qwen3-4b` | yes | 2.541 (2.508–2.575) | 2.541 | yes | 556.7 (553.5–559.8) | 556.7 | yes |
+| `typhoon-ai/typhoon2.1-gemma3-12b` | yes | 1.600 (1.580–1.621) | 1.600 | yes | 344.1 (341.0–347.1) | 344.1 | yes |
+| `typhoon-ai/llama3.1-typhoon2-8b-instruct` | yes | 2.185 (2.159–2.211) | 2.185 | yes | 470.7 (468.4–473.0) | 470.7 | yes |
+| `typhoon-ai/typhoon-7b` | yes | 1.276 (1.262–1.291) | 1.276 | yes | 303.9 (300.9–307.0) | 303.9 | yes |
+| `typhoon-ai/typhoon-s-thaillm-8b-instruct-research-preview` | yes | 2.541 (2.508–2.575) | 2.541 | yes | 556.7 (553.5–559.8) | 556.7 | yes |
+| `openthaigpt/openthaigpt1.5-7b-instruct` | yes | 2.541 (2.508–2.575) | 2.541 | yes | 556.7 (553.5–559.8) | 556.7 | yes |
+| `openthaigpt/openthaigpt-1.6-72b-instruct` | yes | 2.541 (2.508–2.575) | 2.541 | yes | 556.7 (553.5–559.8) | 556.7 | yes |
+| `openthaigpt/openthaigpt-r1-32b-instruct` | yes | 2.541 (2.508–2.575) | 2.541 | yes | 556.7 (553.5–559.8) | 556.7 | yes |
+| `openthaigpt/openthaigpt-1.0.0-7b-chat` | yes | 1.024 (1.013–1.035) | 1.024 | yes | 252.9 (250.2–255.7) | 252.9 | yes |
+| `openthaigpt/openthaigpt-thaillm-8b-instruct-v0.7.2-research-preview` | yes | 2.541 (2.508–2.575) | 2.541 | yes | 556.7 (553.5–559.8) | 556.7 | yes |
+| `aisingapore/Nemotron-SEA-LION-v4.8-30B-A3B` | yes | 2.365 (2.335–2.395) | 2.365 | yes | 521.8 (519.2–524.3) | 521.8 | yes |
+| `aisingapore/Qwen-SEA-LION-v4.5-27B-IT` | yes | 1.201 (1.187–1.215) | 1.201 | yes | 262.2 (259.2–265.1) | 262.2 | yes |
+| `aisingapore/Qwen-SEA-LION-v4-32B-IT` | yes | 2.541 (2.508–2.575) | 2.541 | yes | 556.7 (553.5–559.8) | 556.7 | yes |
+| `aisingapore/Gemma-SEA-LION-v4-27B-IT` | yes | 1.600 (1.580–1.621) | 1.600 | yes | 344.1 (341.0–347.1) | 344.1 | yes |
+| `aisingapore/Llama-SEA-LION-v3.5-8B-R` | yes | 2.185 (2.159–2.211) | 2.185 | yes | 470.7 (468.4–473.0) | 470.7 | yes |
+| `aisingapore/Gemma-SEA-LION-v3-9B-IT` | yes | 1.842 (1.817–1.867) | 1.842 | yes | 394.9 (392.0–397.7) | 394.9 | yes |
+| `meta-llama/Llama-3.1-8B-Instruct` | yes | 2.185 (2.159–2.211) | 2.185 | yes | 470.7 (468.4–473.0) | 470.7 | yes |
+| `google/gemma-4-31B-it` | yes | 1.600 (1.580–1.621) | 1.600 | yes | 344.1 (341.0–347.1) | 344.1 | yes |
+| `gpt-6-astra` | yes | 1.954 (1.930–1.979) | 1.954 | yes | 416.5 (413.9–419.1) | 416.5 | yes |
+| `gpt-5.5` | yes | 1.954 (1.930–1.979) | 1.954 | yes | 416.5 (413.9–419.1) | 416.5 | yes |
+| `gemini-3.8-flash` | yes | 1.600 (1.580–1.621) | 1.600 | yes | 344.1 (341.0–347.1) | 344.1 | yes |
+| `gemini-4-argon` | yes | 1.519 (1.500–1.538) | 1.519 | yes | 325.9 (322.7–329.1) | 325.9 | yes |
+| `claude-opus-5-5` | yes | 2.676 (2.645–2.709) | 2.676 | yes | 889.5 (886.4–892.6) | 889.5 | yes |
+| `claude-haiku-4-5-20251001` | yes | 3.870 (3.820–3.922) | 3.870 | yes | 886.5 (883.0–889.8) | 886.5 | yes |

@@ -1,0 +1,51 @@
+{
+  "input": "counts_2026-11-10_openai.csv",
+  "checks": [
+    {
+      "model_id": "gpt-6-astra",
+      "overhead_subtracted": 6,
+      "repeat_check_sentences": 50,
+      "repeat_check_mismatch": 0,
+      "length_check_raw_minus_words": {
+        "1": 6,
+        "2": 6,
+        "5": 6,
+        "20": 6,
+        "100": 6,
+        "500": 6
+      },
+      "length_check_constant": true,
+      "content_check_triples": 24,
+      "content_check_distinct_differences": [
+        -2
+      ],
+      "content_check_constant": true,
+      "tiktoken_check": "tiktoken does not know this model"
+    },
+    {
+      "model_id": "gpt-5.5",
+      "overhead_subtracted": 6,
+      "repeat_check_sentences": 50,
+      "repeat_check_mismatch": 0,
+      "length_check_raw_minus_words": {
+        "1": 6,
+        "2": 6,
+        "5": 6,
+        "20": 6,
+        "100": 6,
+        "500": 6
+      },
+      "length_check_constant": true,
+      "content_check_triples": 24,
+      "content_check_distinct_differences": [
+        -2
+      ],
+      "content_check_constant": true,
+      "tiktoken_check": {
+        "encoding": "o200k_base",
+        "eng_Latn": 0,
+        "tha_Thai": 0
+      }
+    }
+  ]
+}

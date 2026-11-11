@@ -1,0 +1,36 @@
+{
+  "prices": "prices_2026-11-10.json",
+  "costs_csv": "costs_2026-11-10_day2c.csv",
+  "costs_json": "costs_2026-11-10_day2c.json",
+  "costs_md": "costs_2026-11-10_day2c.md",
+  "run_date_utc": "2026-11-10",
+  "summary_csv": "summary_2026-11-10_day2c.csv",
+  "summary_json": "summary_2026-11-10_day2c.json",
+  "summary_md": "summary_2026-11-10_day2c.md",
+  "counts": {
+    "open": "counts_2026-11-10_open.csv",
+    "open-llama31": "counts_2026-11-10_open-llama31.csv",
+    "open-llama33": "counts_2026-11-10_open-llama33.csv",
+    "openai": "counts_2026-11-10_openai.csv",
+    "gemini": "counts_2026-11-10_gemini.csv",
+    "anthropic": "counts_2026-11-10_anthropic.csv"
+  },
+  "counts_meta": {
+    "open": "counts_2026-11-10_open.meta.json",
+    "open-llama31": "counts_2026-11-10_open-llama31.meta.json",
+    "open-llama33": "counts_2026-11-10_open-llama33.meta.json",
+    "openai": "counts_2026-11-10_openai.meta.json",
+    "gemini": "counts_2026-11-10_gemini.meta.json",
+    "anthropic": "counts_2026-11-10_anthropic.meta.json"
+  },
+  "verification": {
+    "open": "verification_2026-11-10_open.json",
+    "open-llama31": "verification_2026-11-10_open-llama31.json",
+    "open-llama33": "verification_2026-11-10_open-llama33.json",
+    "openai": "verification_2026-11-10_openai.json",
+    "gemini": "verification_2026-11-10_gemini.json",
+    "anthropic": "verification_2026-11-10_anthropic.json"
+  },
+  "updated_utc": "2026-11-10T12:20:20Z",
+  "billing_check": "billing_check_2026-11-10.json"
+}

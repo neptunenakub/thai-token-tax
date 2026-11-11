@@ -1,0 +1,47 @@
+{
+  "input": "counts_2026-11-10_gemini.csv",
+  "checks": [
+    {
+      "model_id": "gemini-3.8-flash",
+      "overhead_subtracted": 1,
+      "repeat_check_sentences": 50,
+      "repeat_check_mismatch": 0,
+      "length_check_raw_minus_words": {
+        "1": 1,
+        "2": 1,
+        "5": 1,
+        "20": 1,
+        "100": 1,
+        "500": 1
+      },
+      "length_check_constant": true,
+      "content_check_triples": 24,
+      "content_check_distinct_differences": [
+        0
+      ],
+      "content_check_constant": true,
+      "tiktoken_check": "tiktoken does not know this model"
+    },
+    {
+      "model_id": "gemini-4-argon",
+      "overhead_subtracted": 31,
+      "repeat_check_sentences": 50,
+      "repeat_check_mismatch": 0,
+      "length_check_raw_minus_words": {
+        "1": 31,
+        "2": 31,
+        "5": 31,
+        "20": 31,
+        "100": 31,
+        "500": 31
+      },
+      "length_check_constant": true,
+      "content_check_triples": 24,
+      "content_check_distinct_differences": [
+        -52
+      ],
+      "content_check_constant": true,
+      "tiktoken_check": "tiktoken does not know this model"
+    }
+  ]
+}

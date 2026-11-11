@@ -1,0 +1,438 @@
+{
+  "input": "counts_2026-11-10_open.csv",
+  "checks": [
+    {
+      "model_id": "tiktoken/o200k_base",
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012
+      }
+    },
+    {
+      "model_id": "tiktoken/cl100k_base",
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012
+      }
+    },
+    {
+      "model_id": "tiktoken/o200k_harmony",
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012
+      }
+    },
+    {
+      "model_id": "Qwen/Qwen3-8B",
+      "transformers_class": "Qwen2Tokenizer",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27620
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 70195
+      }
+    },
+    {
+      "model_id": "Qwen/Qwen3.5-9B",
+      "transformers_class": "Qwen3_5Tokenizer",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27529
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 33058
+      }
+    },
+    {
+      "model_id": "Qwen/Qwen3.8-27B",
+      "transformers_class": "Qwen3_5Tokenizer",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27529
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 33058
+      }
+    },
+    {
+      "model_id": "typhoon-ai/typhoon2.5-qwen3-4b",
+      "transformers_class": "Qwen2Tokenizer",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27620
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 70195
+      }
+    },
+    {
+      "model_id": "typhoon-ai/typhoon2.1-gemma3-12b",
+      "transformers_class": "GemmaTokenizer",
+      "has_sentencepiece_model": true,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27113,
+        "sentencepiece_mismatch": 0,
+        "sentencepiece_total": 27113
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 43385,
+        "sentencepiece_mismatch": 0,
+        "sentencepiece_total": 43385
+      }
+    },
+    {
+      "model_id": "typhoon-ai/llama3.1-typhoon2-8b-instruct",
+      "transformers_class": "TokenizersBackend",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27170
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 59357
+      }
+    },
+    {
+      "model_id": "typhoon-ai/typhoon-7b",
+      "transformers_class": "TokenizersBackend",
+      "has_sentencepiece_model": true,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 30027,
+        "sentencepiece_mismatch": 0,
+        "sentencepiece_total": 30027
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 38328,
+        "sentencepiece_mismatch": 525,
+        "sentencepiece_total": 38601
+      }
+    },
+    {
+      "model_id": "typhoon-ai/typhoon-s-thaillm-8b-instruct-research-preview",
+      "transformers_class": "Qwen2Tokenizer",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27620
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 70195
+      }
+    },
+    {
+      "model_id": "openthaigpt/openthaigpt1.5-7b-instruct",
+      "transformers_class": "Qwen2Tokenizer",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27620
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 70195
+      }
+    },
+    {
+      "model_id": "openthaigpt/openthaigpt-1.6-72b-instruct",
+      "transformers_class": "Qwen2Tokenizer",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27620
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 70195
+      }
+    },
+    {
+      "model_id": "openthaigpt/openthaigpt-r1-32b-instruct",
+      "transformers_class": "TokenizersBackend",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27620
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 70195
+      }
+    },
+    {
+      "model_id": "openthaigpt/openthaigpt-1.0.0-7b-chat",
+      "transformers_class": "LlamaTokenizer",
+      "has_sentencepiece_model": true,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 31154,
+        "sentencepiece_mismatch": 251,
+        "sentencepiece_total": 31434
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 31894,
+        "sentencepiece_mismatch": 609,
+        "sentencepiece_total": 32111
+      }
+    },
+    {
+      "model_id": "openthaigpt/openthaigpt-thaillm-8b-instruct-v0.7.2-research-preview",
+      "transformers_class": "Qwen2Tokenizer",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27620
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 70195
+      }
+    },
+    {
+      "model_id": "aisingapore/Nemotron-SEA-LION-v4.8-30B-A3B",
+      "transformers_class": "TokenizersBackend",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27826
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 65795
+      }
+    },
+    {
+      "model_id": "aisingapore/Qwen-SEA-LION-v4.5-27B-IT",
+      "transformers_class": "Qwen3_5Tokenizer",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27529
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 33058
+      }
+    },
+    {
+      "model_id": "aisingapore/Qwen-SEA-LION-v4-32B-IT",
+      "transformers_class": "Qwen2Tokenizer",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27620
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 70195
+      }
+    },
+    {
+      "model_id": "aisingapore/Gemma-SEA-LION-v4-27B-IT",
+      "transformers_class": "GemmaTokenizer",
+      "has_sentencepiece_model": true,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27113,
+        "sentencepiece_mismatch": 0,
+        "sentencepiece_total": 27113
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 43385,
+        "sentencepiece_mismatch": 0,
+        "sentencepiece_total": 43385
+      }
+    },
+    {
+      "model_id": "aisingapore/Llama-SEA-LION-v3.5-8B-R",
+      "transformers_class": "TokenizersBackend",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27170
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 59357
+      }
+    },
+    {
+      "model_id": "aisingapore/Gemma-SEA-LION-v3-9B-IT",
+      "transformers_class": "GemmaTokenizer",
+      "has_sentencepiece_model": true,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27035,
+        "sentencepiece_mismatch": 0,
+        "sentencepiece_total": 27035
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 49795,
+        "sentencepiece_mismatch": 0,
+        "sentencepiece_total": 49795
+      }
+    },
+    {
+      "model_id": "google/gemma-4-31B-it",
+      "transformers_class": "GemmaTokenizer",
+      "has_sentencepiece_model": false,
+      "eng_Latn": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 27113
+      },
+      "tha_Thai": {
+        "recount_mismatch": 0,
+        "roundtrip_exact": 1012,
+        "unk_tokens": 0,
+        "transformers_mismatch": 0,
+        "transformers_total": 43385
+      }
+    }
+  ]
+}

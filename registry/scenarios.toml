@@ -1,0 +1,55 @@
+# Example workloads for the baht calculation. EVERY number here is an ASSUMPTION chosen to be
+# plain and easy to argue about, not a measurement. Change them and rerun `ttt cost`.
+#
+# All sizes are characters of Thai text (the same content in English is derived from the
+# measured English/Thai character ratio). No scenario contains any actual text.
+#
+#   units            how many times the unit happens (per month, or in total)
+#   turns            requests per unit (messages in one conversation)
+#   system_chars     instructions sent with every request
+#   input_chars      the new user message (or document) in each request
+#   output_chars     the model's reply to each request
+#   resend_history   true = every request also resends all earlier messages and replies
+#   *_th             the Thai wording shown on the site
+
+[[scenario]]
+id = "line_oa_chatbot"
+name = "LINE OA customer chatbot, 10,000 conversations a month"
+name_th = "แชทบอทลูกค้าบน LINE OA 10,000 บทสนทนาต่อเดือน"
+unit = "conversations per month"
+unit_th = "บทสนทนาต่อเดือน"
+unit_singular = "conversation"
+units = 10000
+turns = 6
+system_chars = 2000
+input_chars = 60
+output_chars = 250
+resend_history = true
+
+[[scenario]]
+id = "summarize_documents"
+name = "Summarising 100 Thai documents"
+name_th = "สรุปเอกสารภาษาไทย 100 ฉบับ"
+unit = "documents"
+unit_th = "ฉบับ"
+unit_singular = "document"
+units = 100
+turns = 1
+system_chars = 500
+input_chars = 20000
+output_chars = 1500
+resend_history = false
+
+[[scenario]]
+id = "write_content"
+name = "Writing 1,000 Thai content pieces"
+name_th = "เขียน content ภาษาไทย 1,000 ชิ้น"
+unit = "content pieces"
+unit_th = "ชิ้น"
+unit_singular = "piece"
+units = 1000
+turns = 1
+system_chars = 800
+input_chars = 300
+output_chars = 3000
+resend_history = false

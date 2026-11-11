@@ -1,0 +1,11 @@
+# Languages measured. Codes are FLORES-200 codes (file names in the dataset).
+# Every target is compared with the baseline: premium = target tokens / baseline tokens.
+# Adding a language = adding one [[target]] block.
+
+[baseline]
+code = "eng_Latn"
+name = "English"
+
+[[target]]
+code = "tha_Thai"
+name = "Thai"

@@ -1,0 +1,369 @@
+# Every tokenizer this benchmark measures. Adding a model = adding one [[model]] block.
+#
+#   id        what appears as model_id in the results
+#   family    display group
+#   counter   how it is counted: "tiktoken" (OpenAI encodings) or "hf" (Hugging Face tokenizer.json)
+#   encoding  tiktoken only: the encoding name
+#   revision  hf only, optional: repo commit to pin, so a rerun gives the same counts.
+#             Leave it out to use the newest commit (the run records which one it used).
+#   notes     optional, free text
+#
+# A model that cannot be downloaded is recorded as blocked in the results. It stays
+# listed here so the gap is visible; it is never replaced by a mirror or a guess.
+
+# OpenAI model ids as listed on the official models page. `ttt count` asks tiktoken which
+# encoding each one maps to and saves the answer (null = this tiktoken version does not know it).
+[openai_lookup]
+models_page = "https://developers.openai.com/api/docs/models.md"
+fetched = "2026-11-10"
+model_ids = [
+    "gpt-6-astra",
+    "gpt-6-sol",
+    "gpt-6-luna",
+    "gpt-6.1-sol",
+    "gpt-6.1-terra",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-5.6-luna",
+    "gpt-5.5",
+    "gpt-5.5-pro",
+    "gpt-5.4",
+    "gpt-5.4-mini",
+    "gpt-5.4-pro",
+    "gpt-5.2",
+    "gpt-5.2-pro",
+    "gpt-oss-120b",
+    "gpt-oss-20b",
+    "gpt-4.1",
+    "gpt-4o",
+    "gpt-4o-mini",
+    "gpt-4-turbo",
+    "gpt-4",
+    "gpt-3.5-turbo",
+]
+
+[[model]]
+id = "tiktoken/o200k_base"
+family = "OpenAI"
+counter = "tiktoken"
+encoding = "o200k_base"
+notes = "GPT-4o to GPT-5.x per tiktoken 0.14.0. GPT-6 is not confirmed by any official source."
+
+[[model]]
+id = "tiktoken/cl100k_base"
+family = "OpenAI"
+counter = "tiktoken"
+encoding = "cl100k_base"
+notes = "GPT-4 and GPT-3.5 generation."
+
+[[model]]
+id = "tiktoken/o200k_harmony"
+family = "OpenAI"
+counter = "tiktoken"
+encoding = "o200k_harmony"
+notes = "gpt-oss open-weight models."
+
+[[model]]
+id = "Qwen/Qwen3-8B"
+family = "Qwen"
+counter = "hf"
+revision = "b968826d9c46dd6066d109eabc6255188de91218"
+
+[[model]]
+id = "Qwen/Qwen3.5-9B"
+family = "Qwen"
+counter = "hf"
+revision = "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+
+[[model]]
+id = "Qwen/Qwen3.8-27B"
+family = "Qwen"
+counter = "hf"
+revision = "37561816e66b5b9153b1b64c10968c18c1e6f4a0"
+
+[[model]]
+id = "typhoon-ai/typhoon2.5-qwen3-4b"
+family = "Typhoon"
+counter = "hf"
+revision = "ce0a7416fe82d4404b2b4a253ce3ac095ab1252c"
+
+[[model]]
+id = "typhoon-ai/typhoon2.1-gemma3-12b"
+family = "Typhoon"
+counter = "hf"
+revision = "928366e5356425c2def98b29b4899e1e2421e753"
+
+[[model]]
+id = "typhoon-ai/llama3.1-typhoon2-8b-instruct"
+family = "Typhoon"
+counter = "hf"
+revision = "30e8c65ac39307c9a4e3fb46a444db5745214516"
+
+[[model]]
+id = "typhoon-ai/typhoon-7b"
+family = "Typhoon"
+counter = "hf"
+revision = "546cbbc382830f622661a930c2e1faa87b6873fb"
+notes = "The SentencePiece file in the same repo gives slightly different counts (see LOG.md, day 1)."
+
+[[model]]
+id = "typhoon-ai/typhoon-s-thaillm-8b-instruct-research-preview"
+family = "Typhoon"
+counter = "hf"
+revision = "431f48e7703deb7b315c4c0d9e36d9fc9e819bb3"
+
+[[model]]
+id = "openthaigpt/openthaigpt1.5-7b-instruct"
+family = "OpenThaiGPT"
+counter = "hf"
+revision = "44d757c03171e0ffb98693a48900cbd43426f8f9"
+
+[[model]]
+id = "openthaigpt/openthaigpt-1.6-72b-instruct"
+family = "OpenThaiGPT"
+counter = "hf"
+revision = "9dc3e43e8fae2adf0ee2469fc71f956441050ca5"
+
+[[model]]
+id = "openthaigpt/openthaigpt-r1-32b-instruct"
+family = "OpenThaiGPT"
+counter = "hf"
+revision = "3e3512936b3caf8c9175de94b8fe20226a88ef9b"
+
+[[model]]
+id = "openthaigpt/openthaigpt-1.0.0-7b-chat"
+family = "OpenThaiGPT"
+counter = "hf"
+revision = "7412d979082098194a5e60765753f6b20c57ba34"
+notes = "The SentencePiece file in the same repo gives slightly different counts (see LOG.md, day 1)."
+
+[[model]]
+id = "openthaigpt/openthaigpt-thaillm-8b-instruct-v0.7.2-research-preview"
+family = "OpenThaiGPT"
+counter = "hf"
+revision = "7b346b703b7f2089319cdb628b79e458c4e0a897"
+
+[[model]]
+id = "aisingapore/Nemotron-SEA-LION-v4.8-30B-A3B"
+family = "SEA-LION"
+counter = "hf"
+revision = "a2390696bfdec7ee9f44e73e1fe20e9587eded0b"
+
+[[model]]
+id = "aisingapore/Qwen-SEA-LION-v4.5-27B-IT"
+family = "SEA-LION"
+counter = "hf"
+revision = "544e416f68a5700c7577547ad48e351e7d294116"
+
+[[model]]
+id = "aisingapore/Qwen-SEA-LION-v4-32B-IT"
+family = "SEA-LION"
+counter = "hf"
+revision = "f1169f468d67c46c1019299e67b9a57268f11cc2"
+
+[[model]]
+id = "aisingapore/Gemma-SEA-LION-v4-27B-IT"
+family = "SEA-LION"
+counter = "hf"
+revision = "81dcc29c47397035880e427b9bf9996254788f54"
+
+[[model]]
+id = "aisingapore/Llama-SEA-LION-v3.5-8B-R"
+family = "SEA-LION"
+counter = "hf"
+revision = "dfdbc9bd581703f1cde6a97287fc17025aff9c9f"
+
+[[model]]
+id = "aisingapore/Gemma-SEA-LION-v3-9B-IT"
+family = "SEA-LION"
+counter = "hf"
+revision = "c519e6d7bdb03cb530e76690600bae4327fc63fb"
+
+[[model]]
+id = "aisingapore/SEA-LION-v1-7B"
+family = "SEA-LION"
+counter = "hf"
+notes = "Blocked: no tokenizer.json; its tokenizer needs trust_remote_code, which this project does not run."
+
+[[model]]
+id = "meta-llama/Llama-4-Scout-17B-16E-Instruct"
+family = "Llama"
+counter = "hf"
+notes = "Gated: needs HF_TOKEN from an account that accepted the terms."
+
+[[model]]
+id = "meta-llama/Llama-3.3-70B-Instruct"
+family = "Llama"
+counter = "hf"
+revision = "6f6073b423013f6a7d4d9f39144961bfbfbc386b"
+notes = "Gated; access granted on 2026-11-10 and measured as the add-on set open-llama33."
+
+[[model]]
+id = "meta-llama/Llama-3.1-8B-Instruct"
+family = "Llama"
+counter = "hf"
+revision = "0e9e39f249a16976918f6564b8830bc894c89659"
+notes = "Gated; access granted on 2026-11-10 and measured as the add-on set open-llama31."
+
+[[model]]
+id = "google/gemma-4-31B-it"
+family = "Gemma"
+counter = "hf"
+revision = "842da3794eaa0b77d5f08bae87a17459d91ff475"
+
+[[model]]
+id = "google/gemma-3-27b-it"
+family = "Gemma"
+counter = "hf"
+notes = "Gated: needs HF_TOKEN from an account that accepted the terms."
+
+# --- API sources ---------------------------------------------------------------------
+# Counted through each provider's official token-counting endpoint (free of charge, see
+# LOG.md day 2 for the documentation links). Model ids were read from the provider's
+# official models page on 2026-11-10:
+#   OpenAI     https://developers.openai.com/api/docs/models.md
+#   Gemini     https://ai.google.dev/gemini-api/docs/models
+#   Anthropic  https://platform.claude.com/docs/en/about-claude/models/overview
+#              https://platform.claude.com/docs/en/about-claude/model-deprecations
+#
+#   sample_of  count only a fixed random sample of 100 sentence pairs and compare with the
+#              named, fully measured model. If the sample agrees on every sentence the two
+#              models share a tokenizer; if not, remove sample_of and measure it in full.
+
+# Requests per minute this project allows itself per API source. Leave a source out for
+# "no extra limit" (rate-limit errors are still retried with backoff).
+# anthropic: this account's count_tokens limit is 100 per minute (response header
+# anthropic-ratelimit-requests-limit, seen 2026-11-10).
+[rate_limits]
+anthropic = 90
+
+[[model]]
+id = "gpt-6-astra"
+family = "OpenAI"
+counter = "openai_api"
+
+[[model]]
+id = "gpt-6-sol"
+family = "OpenAI"
+counter = "openai_api"
+sample_of = "gpt-6-astra"
+
+[[model]]
+id = "gpt-6-luna"
+family = "OpenAI"
+counter = "openai_api"
+sample_of = "gpt-6-astra"
+
+[[model]]
+id = "gpt-6.1-sol"
+family = "OpenAI"
+counter = "openai_api"
+sample_of = "gpt-6-astra"
+
+[[model]]
+id = "gpt-6.1-terra"
+family = "OpenAI"
+counter = "openai_api"
+sample_of = "gpt-6-astra"
+
+[[model]]
+id = "gpt-5.5"
+family = "OpenAI"
+counter = "openai_api"
+notes = "Cross-check: tiktoken maps this model to o200k_base, so API minus overhead must equal tiktoken."
+
+[[model]]
+id = "gpt-5.6-sol"
+family = "OpenAI"
+counter = "openai_api"
+sample_of = "gpt-5.5"
+
+[[model]]
+id = "gpt-5.4"
+family = "OpenAI"
+counter = "openai_api"
+sample_of = "gpt-5.5"
+
+[[model]]
+id = "gpt-5.2"
+family = "OpenAI"
+counter = "openai_api"
+sample_of = "gpt-5.5"
+
+[[model]]
+id = "gemini-3.8-flash"
+family = "Gemini"
+counter = "gemini"
+
+[[model]]
+id = "gemini-4-argon"
+family = "Gemini"
+counter = "gemini"
+notes = "Measured in full: its 100-pair sample did not match gemini-3.8-flash (a different tokenizer)."
+
+[[model]]
+id = "gemini-3.6-flash"
+family = "Gemini"
+counter = "gemini"
+sample_of = "gemini-3.8-flash"
+
+[[model]]
+id = "gemini-3.5-flash-lite"
+family = "Gemini"
+counter = "gemini"
+sample_of = "gemini-3.8-flash"
+
+[[model]]
+id = "gemini-3.1-pro-preview"
+family = "Gemini"
+counter = "gemini"
+sample_of = "gemini-3.8-flash"
+
+[[model]]
+id = "gemini-2.5-pro"
+family = "Gemini"
+counter = "gemini"
+sample_of = "gemini-3.8-flash"
+notes = "Blocked on 2026-11-10: HTTP 404, no longer available to new users."
+
+[[model]]
+id = "gemini-2.5-flash"
+family = "Gemini"
+counter = "gemini"
+sample_of = "gemini-3.8-flash"
+notes = "Blocked on 2026-11-10: HTTP 404, no longer available to new users."
+
+[[model]]
+id = "claude-opus-5-5"
+family = "Claude"
+counter = "anthropic"
+
+[[model]]
+id = "claude-fable-5-2"
+family = "Claude"
+counter = "anthropic"
+sample_of = "claude-opus-5-5"
+
+[[model]]
+id = "claude-sonnet-5-5"
+family = "Claude"
+counter = "anthropic"
+sample_of = "claude-opus-5-5"
+
+[[model]]
+id = "claude-haiku-5-5"
+family = "Claude"
+counter = "anthropic"
+sample_of = "claude-opus-5-5"
+
+[[model]]
+id = "claude-haiku-4-5-20251001"
+family = "Claude"
+counter = "anthropic"
+notes = "Older tokenizer generation (the docs say models from Opus 4.7 on use a newer tokenizer)."
+
+[[model]]
+id = "claude-sonnet-4-6"
+family = "Claude"
+counter = "anthropic"
+sample_of = "claude-haiku-4-5-20251001"

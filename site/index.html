@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>ภาษีภาษา · Thai Token Tax</title>
+<meta name="description" content="How many more tokens Thai text costs than the same English text on major AI models, in baht. A reproducible measurement of cost, not answer quality.">
+<!-- OG-START: written by `ttt site` from data.json once site/config.json has a site_url -->
+<link rel="canonical" href="https://neptunenakub.github.io/thai-token-tax/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://neptunenakub.github.io/thai-token-tax/">
+<meta property="og:locale" content="th_TH">
+<meta property="og:title" content="ราคาป้ายเท่ากัน แต่งานภาษาไทยบน Claude จ่ายแพงกว่า GPT 2.14 เท่า">
+<meta property="og:description" content="วัดต้นทุน ไม่ใช่คุณภาพคำตอบ · 45 โมเดล · คู่ประโยคไทย–อังกฤษ 1,012 คู่ · ราคาป้าย ณ 2026-11-10">
+<meta property="og:image" content="https://neptunenakub.github.io/thai-token-tax/card.th.png">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ราคาป้ายเท่ากัน แต่งานภาษาไทยบน Claude จ่ายแพงกว่า GPT 2.14 เท่า">
+<meta name="twitter:description" content="วัดต้นทุน ไม่ใช่คุณภาพคำตอบ · 45 โมเดล · คู่ประโยคไทย–อังกฤษ 1,012 คู่ · ราคาป้าย ณ 2026-11-10">
+<meta name="twitter:image" content="https://neptunenakub.github.io/thai-token-tax/card.th.png">
+<!-- OG-END -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%232a78d6'/%3E%3Crect x='3' y='4' width='10' height='2' fill='%23fff'/%3E%3Crect x='3' y='7' width='6' height='2' fill='%23fff'/%3E%3Crect x='3' y='10' width='4' height='2' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+/* Every number on this page is read from data.json (written by `ttt site`). None is typed here. */
+:root {
+  color-scheme: light dark;
+  --bg: #fcfcfb; --panel: #f4f3ee; --ink: #0b0b0b; --ink2: #52514e; --muted: #6b6a65;
+  --line: #e1e0d9; --axis: #c3c2b7; --link: #1c5cab; --focus: #2a78d6;
+  --accent: #2a78d6;   /* tokenizer of a pay-per-token API (palette slot 1) */
+  --quiet: #898781;    /* open models only: the de-emphasis gray */
+  --warn: #8a5a00;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a19; --panel: #232322; --ink: #f0efec; --ink2: #c3c2b7; --muted: #a3a19a;
+    --line: #2c2c2a; --axis: #45453f; --link: #6da7ec; --focus: #6da7ec;
+    --accent: #3987e5; --quiet: #898781; --warn: #fab219;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 1rem/1.65 system-ui, -apple-system, "Segoe UI", "Leelawadee UI", "Noto Sans Thai", sans-serif;
+  overflow-wrap: break-word;
+}
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--link); text-underline-offset: 0.18em; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 3px; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--bg); padding: 6px 10px; }
+.skip:focus { left: 8px; z-index: 5; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.brand { font-weight: 700; }
+.brand span { font-weight: 400; color: var(--ink2); margin-inline-start: 0.5em; }
+.lang { display: inline-flex; border: 1px solid var(--axis); border-radius: 8px; overflow: hidden; flex: none; }
+.lang button { font: inherit; font-size: 0.9rem; min-height: 36px; padding: 4px 12px; border: 0; background: none; color: var(--ink2); cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+
+.kicker { margin: 24px 0 0; font-size: 0.875rem; color: var(--ink2); }
+h1 { font-size: clamp(1.55rem, 1.05rem + 2.5vw, 2.5rem); line-height: 1.32; margin: 6px 0 12px; font-weight: 700; text-wrap: balance; }
+h1 b { font-weight: inherit; box-shadow: inset 0 -0.22em 0 color-mix(in srgb, var(--accent) 38%, transparent); }
+.deck { font-size: 1.08rem; color: var(--ink2); margin: 0 0 20px; max-width: 46em; }
+h2 { font-size: 1.32rem; line-height: 1.4; margin: 0 0 8px; text-wrap: balance; }
+h3 { font-size: 1.02rem; margin: 22px 0 6px; }
+section { margin-top: 56px; }
+.lead-in { color: var(--ink2); margin: 0 0 16px; max-width: 48em; }
+.small { font-size: 0.875rem; color: var(--ink2); }
+.note { font-size: 0.92rem; color: var(--ink2); border-inline-start: 3px solid var(--axis); padding: 2px 0 2px 12px; margin: 16px 0 0; max-width: 48em; }
+code, .mono { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 0.86em; overflow-wrap: anywhere; }
+
+.trust { list-style: none; margin: 14px 0 0; padding: 0; font-size: 0.92rem; color: var(--ink2); }
+.trust li { margin: 0 0 4px; }
+.trust b { color: var(--ink); }
+
+/* Ranked horizontal bars: a name, a thin bar and its value at the tip. */
+.cap { font-size: 0.875rem; color: var(--ink2); margin: 0 0 4px; }
+.bars { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); --valw: 8.6em; }
+.bars.wide { --valw: 9.6em; }
+.bars.money { --valw: 7.2em; }
+.bars > li { border-bottom: 1px solid var(--line); }
+.row { display: grid; grid-template-columns: 1fr; gap: 5px; width: 100%; padding: 9px 0; margin: 0; background: none; border: 0; color: inherit; font: inherit; text-align: start; }
+button.row { cursor: pointer; }
+.name { font-size: 0.95rem; line-height: 1.45; }
+.name small { color: var(--ink2); font-size: 0.82rem; }
+.caret { display: inline-block; width: 1em; color: var(--muted); transition: transform 0.12s; }
+[aria-expanded="true"] .caret { transform: rotate(90deg); }
+.tag { font-size: 0.72rem; line-height: 1.5; border: 1px solid var(--axis); border-radius: 999px; padding: 0 0.55em; color: var(--ink2); white-space: nowrap; }
+.track { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; min-width: 0; }
+.bar { position: relative; flex: none; height: 14px; min-width: 2px; border-radius: 0 4px 4px 0; background: var(--accent); width: calc((100% - var(--valw)) * var(--r)); }
+.bar.open, .bar.rest { background: var(--quiet); }
+.bar.one::after { content: ""; position: absolute; top: 0; bottom: 0; width: 2px; background: var(--bg); left: calc(100% * var(--one)); }
+button.row:hover .bar, button.row:focus-visible .bar { filter: brightness(1.14); }
+.val { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.val small { font-weight: 400; color: var(--ink2); }
+.members { padding: 0 0 12px 1.2em; font-size: 0.875rem; color: var(--ink2); }
+.members ul { margin: 4px 0 0; padding: 0; list-style: none; }
+.members li { margin: 2px 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 12px; padding: 0; list-style: none; font-size: 0.875rem; color: var(--ink2); }
+.legend i { display: inline-block; width: 14px; height: 10px; border-radius: 0 3px 3px 0; margin-inline-end: 6px; background: var(--accent); }
+.legend i.open { background: var(--quiet); }
+.legend i.notch { background: linear-gradient(90deg, var(--accent) 0 5px, var(--bg) 5px 7px, var(--accent) 7px); }
+.evidence { display: flex; flex-direction: column; gap: 18px; }
+:root[lang="en"] .hero-money { order: 2; }  /* the English headline is about tokens, the Thai one about baht */
+.figs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.fig { border-top: 2px solid var(--ink); padding-top: 6px; }
+.fig .who { font-size: 0.875rem; color: var(--ink2); }
+.fig .amount { font-size: clamp(1.35rem, 1rem + 2vw, 1.9rem); line-height: 1.25; font-weight: 700; }
+.hero-bars { margin-top: 4px; --valw: 4em; border-bottom: 0; }
+.hero-bars .row { grid-template-columns: 6.2em 1fr; gap: 10px; align-items: center; padding: 7px 0; }
+.hero-bars .val { font-size: 1.08rem; }
+
+.pairs { display: grid; gap: 16px; }
+.pair { border: 1px solid var(--line); border-radius: 8px; padding: 14px 14px 12px; }
+.pair .bars { border-top: 0; }
+.pair .bars > li:last-child { border-bottom: 0; }
+.pair p { margin: 8px 0 0; }
+
+.calc { display: grid; gap: 20px; }
+.fields { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; align-items: end; }
+.fields label { display: block; font-size: 0.875rem; color: var(--ink2); }
+.fields label.full, .fields label.check { grid-column: 1 / -1; }
+.fields input[type="number"], .fields select {
+  display: block; width: 100%; margin-top: 4px; min-height: 42px; padding: 8px 10px;
+  font: inherit; font-size: 1rem; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--axis); border-radius: 6px;
+}
+.fields .check { display: flex; align-items: center; gap: 8px; min-height: 42px; color: var(--ink); }
+.fields .check input { width: 18px; height: 18px; accent-color: var(--accent); }
+.result { background: var(--panel); border-radius: 8px; padding: 16px; }
+.result .label { font-size: 0.875rem; color: var(--ink2); margin: 0; }
+.result .big { font-size: clamp(2rem, 1.4rem + 4vw, 3rem); line-height: 1.15; font-weight: 700; margin: 2px 0 10px; }
+.result dl { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; font-size: 0.92rem; }
+.result dt { color: var(--ink2); }
+.result dd { margin: 0; font-variant-numeric: tabular-nums; text-align: end; font-weight: 600; }
+details { margin-top: 4px; }
+summary { cursor: pointer; padding: 8px 0; color: var(--link); }
+.warnline { color: var(--warn); font-weight: 600; }
+
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.86rem; line-height: 1.45; }
+caption { text-align: start; padding: 8px 10px; color: var(--ink2); font-size: 0.86rem; caption-side: bottom; }
+th, td { padding: 7px 10px; text-align: start; vertical-align: top; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td.g { white-space: normal; min-width: 13em; }
+thead th { background: var(--panel); border-bottom: 1px solid var(--axis); white-space: normal; min-width: 5.2em; vertical-align: bottom; font-weight: 600; }
+thead button { font: inherit; font-weight: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: inherit; }
+thead button::after { content: " ↕"; color: var(--muted); }
+th[aria-sort="ascending"] button::after { content: " ↑"; color: var(--ink); }
+th[aria-sort="descending"] button::after { content: " ↓"; color: var(--ink); }
+td.n, th.n { text-align: end; font-variant-numeric: tabular-nums; }
+thead th.n { max-width: 9em; }
+td.m { min-width: 12.5em; max-width: 12.5em; white-space: normal; }
+tr.sampled td.n { color: var(--ink2); }
+
+ol.plain, ul.plain { margin: 0; padding-inline-start: 1.3em; max-width: 50em; }
+ol.plain li, ul.plain li { margin: 0 0 8px; }
+footer { margin-top: 64px; padding: 20px 0 48px; border-top: 1px solid var(--line); font-size: 0.875rem; color: var(--ink2); }
+footer p { margin: 0 0 6px; }
+#tip { position: fixed; z-index: 10; pointer-events: none; max-width: 280px; padding: 8px 10px; border-radius: 6px; background: var(--ink); color: var(--bg); font-size: 0.84rem; line-height: 1.45; }
+#tip b { font-size: 1rem; }
+#status { margin: 40px 0; color: var(--ink2); }
+
+@media (min-width: 720px) {
+  .row { grid-template-columns: minmax(230px, 36%) 1fr; gap: 16px; align-items: center; }
+  .hero-bars .row { grid-template-columns: 8em 1fr; }
+  .pairs { grid-template-columns: 1fr 1fr; }
+  .pair .row { grid-template-columns: 1fr; gap: 5px; }
+  .calc { grid-template-columns: 1.1fr 1fr; align-items: start; }
+  .calc .wide-col { grid-column: 1 / -1; }
+}
+@media (min-width: 1180px) {
+  .tablewrap { margin-inline: -130px; }  /* the wide table may use more of a wide screen than the text */
+}
+@media (forced-colors: active) {
+  .bar { forced-color-adjust: none; background: Highlight; }
+  .bar.open, .bar.rest { background: GrayText; }
+}
+@media print { .lang, summary, #tip { display: none; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-t="skip"></a>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">ภาษีภาษา<span>Thai Token Tax</span></div>
+    <div class="lang" role="group" aria-label="Language / ภาษา">
+      <button type="button" data-lang="th" lang="th">ไทย</button>
+      <button type="button" data-lang="en" lang="en">EN</button>
+    </div>
+  </header>
+
+  <p id="status" role="status">กำลังโหลดข้อมูล… / Loading data…</p>
+  <noscript><p>หน้านี้ต้องใช้ JavaScript เพื่อแสดงตัวเลขจากไฟล์ผล (data.json) · This page needs JavaScript to render the numbers from data.json.</p></noscript>
+
+  <main id="main" hidden>
+    <section id="lead" style="margin-top:0">
+      <p class="kicker" data-t="kicker"></p>
+      <h1 data-t="h1"></h1>
+      <p class="deck" data-t="deck"></p>
+      <div class="evidence">
+        <div class="hero-money">
+          <p class="cap" data-t="money_cap"></p>
+          <div class="figs" id="hero-figs"></div>
+        </div>
+        <div class="hero-tokens">
+          <p class="cap" data-t="hero_cap"></p>
+          <ul class="bars hero-bars" id="hero-bars"></ul>
+        </div>
+      </div>
+      <ul class="trust">
+        <li data-t="trust_cost"></li>
+        <li data-t="trust_data"></li>
+        <li data-t="trust_source"></li>
+        <li><a href="#method" data-t="trust_link"></a></li>
+      </ul>
+    </section>
+
+    <section id="tokens" aria-labelledby="tokens-h">
+      <h2 id="tokens-h" data-t="tokens_h"></h2>
+      <p class="lead-in" data-t="tokens_p"></p>
+      <ul class="legend">
+        <li><i></i><span data-t="legend_api"></span></li>
+        <li><i class="open"></i><span data-t="legend_open"></span></li>
+      </ul>
+      <ul class="bars" id="token-bars"></ul>
+      <p class="note" id="thai-note" hidden></p>
+    </section>
+
+    <section id="price" aria-labelledby="price-h">
+      <h2 id="price-h" data-t="price_h"></h2>
+      <p class="lead-in" data-t="price_p"></p>
+      <div class="pairs" id="pairs"></div>
+      <p class="note" id="counter-note" hidden></p>
+    </section>
+
+    <section id="calc" aria-labelledby="calc-h">
+      <h2 id="calc-h" data-t="calc_h"></h2>
+      <p class="lead-in" data-t="calc_p"></p>
+      <div class="calc">
+        <form class="fields" id="calc-form" onsubmit="return false">
+          <label class="full"><span data-t="f_preset"></span><select id="f-preset"></select></label>
+          <label class="full"><span data-t="f_model"></span><select id="f-model"></select></label>
+          <label><span id="f-units-label"></span><input type="number" id="f-units" min="0" step="1" inputmode="numeric"></label>
+          <label><span data-t="f_turns"></span><input type="number" id="f-turns" min="1" step="1" inputmode="numeric"></label>
+          <label><span data-t="f_system"></span><input type="number" id="f-system" min="0" step="1" inputmode="numeric"></label>
+          <label><span data-t="f_input"></span><input type="number" id="f-input" min="0" step="1" inputmode="numeric"></label>
+          <label><span data-t="f_output"></span><input type="number" id="f-output" min="0" step="1" inputmode="numeric"></label>
+          <label class="check"><input type="checkbox" id="f-resend"><span data-t="f_resend"></span></label>
+        </form>
+        <div class="result" aria-live="polite">
+          <p class="label" id="r-label"></p>
+          <p class="big" id="r-thai"></p>
+          <dl>
+            <dt data-t="r_english"></dt><dd id="r-english"></dd>
+            <dt data-t="r_ratio"></dt><dd id="r-ratio"></dd>
+            <dt data-t="r_tokens_in"></dt><dd id="r-in"></dd>
+            <dt data-t="r_tokens_out"></dt><dd id="r-out"></dd>
+            <dt data-t="r_price"></dt><dd id="r-price"></dd>
+          </dl>
+        </div>
+        <div class="wide-col">
+          <details id="calc-all">
+            <summary id="calc-all-sum"></summary>
+            <ul class="bars money" id="calc-bars"></ul>
+          </details>
+          <p class="small" data-t="calc_note"></p>
+          <p class="small" id="selfcheck"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="premium" aria-labelledby="premium-h">
+      <h2 id="premium-h" data-t="premium_h"></h2>
+      <p class="lead-in" data-t="premium_p"></p>
+      <ul class="legend">
+        <li><i class="notch"></i><span data-t="legend_one"></span></li>
+      </ul>
+      <ul class="bars wide" id="premium-bars"></ul>
+      <p class="note" id="gen-note" hidden></p>
+    </section>
+
+    <section id="table" aria-labelledby="table-h">
+      <h2 id="table-h" data-t="table_h"></h2>
+      <p class="lead-in" data-t="table_p"></p>
+      <div class="tablewrap" role="region" aria-labelledby="table-h" tabindex="0">
+        <table>
+          <thead><tr id="thead"></tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="method" aria-labelledby="method-h">
+      <h2 id="method-h" data-t="method_h"></h2>
+      <ol class="plain" id="method-list"></ol>
+      <h3 data-t="limits_h"></h3>
+      <ul class="plain" id="limits-list"></ul>
+    </section>
+
+    <section id="blocked" aria-labelledby="blocked-h">
+      <h2 id="blocked-h" data-t="blocked_h"></h2>
+      <p class="lead-in" data-t="blocked_p"></p>
+      <ul class="plain" id="blocked-list"></ul>
+    </section>
+  </main>
+
+  <footer id="foot" hidden>
+    <p data-t="foot_dates"></p>
+    <p data-t="foot_license"></p>
+    <p><a href="data.json" data-t="foot_data"></a><span id="repo-link"></span></p>
+  </footer>
+</div>
+<div id="tip" role="tooltip" hidden></div>
+
+<script>
+(() => {
+"use strict";
+
+/* CALC-START: the cost formula. It mirrors src/thai_token_tax/pricing.py and is checked
+   against the published cost table, both in the test suite and every time the page loads. */
+function scenarioChars(s) {
+  let sent = 0, received = 0;
+  for (let turn = 1; turn <= s.turns; turn++) {
+    sent += s.system_chars + s.input_chars;
+    if (s.resend_history) sent += (turn - 1) * (s.input_chars + s.output_chars);
+    received += s.output_chars;
+  }
+  return { sent, received };
+}
+function estimateCost(s, rates, price, thbPerUsd, englishCharsPerThaiChar) {
+  const chars = scenarioChars(s);
+  const sent = chars.sent * s.units, received = chars.received * s.units;
+  const tokens = (n, per1k) => n * per1k / 1000;
+  const usd = (i, o) => (i * price.input_usd_per_mtok + o * price.output_usd_per_mtok) / 1e6;
+  const one = (scale, per1k) => {
+    const input = tokens(sent * scale, per1k), output = tokens(received * scale, per1k);
+    return { input_tokens: input, output_tokens: output, usd: usd(input, output), thb: usd(input, output) * thbPerUsd };
+  };
+  return { thai: one(1, rates.thai), english: one(englishCharsPerThaiChar, rates.english) };
+}
+/* CALC-END */
+
+// Text only. {placeholders} are filled from data.json; no measured number is written here.
+const TEXT = {
+  th: {
+    skip: "ข้ามไปที่เนื้อหา",
+    h1: "ราคาป้ายเท่ากัน แต่งานภาษาไทยบน Claude จ่ายแพงกว่า GPT <b>{ratio_price} เท่า</b>",
+    kicker: "รายงานวัดผล: ต้นทุนของภาษาไทยบนโมเดล AI",
+    deck: "ค่า API คิดตามจำนวน token และข้อความไทยเดียวกันใช้ token บน Claude มากกว่า GPT {ratio_gpt} เท่า มากกว่า Gemini 3.x {ratio_gemini} เท่า",
+    money_cap: "ตัวอย่าง: {scenario} ราคาป้ายเท่ากันที่ {pin} / {pout} ดอลลาร์ต่อล้าน token (เข้า / ออก)",
+    hero_cap: "สาเหตุ: จำนวน token ต่อข้อความไทย 1,000 ตัวอักษร",
+    trust_cost: "<b>วัดต้นทุน ไม่ใช่คุณภาพคำตอบ</b> โมเดลที่ใช้ token มากกว่าอาจตอบภาษาไทยได้ดีกว่าก็ได้",
+    trust_data: "วัด {n} โมเดล ({n_groups} tokenizer) ด้วยคู่ประโยคไทย–อังกฤษ {pairs} คู่ (FLORES-200) เมื่อ {date_data} · ราคาป้ายจากหน้า pricing ทางการ ณ {date_prices}",
+    trust_source: "ทุกตัวเลขบนหน้านี้สร้างจากไฟล์ผลการวัดโดยตรง · จำนวน token ของ Claude ตรวจกับยอดที่ถูกคิดเงินจริงแล้ว",
+    trust_link: "วิธีวัดและข้อจำกัด",
+    tokens_h: "ข้อความไทยเดียวกัน ใช้กี่ token",
+    tokens_p: "จำนวน token ต่อข้อความไทย 1,000 ตัวอักษร ที่ราคาต่อ token เท่ากัน ยิ่งน้อยยิ่งจ่ายน้อย หนึ่งแท่งคือหนึ่ง tokenizer โมเดลที่นับ token ได้เท่ากันทุกประโยคอยู่แท่งเดียวกัน กดที่แท่งเพื่อดูรายชื่อโมเดล",
+    legend_api: "tokenizer ของบริการ API ที่คิดเงินตาม token",
+    legend_open: "ใช้ในโมเดลเปิดเท่านั้น (ไม่มีราคาต่อ token ของตัวเอง)",
+    tag_api: "API", tag_open: "โมเดลเปิด",
+    members: "โมเดลในกลุ่มนี้ ({n})",
+    cov_full: "วัดเต็มชุด {n} คู่ประโยค", cov_sample: "วัดแบบสุ่ม {n} คู่ ตรงกันทุกประโยค",
+    tip_thai: "token ต่อ 1,000 ตัวอักษรไทย", tip_english: "ต่อ 1,000 ตัวอักษรอังกฤษ", tip_premium: "ไทย ÷ อังกฤษ", tip_models: "{n} โมเดล",
+    thai_note: "{label} นับ token ได้เท่ากันทุกประโยค คือ {v} token ต่อ 1,000 ตัวอักษรไทย โมเดลไทยในกลุ่มนี้รับ tokenizer มาจากโมเดลฐาน",
+    price_h: "ราคาป้ายเท่ากัน จ่ายไม่เท่ากัน",
+    price_p: "ตัวอย่างงาน: {scenario} คิดจาก token ที่วัดได้ × ราคาป้าย × อัตราแลกเปลี่ยน ขนาดงานเป็นสมมติฐาน ปรับได้ในตัวคำนวณด้านล่าง",
+    pair_cap: "ราคาป้ายเท่ากัน: {pin} ดอลลาร์ต่อล้าน token ขาเข้า, {pout} ดอลลาร์ขาออก",
+    pair_result: "{a} จ่ายมากกว่า {b} <b>{ratio} เท่า</b> สำหรับงานภาษาไทยเดียวกัน",
+    counter: "token มากกว่าไม่ได้แปลว่าแพงกว่าเสมอ ในงานเดียวกัน {more} จ่าย {more_thb} น้อยกว่า {fewer} ที่จ่าย {fewer_thb} ทั้งที่ใช้ token ไทยมากกว่า ({more_1k} เทียบกับ {fewer_1k} ต่อ 1,000 ตัวอักษร) เพราะราคาต่อ token ต่างกัน",
+    calc_h: "คำนวณงานของคุณ",
+    calc_p: "เลือกงานตัวอย่างแล้วปรับตัวเลขได้ ผลลัพธ์ใช้สูตรเดียวกับตารางในรายงาน ขนาดงานที่ใส่เป็นสมมติฐานของคุณ",
+    f_preset: "งานตัวอย่าง", f_model: "โมเดล", f_units: "จำนวนงาน ({unit})", f_turns: "จำนวนรอบต่อหนึ่งงาน",
+    f_system: "system prompt (ตัวอักษร)", f_input: "ข้อความเข้าต่อรอบ (ตัวอักษร)", f_output: "ข้อความออกต่อรอบ (ตัวอักษร)",
+    f_resend: "ส่งประวัติสนทนาซ้ำทุกรอบ",
+    r_label: "ภาษาไทย บน {model}", r_english: "เนื้อหาเดียวกันเป็นภาษาอังกฤษ", r_ratio: "ไทย ÷ อังกฤษ",
+    r_tokens_in: "token ไทยขาเข้า", r_tokens_out: "token ไทยขาออก", r_price: "ราคาป้าย $ ต่อล้าน token (เข้า / ออก)",
+    calc_all: "เทียบทุกโมเดลที่มีราคา ({n} โมเดล)",
+    calc_note: "ไม่รวม prompt caching, ส่วนลด batch, thinking token และ token โครงคำขอ (บน Claude {overheads} token ต่อคำขอ) · ราคา ณ {date_prices} · อัตรา ธปท. {rate} บาทต่อดอลลาร์ ({date_rate})",
+    check_ok: "สูตรบนหน้านี้ถูกตรวจกับตารางค่าใช้จ่ายในไฟล์ผลตอนเปิดหน้า: ตรงกัน {n} จาก {n} ค่า",
+    check_bad: "สูตรบนหน้านี้ให้ผลไม่ตรงกับไฟล์ผล {bad} จาก {n} ค่า โปรดอย่าใช้ตัวเลขจากตัวคำนวณ",
+    premium_h: "ในโมเดลเดียวกัน ภาษาไทยใช้ token กี่เท่าของภาษาอังกฤษ",
+    premium_p: "token ไทยรวม ÷ token อังกฤษรวม ของเนื้อหาเดียวกัน {pairs} คู่ประโยค ในวงเล็บคือช่วงความเชื่อมั่น 95% ตัวเลขนี้ใช้เทียบข้ามโมเดลไม่ได้ เพราะแต่ละโมเดลใช้ token กับภาษาอังกฤษไม่เท่ากัน",
+    legend_one: "ช่องว่างบนแท่ง = 1 เท่า (ใช้ token เท่ากับภาษาอังกฤษ)",
+    gen_note: "ตัวอย่างว่าทำไมเทียบข้ามโมเดลไม่ได้: จาก {old} ไป {new} ค่านี้ลดจาก {old_p} เหลือ {new_p} เท่า แต่ token ไทยต่อ 1,000 ตัวอักษรแทบไม่เปลี่ยน ({old_th} → {new_th}) ส่วนภาษาอังกฤษเพิ่มจาก {old_en} เป็น {new_en}",
+    table_h: "ตารางเต็ม: ทุกโมเดลที่วัด",
+    table_p: "{n} โมเดล กดหัวคอลัมน์เพื่อเรียง โมเดลที่วัดแบบสุ่มแสดงค่าของโมเดลที่วัดเต็มชุดซึ่งนับได้ตรงกันทุกประโยคในชุดสุ่ม",
+    c_model: "โมเดล", c_kind: "ประเภท", c_cov: "วิธีวัด", c_thai: "token ต่อ 1,000 ตัวอักษรไทย", c_english: "ต่อ 1,000 ตัวอักษรอังกฤษ",
+    c_premium: "ไทย ÷ อังกฤษ (95% CI)", c_group: "กลุ่มที่นับ token เท่ากัน", c_price: "ราคาป้าย $ ต่อล้าน token (เข้า / ออก)",
+    cov_full_short: "เต็มชุด {n} คู่", cov_sample_short: "สุ่ม {n} คู่", no_price: "ไม่มี", no_match: "ไม่ตรงกับกลุ่มใด",
+    method_h: "วิธีวัด",
+    method: [
+      "ข้อมูล: FLORES-200 ชุด devtest คู่ประโยคไทย–อังกฤษที่แปลขนานกัน {pairs} คู่ (ชุดต้นฉบับของ Meta) ข้อความไทยและอังกฤษของ FLORES+ รุ่น {fp_version} ต่างจากชุดนี้ {fp_diff} ประโยค",
+      "นับ token ด้วย tokenizer ของแต่ละโมเดลเอง Claude, GPT และ Gemini นับผ่าน endpoint นับ token ทางการ แล้วหัก token โครงคำขอที่คงที่ออก โมเดลเปิดนับด้วยไฟล์ tokenizer ของโมเดล",
+      "token ต่อ 1,000 ตัวอักษร = token รวม ÷ ตัวอักษรรวม × 1,000 (ตัวอักษรคือ Unicode code point) ส่วนไทย ÷ อังกฤษ = token ไทยรวม ÷ token อังกฤษรวม ช่วงความเชื่อมั่น 95% มาจาก bootstrap ทีละคู่ประโยค",
+      "โมเดลที่ระบุว่าวัดแบบสุ่ม: วัด {sample} คู่ประโยคที่สุ่มไว้ล่วงหน้า และได้จำนวน token ตรงกับโมเดลที่วัดเต็มชุดทุกประโยค จึงใช้ค่าของโมเดลนั้น",
+      "เงินบาท = token × ราคาป้ายทางการ × อัตราแลกเปลี่ยนถัวเฉลี่ยถ่วงน้ำหนักระหว่างธนาคารของ ธปท. ({rate} บาทต่อดอลลาร์ ณ {date_rate})",
+      "ตรวจกับยอดคิดเงินจริง: ส่งคำขอจริง {bill_texts} ข้อความบน Claude แล้วเทียบ input token ที่ถูกคิดเงินกับผลของ count_tokens {bill_result}",
+    ],
+    bill_equal: "ตรงกันทุกข้อความ", bill_differ: "พบว่าไม่ตรงกันทุกข้อความ",
+    limits_h: "ข้อจำกัด",
+    limits: [
+      "เป็นต้นทุน token เท่านั้น ไม่ได้บอกคุณภาพคำตอบ",
+      "จำนวน token วัดจาก FLORES-200 ซึ่งเป็นข้อความแนวข่าวและสารานุกรม ข้อความแชทหรือข้อความประเภทอื่นอาจถูกแบ่ง token ต่างออกไป",
+      "FLORES มีคำแปลบางประโยคที่ความหมายไม่ตรงกับต้นฉบับ เราไม่ได้แก้ไขข้อมูล",
+      "token ขาออกสมมติว่าใช้ token ต่อตัวอักษรเท่ากับข้อความขาเข้าของภาษาเดียวกัน",
+      "ไม่รวม reasoning/thinking token, prompt caching, ส่วนลด batch, free tier และราคาช่วง context ยาว ใช้ราคาป้ายมาตรฐานเท่านั้น",
+      "จำนวน token ของ Claude มาจาก count_tokens ซึ่ง Anthropic ระบุว่าเป็นค่าประมาณ การตรวจกับยอดคิดเงินจริงครอบคลุมเฉพาะคำขอที่มีข้อความเดียว ไม่มี system prompt ไม่มี tools",
+      "token โครงคำขอของ Claude ({overheads} token ต่อคำขอ) ถูกคิดเงินจริง แต่ไม่รวมอยู่ในตัวเลขของรายงานนี้",
+      "โมเดลเปิดไม่มีราคาต่อ token ของตัวเอง จึงรายงานเฉพาะจำนวน token",
+      "\"เนื้อหาเดียวกันเป็นภาษาอังกฤษ\" คิดจากอัตราส่วนตัวอักษรอังกฤษต่อไทยที่วัดจาก FLORES-200 ({en_per_th} เท่า) ไม่ใช่จำนวนตัวอักษรเท่ากัน",
+      "ขนาดงานในงานตัวอย่างเป็นสมมติฐาน ไม่ใช่ค่าที่วัด",
+    ],
+    limit_prices: "ราคาเปลี่ยนได้ หน้า pricing ของ Google ระบุราคาที่มีวันสิ้นสุดสำหรับ:", w_in: "ขาเข้า", w_out: "ขาออก",
+    blocked_h: "ยังไม่ได้วัด",
+    blocked_p: "โมเดลเหล่านี้อยู่ในแผนแต่วัดไม่ได้ จึงไม่มีตัวเลข และไม่ได้ใช้ค่าประมาณหรือสำเนาจากแหล่งอื่นแทน",
+    blocked_gated: "repo จำกัดการเข้าถึง ยังไม่ได้รับสิทธิ์ (HTTP {code})",
+    blocked_custom_code: "ไม่มีไฟล์ tokenizer.json ต้องรันโค้ดจาก repo ซึ่งโปรเจคนี้ไม่ทำ (HTTP {code})",
+    blocked_withdrawn: "API แจ้งว่าโมเดลนี้ไม่เปิดให้ผู้ใช้ใหม่แล้ว (HTTP {code})",
+    blocked_other: "ดาวน์โหลดหรือเรียกใช้ไม่สำเร็จ (HTTP {code})",
+    foot_dates: "ข้อมูลวัด {date_data} · ราคา {date_prices} · อัตราแลกเปลี่ยน {date_rate}",
+    foot_license: "โค้ด: {lic_code} · ผลการวัดและข้อความบนหน้านี้: {lic_results} · ข้อมูล FLORES-200: {lic_dataset} (Meta)",
+    foot_data: "ข้อมูลทั้งหมดของหน้านี้ (data.json)", foot_repo: "ซอร์สโค้ดและข้อมูลดิบ",
+    baht: "{n} บาท", times: "{n} เท่า", error: "โหลดข้อมูลไม่สำเร็จ หน้านี้ต้องเปิดผ่านเว็บเซิร์ฟเวอร์",
+  },
+  en: {
+    skip: "Skip to content",
+    h1: "The same Thai text takes <b>{ratio_gpt}×</b> the tokens on Claude as on GPT, and <b>{ratio_gemini}×</b> as on Gemini",
+    kicker: "Benchmark: what Thai text costs on AI models",
+    deck: "APIs bill per token, so the bill follows: at the same list price, a Thai workload costs {ratio_price}× as much on Claude as on GPT.",
+    money_cap: "Example: {scenario}, at the same list price of ${pin} / ${pout} per million tokens (in / out)",
+    hero_cap: "Tokens per 1,000 Thai characters",
+    trust_cost: "<b>This measures cost, not answer quality.</b> A model that uses more tokens may still answer Thai better.",
+    trust_data: "{n} models ({n_groups} tokenizers) measured on {pairs} parallel Thai–English sentences (FLORES-200) on {date_data} · official list prices as of {date_prices}",
+    trust_source: "Every number on this page is generated from the measurement files · Claude token counts were checked against billed usage",
+    trust_link: "Method and limits",
+    tokens_h: "How many tokens the same Thai text takes",
+    tokens_p: "Tokens per 1,000 Thai characters; at the same price per token, fewer costs less. One bar is one tokenizer: models that gave identical counts on every sentence share a bar. Select a bar to list its models.",
+    legend_api: "Tokenizer of a pay-per-token API",
+    legend_open: "Used by open models only (no per-token price of their own)",
+    tag_api: "API", tag_open: "open",
+    members: "Models in this group ({n})",
+    cov_full: "full run, {n} sentence pairs", cov_sample: "sample of {n} pairs, identical on every sentence",
+    tip_thai: "tokens per 1,000 Thai characters", tip_english: "per 1,000 English characters", tip_premium: "Thai ÷ English", tip_models: "{n} models",
+    thai_note: "{label} give identical counts on every sentence: {v} tokens per 1,000 Thai characters. The Thai models in this group inherit the base model's tokenizer.",
+    price_h: "Same list price, different bill",
+    price_p: "Example workload: {scenario}. Measured tokens × list price × exchange rate. The workload size is an assumption; change it in the calculator below.",
+    pair_cap: "Same list price: ${pin} per million input tokens, ${pout} output",
+    pair_result: "{a} costs <b>{ratio}×</b> as much as {b} for the same Thai workload",
+    counter: "More tokens does not always mean a higher bill. On the same workload {more} costs {more_thb}, less than {fewer} at {fewer_thb}, although it uses more Thai tokens ({more_1k} vs {fewer_1k} per 1,000 characters): the price per token differs.",
+    calc_h: "Estimate your own workload",
+    calc_p: "Pick a preset and change the numbers. The result uses the same formula as the tables in this report. The workload size you enter is your assumption.",
+    f_preset: "Preset", f_model: "Model", f_units: "Volume ({unit})", f_turns: "Turns per unit",
+    f_system: "System prompt (characters)", f_input: "Input per turn (characters)", f_output: "Output per turn (characters)",
+    f_resend: "Resend the conversation history every turn",
+    r_label: "Thai, on {model}", r_english: "Same content in English", r_ratio: "Thai ÷ English",
+    r_tokens_in: "Thai input tokens", r_tokens_out: "Thai output tokens", r_price: "List price, $ per million tokens (in / out)",
+    calc_all: "Compare all priced models ({n} models)",
+    calc_note: "Excludes prompt caching, batch discounts, thinking tokens and request framing tokens ({overheads} tokens per request on Claude) · prices as of {date_prices} · Bank of Thailand rate {rate} baht per US dollar ({date_rate})",
+    check_ok: "The formula on this page was checked against the published cost table when the page loaded: {n} of {n} values match",
+    check_bad: "The formula on this page disagrees with the published results on {bad} of {n} values. Do not use the calculator's numbers.",
+    premium_h: "Within one model: Thai vs the same content in English",
+    premium_p: "Total Thai tokens ÷ total English tokens for the same content ({pairs} sentence pairs), with the 95% confidence interval in brackets. This ratio cannot be compared across models, because each model spends a different number of tokens on English.",
+    legend_one: "Gap in the bar = 1× (same tokens as English)",
+    gen_note: "Why it cannot be compared across models: from {old} to {new} the ratio fell from {old_p}× to {new_p}×, yet Thai tokens per 1,000 characters barely moved ({old_th} → {new_th}) while English rose from {old_en} to {new_en}.",
+    table_h: "Full table: every model measured",
+    table_p: "{n} models. Select a column heading to sort. A sampled model shows the values of the fully measured model it matched on every sampled sentence.",
+    c_model: "Model", c_kind: "Type", c_cov: "Measured", c_thai: "Tokens per 1,000 Thai chars", c_english: "per 1,000 English chars",
+    c_premium: "Thai ÷ English (95% CI)", c_group: "Group with identical counts", c_price: "List price $ per million tokens (in / out)",
+    cov_full_short: "full, {n} pairs", cov_sample_short: "sample, {n} pairs", no_price: "none", no_match: "matched no group",
+    method_h: "Method",
+    method: [
+      "Data: FLORES-200 devtest, {pairs} parallel Thai–English sentence pairs (the original Meta release). The Thai and English text of FLORES+ {fp_version} differs from it in {fp_diff} sentences.",
+      "Tokens are counted with each model's own tokenizer. Claude, GPT and Gemini are counted through their official token-counting endpoints, minus the fixed request framing. Open models are counted with the model's tokenizer file.",
+      "Tokens per 1,000 characters = total tokens ÷ total characters × 1,000 (a character is a Unicode code point). Thai ÷ English = total Thai tokens ÷ total English tokens. The 95% confidence interval is a bootstrap over sentence pairs.",
+      "Models marked as sampled were counted on {sample} pre-selected sentence pairs and matched a fully measured model on every sentence, so they take that model's values.",
+      "Baht = tokens × official list price × the Bank of Thailand weighted-average interbank rate ({rate} baht per US dollar on {date_rate}).",
+      "Checked against real billing: {bill_texts} real requests were sent to Claude and the billed input tokens compared with count_tokens: {bill_result}.",
+    ],
+    bill_equal: "identical for every text", bill_differ: "not identical for every text",
+    limits_h: "Limits",
+    limits: [
+      "This is token cost only. It says nothing about answer quality.",
+      "Token counts were measured on FLORES-200, which is news and encyclopedia style text. Chat messages or other kinds of text may tokenize differently.",
+      "FLORES contains some translations whose meaning does not match the source. The data was not edited.",
+      "Output tokens are assumed to have the same tokens-per-character as input text of the same language.",
+      "Reasoning/thinking tokens, prompt caching, batch discounts, free tiers and long-context price tiers are not included. Standard list prices only.",
+      "Claude token counts come from count_tokens, which Anthropic documents as an estimate. The billing check only covered requests with a single message, no system prompt and no tools.",
+      "Claude's request framing ({overheads} tokens per request) is billed, but is not included in the numbers of this report.",
+      "Open models have no per-token price of their own, so only their token counts are reported.",
+      "\"The same content in English\" uses the English-to-Thai character ratio measured on FLORES-200 ({en_per_th}×), not an equal number of characters.",
+      "Workload sizes in the presets are assumptions, not measurements.",
+    ],
+    limit_prices: "Prices change. Google's pricing page states an end date for the current price of:", w_in: "input", w_out: "output",
+    blocked_h: "Not measured",
+    blocked_p: "These models were planned but could not be measured. They have no numbers; no estimate or unofficial copy was used instead.",
+    blocked_gated: "gated repository, access not granted yet (HTTP {code})",
+    blocked_custom_code: "no tokenizer.json; its tokenizer needs code from the repository to be executed, which this project does not do (HTTP {code})",
+    blocked_withdrawn: "the API says this model is no longer available to new users (HTTP {code})",
+    blocked_other: "could not be downloaded or called (HTTP {code})",
+    foot_dates: "Data measured {date_data} · prices {date_prices} · exchange rate {date_rate}",
+    foot_license: "Code: {lic_code} · Results and the text of this page: {lic_results} · FLORES-200 data: {lic_dataset} (Meta)",
+    foot_data: "All data behind this page (data.json)", foot_repo: "Source code and raw data",
+    baht: "{n} baht", times: "{n}×", error: "Could not load the data. This page must be opened through a web server.",
+  },
+};
+
+let D = null, CONFIG = { repo_url: null }, lang = "th";
+const state = { scenario: null, model: null, inputs: null, sort: { key: "thai", dir: -1 }, open: new Set() };
+const $ = (id) => document.getElementById(id);
+const esc = (v) => String(v).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const fill = (text, vars, safe) => text.replace(/\{(\w+)\}/g, (m, k) => (vars && k in vars ? safe(vars[k]) : m));
+const t = (key, vars) => fill(TEXT[lang][key], vars, esc);        // for innerHTML: values are escaped
+const tx = (key, vars) => fill(TEXT[lang][key], vars, String);    // for textContent
+const locale = () => (lang === "th" ? "th-TH-u-ca-gregory-nu-latn" : "en-GB");
+const num = (v, d = 0) => new Intl.NumberFormat(locale(), { minimumFractionDigits: d, maximumFractionDigits: d }).format(v);
+const compact = (v) => new Intl.NumberFormat(locale(), { notation: "compact", compactDisplay: "long", maximumFractionDigits: 1 }).format(v);
+const money = (v) => tx("baht", { n: num(v, v < 100 ? 2 : 0) });
+const usdPrice = (v) => num(v, v < 1 ? 2 : (Number.isInteger(v) ? 0 : 2));
+const date = (iso) => new Intl.DateTimeFormat(locale(), { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(iso + "T00:00:00Z"));
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+const name = (id) => D.names[id] || id;
+const groupOf = (leader) => D.groups.find((g) => g.leader === leader);
+const ratesOf = (model) => { const g = groupOf(model.group); return { thai: g.thai_tokens_per_1k_chars, english: g.english_tokens_per_1k_chars }; };
+const priced = () => D.models.filter((m) => m.input_usd_per_mtok != null && m.group);
+const scenarioName = (s) => (lang === "th" && s.name_th) || s.name;
+const scenarioUnit = (s) => (lang === "th" && s.unit_th) || s.unit;
+const overheads = () => [...new Set(Object.values(D.billing_check.models).flatMap((m) => m.billed_overhead_tokens))].sort((a, b) => b - a).map((v) => num(v)).join(" / ");
+
+function vars() {
+  const h = D.headline, fp = D.flores_plus, pair = D.same_price_pairs[0];
+  const sample = D.groups.flatMap((g) => g.members).find((m) => m.coverage === "sample");
+  return {
+    ratio_price: num(h.same_price_ratio, 2), ratio_gpt: num(h.claude_over_gpt_tokens, 2), ratio_gemini: num(h.claude_over_gemini_tokens, 2),
+    pairs: num(D.dataset.sentence_pairs), date_data: date(D.dates.data), date_prices: date(D.dates.prices), date_rate: date(D.dates.exchange_rate),
+    rate: num(D.exchange_rate.thb_per_usd, 3), scenario: scenarioName(D.scenarios.find((s) => s.id === h.scenario)),
+    overheads: overheads(), fp_version: fp.version, fp_diff: num(fp.thai_sentences_that_differ + fp.english_sentences_that_differ),
+    sample: sample ? num(sample.sentence_pairs) : "", bill_texts: num(D.billing_check.texts),
+    bill_result: TEXT[lang][D.billing_check.all_equal ? "bill_equal" : "bill_differ"],
+    en_per_th: num(D.dataset.english_chars_per_thai_char, 3), n: num(D.models.length), n_groups: num(D.groups.length),
+    a: name(pair.a), b: name(pair.b), a_thb: money(pair.a_thai_thb), b_thb: money(pair.b_thai_thb),
+    pin: usdPrice(pair.input_usd_per_mtok), pout: usdPrice(pair.output_usd_per_mtok),
+    lic_code: D.licences.code, lic_results: D.licences.results, lic_dataset: D.licences.dataset,
+  };
+}
+
+// One row of a ranked bar list. `r` is the bar length as a share of the longest bar.
+function barRow(opts) {
+  const li = el("li");
+  const row = el(opts.onclick ? "button" : "div", "row");
+  const nm = el("span", "name");
+  if (opts.onclick) { row.type = "button"; nm.append(el("span", "caret", "▸")); nm.firstChild.setAttribute("aria-hidden", "true"); }
+  nm.append(document.createTextNode(opts.label));
+  if (opts.sub) { nm.append(document.createTextNode(" ")); nm.append(el("small", null, opts.sub)); }
+  const track = el("span", "track");
+  const bar = el("span", "bar" + (opts.cls ? " " + opts.cls : ""));
+  bar.style.setProperty("--r", String(opts.r));
+  if (opts.one != null) { bar.classList.add("one"); bar.style.setProperty("--one", String(opts.one)); }
+  const val = el("span", "val", opts.value);
+  if (opts.valueSub) { val.append(document.createTextNode(" ")); val.append(el("small", null, opts.valueSub)); }
+  track.append(bar, val);
+  if (opts.tag) track.append(el("span", "tag", opts.tag));
+  row.append(nm, track);
+  li.append(row);
+  if (opts.tip) attachTip(row, opts.tip);
+  if (opts.onclick) row.addEventListener("click", () => opts.onclick(li, row));
+  return li;
+}
+
+function attachTip(node, lines) {
+  const tip = $("tip");
+  const show = (x, y) => {
+    tip.replaceChildren();
+    lines().forEach(([value, label], i) => {
+      const div = el("div");
+      div.append(el(i === 0 ? "b" : "span", null, value), document.createTextNode(" " + label));
+      tip.append(div);
+    });
+    tip.hidden = false;
+    const w = tip.offsetWidth, hgt = tip.offsetHeight;
+    tip.style.left = Math.max(8, Math.min(x + 14, innerWidth - w - 8)) + "px";
+    tip.style.top = Math.max(8, Math.min(y + 16, innerHeight - hgt - 8)) + "px";
+  };
+  node.addEventListener("pointermove", (e) => { if (e.pointerType === "mouse") show(e.clientX, e.clientY); });
+  node.addEventListener("pointerleave", () => { tip.hidden = true; });
+  node.addEventListener("focus", () => { const r = node.getBoundingClientRect(); show(r.left + 24, r.bottom - 8); });
+  node.addEventListener("blur", () => { tip.hidden = true; });
+}
+
+function renderText() {
+  const v = vars();
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-t]").forEach((node) => { node.innerHTML = t(node.dataset.t, v); });
+  document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  $("foot").hidden = false;
+  const repo = $("repo-link");
+  repo.replaceChildren();
+  if (CONFIG.repo_url) {
+    const a = el("a", null, tx("foot_repo"));
+    a.href = CONFIG.repo_url;
+    repo.append(document.createTextNode(" · "), a);
+  }
+}
+
+function renderHero() {
+  const h = D.headline, list = $("hero-bars");
+  const rows = [
+    [h.short.claude, h.claude_thai_tokens_per_1k_chars],
+    [h.short.gpt, h.gpt_thai_tokens_per_1k_chars],
+    [h.short.gemini, h.gemini_thai_tokens_per_1k_chars],
+    [h.short.gemini_other, h.gemini_other_thai_tokens_per_1k_chars],
+  ];
+  const max = Math.max(...rows.map((r) => r[1]));
+  list.replaceChildren(...rows.map(([label, value]) => barRow({ label, r: value / max, value: num(value, 1) })));
+  const pair = D.same_price_pairs[0];
+  $("hero-figs").replaceChildren(...[[pair.a, pair.a_thai_thb], [pair.b, pair.b_thai_thb]].map(([id, thb]) => {
+    const fig = el("div", "fig");
+    fig.append(el("div", "who", name(id)), el("div", "amount", money(thb)));
+    return fig;
+  }));
+}
+
+function renderTokens() {
+  const list = $("token-bars"), max = Math.max(...D.groups.map((g) => g.thai_tokens_per_1k_chars));
+  list.replaceChildren(...D.groups.map((g, i) => {
+    const id = "members-" + i;
+    const li = barRow({
+      label: g.label[lang], tag: tx(g.api ? "tag_api" : "tag_open"), cls: g.api ? "" : "open",
+      r: g.thai_tokens_per_1k_chars / max, value: num(g.thai_tokens_per_1k_chars, 1),
+      tip: () => [
+        [num(g.thai_tokens_per_1k_chars, 1), tx("tip_thai")],
+        [num(g.english_tokens_per_1k_chars, 1), tx("tip_english")],
+        [num(g.premium, 2) + "×", tx("tip_premium")],
+        [tx("tip_models", { n: num(g.members.length) }), ""],
+      ],
+      onclick: (item, row) => {
+        const panel = item.querySelector(".members");
+        const open = panel.hidden;
+        panel.hidden = !open;
+        row.setAttribute("aria-expanded", String(open));
+        if (open) state.open.add(g.leader); else state.open.delete(g.leader);
+      },
+    });
+    const row = li.firstChild, panel = el("div", "members");
+    panel.id = id;
+    panel.hidden = !state.open.has(g.leader);
+    row.setAttribute("aria-controls", id);
+    row.setAttribute("aria-expanded", String(!panel.hidden));
+    panel.append(el("div", null, tx("members", { n: num(g.members.length) })));
+    const ul = el("ul");
+    g.members.forEach((m) => {
+      const item = el("li");
+      item.append(el("span", "mono", m.model_id), document.createTextNode(" · " + tx(m.coverage === "full" ? "cov_full" : "cov_sample", { n: num(m.sentence_pairs) })));
+      ul.append(item);
+    });
+    panel.append(ul);
+    li.append(panel);
+    return li;
+  }));
+  const note = $("thai-note"), g = groupOf(D.notes.thai_models_group);
+  note.hidden = !g;
+  if (g) note.textContent = tx("thai_note", { label: g.label[lang], v: num(g.thai_tokens_per_1k_chars, 1) });
+}
+
+function renderPairs() {
+  const box = $("pairs");
+  box.replaceChildren(...D.same_price_pairs.map((p) => {
+    const card = el("div", "pair"), max = Math.max(p.a_thai_thb, p.b_thai_thb);
+    card.append(el("p", "cap", tx("pair_cap", { pin: usdPrice(p.input_usd_per_mtok), pout: usdPrice(p.output_usd_per_mtok) })));
+    const ul = el("ul", "bars money");
+    ul.append(barRow({ label: name(p.a), r: p.a_thai_thb / max, value: money(p.a_thai_thb) }),
+              barRow({ label: name(p.b), r: p.b_thai_thb / max, value: money(p.b_thai_thb) }));
+    const result = el("p");
+    result.innerHTML = t("pair_result", { a: name(p.a), b: name(p.b), ratio: num(p.ratio, 2) });
+    card.append(ul, result);
+    return card;
+  }));
+  const c = D.notes.counterexample, note = $("counter-note");
+  note.hidden = !c;
+  if (c) note.innerHTML = t("counter", {
+    more: name(c.more_tokens), fewer: name(c.fewer_tokens), more_thb: money(c.more_tokens_thai_thb), fewer_thb: money(c.fewer_tokens_thai_thb),
+    more_1k: num(c.more_tokens_thai_per_1k_chars, 1), fewer_1k: num(c.fewer_tokens_thai_per_1k_chars, 1),
+  });
+}
+
+function readInputs() {
+  const n = (id, min) => Math.max(min, Math.floor(Number($(id).value) || 0));
+  state.inputs = {
+    units: n("f-units", 0), turns: n("f-turns", 1), system_chars: n("f-system", 0),
+    input_chars: n("f-input", 0), output_chars: n("f-output", 0), resend_history: $("f-resend").checked,
+  };
+}
+function loadPreset() {
+  const s = D.scenarios.find((x) => x.id === state.scenario);
+  state.inputs = { units: s.units, turns: s.turns, system_chars: s.system_chars, input_chars: s.input_chars, output_chars: s.output_chars, resend_history: !!s.resend_history };
+}
+function writeInputs() {
+  const i = state.inputs;
+  $("f-units").value = i.units; $("f-turns").value = i.turns; $("f-system").value = i.system_chars;
+  $("f-input").value = i.input_chars; $("f-output").value = i.output_chars; $("f-resend").checked = i.resend_history;
+}
+function costFor(model, inputs) {
+  return estimateCost(inputs, ratesOf(model), model, D.exchange_rate.thb_per_usd, D.dataset.english_chars_per_thai_char);
+}
+
+function renderCalcControls() {
+  const preset = $("f-preset"), model = $("f-model");
+  preset.replaceChildren(...D.scenarios.map((s) => { const o = el("option", null, scenarioName(s)); o.value = s.id; return o; }));
+  preset.value = state.scenario;
+  const families = [...new Set(priced().map((m) => m.family))];
+  model.replaceChildren(...families.map((f) => {
+    const group = el("optgroup");
+    group.label = f;
+    priced().filter((m) => m.family === f).forEach((m) => { const o = el("option", null, name(m.model_id)); o.value = m.model_id; group.append(o); });
+    return group;
+  }));
+  model.value = state.model;
+  $("f-units-label").textContent = tx("f_units", { unit: scenarioUnit(D.scenarios.find((s) => s.id === state.scenario)) });
+  writeInputs();
+}
+
+function renderCalcResult() {
+  const model = D.models.find((m) => m.model_id === state.model), c = costFor(model, state.inputs);
+  $("r-label").textContent = tx("r_label", { model: name(model.model_id) });
+  $("r-thai").textContent = money(c.thai.thb);
+  $("r-english").textContent = money(c.english.thb);
+  $("r-ratio").textContent = c.english.thb > 0 ? tx("times", { n: num(c.thai.thb / c.english.thb, 2) }) : "–";
+  $("r-in").textContent = compact(c.thai.input_tokens);
+  $("r-out").textContent = compact(c.thai.output_tokens);
+  $("r-price").textContent = usdPrice(model.input_usd_per_mtok) + " / " + usdPrice(model.output_usd_per_mtok);
+  const all = priced().map((m) => ({ m, thb: costFor(m, state.inputs).thai.thb })).sort((a, b) => a.thb - b.thb);
+  const max = Math.max(...all.map((x) => x.thb), 1e-12);
+  $("calc-all-sum").textContent = tx("calc_all", { n: num(all.length) });
+  $("calc-bars").replaceChildren(...all.map((x) => barRow({
+    label: name(x.m.model_id), cls: x.m.model_id === state.model ? "" : "rest", r: x.thb / max, value: money(x.thb),
+  })));
+}
+
+function renderPremium() {
+  const groups = [...D.groups].sort((a, b) => b.premium - a.premium), max = groups[0].premium;
+  $("premium-bars").replaceChildren(...groups.map((g) => barRow({
+    label: g.label[lang], cls: g.api ? "" : "open", r: g.premium / max, one: 1 / g.premium,
+    value: num(g.premium, 2) + "×", valueSub: "(" + num(g.premium_ci_low, 2) + "–" + num(g.premium_ci_high, 2) + ")",
+  })));
+  const gen = D.notes.generations, note = $("gen-note");
+  note.hidden = !gen;
+  if (gen) {
+    const o = groupOf(gen.older), n = groupOf(gen.newer);
+    note.textContent = tx("gen_note", {
+      old: o.label[lang], new: n.label[lang], old_p: num(o.premium, 2), new_p: num(n.premium, 2),
+      old_th: num(o.thai_tokens_per_1k_chars, 1), new_th: num(n.thai_tokens_per_1k_chars, 1),
+      old_en: num(o.english_tokens_per_1k_chars, 1), new_en: num(n.english_tokens_per_1k_chars, 1),
+    });
+  }
+}
+
+const COLUMNS = [
+  { key: "model", label: "c_model", get: (m) => m.model_id.toLowerCase() },
+  { key: "thai", label: "c_thai", n: true, get: (m, g) => (g ? g.thai_tokens_per_1k_chars : null) },
+  { key: "english", label: "c_english", n: true, get: (m, g) => (g ? g.english_tokens_per_1k_chars : null) },
+  { key: "premium", label: "c_premium", n: true, get: (m, g) => (g ? g.premium : null) },
+  { key: "kind", label: "c_kind", get: (m) => (m.api ? 0 : 1) },
+  { key: "cov", label: "c_cov", get: (m) => (m.coverage === "full" ? 0 : 1) },
+  { key: "group", label: "c_group", get: (m, g) => (g ? g.label[lang].toLowerCase() : "") },
+  { key: "price", label: "c_price", n: true, get: (m) => m.input_usd_per_mtok },
+];
+function renderTable() {
+  const head = $("thead"), body = $("tbody");
+  head.replaceChildren(...COLUMNS.map((c) => {
+    const th = el("th", c.n ? "n" : null), b = el("button", null, tx(c.label));
+    b.type = "button";
+    th.scope = "col";
+    if (state.sort.key === c.key) th.setAttribute("aria-sort", state.sort.dir > 0 ? "ascending" : "descending");
+    b.addEventListener("click", () => {
+      state.sort = { key: c.key, dir: state.sort.key === c.key ? -state.sort.dir : (c.n ? -1 : 1) };
+      renderTable();
+    });
+    th.append(b);
+    return th;
+  }));
+  const col = COLUMNS.find((c) => c.key === state.sort.key);
+  const rows = D.models.map((m) => ({ m, g: m.group ? groupOf(m.group) : null }));
+  rows.sort((a, b) => {
+    const x = col.get(a.m, a.g), y = col.get(b.m, b.g);
+    if (x == null || y == null) return (x == null) - (y == null);  // rows without a value go last
+    return (x < y ? -1 : x > y ? 1 : 0) * state.sort.dir || a.m.model_id.localeCompare(b.m.model_id);
+  });
+  body.replaceChildren(...rows.map(({ m, g }) => {
+    const tr = el("tr", m.coverage === "full" ? null : "sampled");
+    const cell = (text, cls) => tr.append(el("td", cls, text));
+    const first = el("td", "m");
+    first.append(el("span", "mono", m.model_id));
+    tr.append(first);
+    cell(g ? num(g.thai_tokens_per_1k_chars, 1) : "–", "n");
+    cell(g ? num(g.english_tokens_per_1k_chars, 1) : "–", "n");
+    cell(g ? num(g.premium, 3) + " (" + num(g.premium_ci_low, 3) + "–" + num(g.premium_ci_high, 3) + ")" : "–", "n");
+    cell(tx(m.api ? "tag_api" : "tag_open"));
+    cell(tx(m.coverage === "full" ? "cov_full_short" : "cov_sample_short", { n: num(m.sentence_pairs) }));
+    cell(g ? g.label[lang] : tx("no_match"), "g");
+    cell(m.input_usd_per_mtok != null ? usdPrice(m.input_usd_per_mtok) + " / " + usdPrice(m.output_usd_per_mtok) : tx("no_price"), "n");
+    return tr;
+  }));
+}
+
+function renderLists() {
+  const v = vars();
+  $("method-list").replaceChildren(...TEXT[lang].method.map((line) => el("li", null, fill(line, v, String))));
+  const limits = TEXT[lang].limits.map((line) => el("li", null, fill(line, v, String)));
+  const changing = Object.entries(D.price_page_text);
+  if (changing.length) {
+    const li = el("li", null, tx("limit_prices")), ul = el("ul");
+    changing.forEach(([model, text]) => {
+      const item = el("li");
+      item.append(el("span", "mono", model));
+      [["w_in", text.input], ["w_out", text.output]].forEach(([word, quoted]) => {
+        const quote = el("span", null, quoted);
+        quote.lang = "en";  // quoted as written on the pricing page
+        item.append(document.createTextNode(" · " + tx(word) + ": "), quote);
+      });
+      ul.append(item);
+    });
+    li.append(ul);
+    limits.push(li);
+  }
+  $("limits-list").replaceChildren(...limits);
+  $("blocked-list").replaceChildren(...D.blocked.map((b) => {
+    const li = el("li");
+    li.append(el("span", "mono", b.model_id), document.createTextNode(": " + tx("blocked_" + b.kind, { code: b.http_status })));
+    return li;
+  }));
+}
+
+function selfCheck() {
+  let n = 0;
+  const bad = [];
+  D.scenarios.forEach((s) => {
+    Object.entries(D.costs[s.id] || {}).forEach(([id, expected]) => {
+      const model = D.models.find((m) => m.model_id === id), c = costFor(model, s);
+      n += 2;
+      if (Math.abs(c.thai.thb - expected.thai_thb) > 1e-5) bad.push([s.id, id, "thai", c.thai.thb, expected.thai_thb]);
+      if (Math.abs(c.english.thb - expected.english_thb) > 1e-5) bad.push([s.id, id, "english", c.english.thb, expected.english_thb]);
+    });
+  });
+  window.__selfCheck = { checked: n, mismatches: bad };
+  return window.__selfCheck;
+}
+function renderSelfCheck() {
+  const c = window.__selfCheck, node = $("selfcheck");
+  node.className = c.mismatches.length ? "small warnline" : "small";
+  node.textContent = tx(c.mismatches.length ? "check_bad" : "check_ok", { n: num(c.checked), bad: num(c.mismatches.length) });
+}
+
+function render() {
+  renderText(); renderHero(); renderTokens(); renderPairs();
+  renderCalcControls(); renderCalcResult(); renderSelfCheck();
+  renderPremium(); renderTable(); renderLists();
+}
+
+function setLang(next, remember) {
+  lang = next === "en" ? "en" : "th";
+  if (remember) { try { localStorage.setItem("ttt-lang", lang); } catch (e) { /* storage may be blocked */ } }
+  if (D) render();
+}
+
+function start() {
+  let saved = null;
+  try { saved = localStorage.getItem("ttt-lang"); } catch (e) { /* storage may be blocked */ }
+  const asked = new URLSearchParams(location.search).get("lang");
+  lang = (asked || saved || ((navigator.language || "th").toLowerCase().startsWith("th") ? "th" : "en")) === "en" ? "en" : "th";
+  document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => setLang(b.dataset.lang, true)));
+  $("f-preset").addEventListener("change", (e) => { state.scenario = e.target.value; loadPreset(); renderCalcControls(); renderCalcResult(); });
+  $("f-model").addEventListener("change", (e) => { state.model = e.target.value; renderCalcResult(); });
+  $("calc-form").addEventListener("input", (e) => { if (e.target.id !== "f-preset" && e.target.id !== "f-model") { readInputs(); renderCalcResult(); } });
+
+  Promise.all([
+    fetch("data.json").then((r) => { if (!r.ok) throw new Error("data.json " + r.status); return r.json(); }),
+    fetch("config.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})),
+  ]).then(([data, config]) => {
+    D = data;
+    CONFIG = Object.assign(CONFIG, config);
+    state.scenario = D.headline.scenario;
+    state.model = D.same_price_pairs[0].a;
+    loadPreset();
+    selfCheck();
+    $("status").hidden = true;
+    $("main").hidden = false;
+    render();
+  }).catch((err) => {
+    $("status").textContent = TEXT.th.error + " / " + TEXT.en.error;
+    console.error(err);
+  });
+}
+start();
+})();
+</script>
+</body>
+</html>
